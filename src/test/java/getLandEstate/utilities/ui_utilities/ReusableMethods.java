@@ -1,4 +1,4 @@
-package getLandEstate.utilities;
+package getLandEstate.utilities.ui_utilities;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;

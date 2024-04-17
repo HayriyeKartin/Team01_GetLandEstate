@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"
         },
         features = "src/test/resources/features", // çalıştırılacak features'ın yolunu gösteriyoruz
-        glue = {"getLandEstate/stepDefinitions", "getLandEstate/hooks"}, // senaryo ile methodları birbirine yapıştırıyoruz
+        glue = {"getLandEstate/stepDefinitions/ui_stepDefinition", "getLandEstate/hooks"}, // senaryo ile methodları birbirine yapıştırıyoruz
         tags = "", // hangi senaryoyu çalıştırmak istediğimizi belirtiyoruz
         dryRun = false, //--> eğer true seçilirse scenario'ları çalıştırmadan feature file'da eksik step definition'ların
                        //olup olmadığını kontrol eder ve browser'ı çalıştırmaz

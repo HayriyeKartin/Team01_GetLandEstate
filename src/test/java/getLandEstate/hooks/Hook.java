@@ -1,8 +1,7 @@
 package getLandEstate.hooks;
 
-import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ui_utilities.Driver;
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
