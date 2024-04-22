@@ -4,20 +4,7 @@ public class CustomerPage {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //bilal20
+//bilal20
 
 
 
