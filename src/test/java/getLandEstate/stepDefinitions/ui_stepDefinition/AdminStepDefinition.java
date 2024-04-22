@@ -4,12 +4,9 @@ import getLandEstate.pages.AdminPage;
 import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
 import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class AdminStepDefinition {
 
@@ -81,7 +78,7 @@ public class AdminStepDefinition {
         adminPage.iconClick(adminPage.flagIcon, adminPage.spIconButton);
         Assert.assertEquals("Inicio", adminPage.spTextVerify.getText());
     }
-}
+
 
     //US_21 Selahattin
     @Given("kullanici URL e gider")
