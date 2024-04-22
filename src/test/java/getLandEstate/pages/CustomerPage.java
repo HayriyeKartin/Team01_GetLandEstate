@@ -17,7 +17,6 @@ public class CustomerPage {
 
 
 
-    //bilal20
 
 
 
@@ -28,6 +27,7 @@ public class CustomerPage {
 
 
 
+    //bilal30
 
 
 
@@ -217,7 +217,6 @@ public class CustomerPage {
 
 
 
-    //akın220
 
 
 
@@ -228,6 +227,7 @@ public class CustomerPage {
 
 
 
+    //akın230
 
 
 
@@ -417,7 +417,17 @@ public class CustomerPage {
 
 
 
-    //arzu420
+
+
+
+
+
+
+
+
+
+
+    //arzu430
 
 
 
