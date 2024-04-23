@@ -1,7 +1,7 @@
 @US23
-Feature: Kullanıcı (Manager)  5 farkli dilde sayfayı görüntüleyebilmelidir
+Feature: Kullanici (Manager)  5 farkli dilde sayfayi goruntuleyebilmelidir
   Scenario: TC01 Kullanici (Manager) sayfayi bes farkli dilde goruntuleyebilmeli
-    Given kullanici "http://getlandestate.com/" sayfasina gider
+    Given kullanici web sayfasina gider
     When kullanici login butonuna tiklar
     And kullanici email ve password bilgileri ile login olur
     And Back to Site butonuna tiklar
