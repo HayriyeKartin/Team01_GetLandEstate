@@ -218,97 +218,97 @@ public class ManagerPage {
 
 
     //hafsa220
+//----------------------------US08---------------------------------------------
+    @FindBy(xpath = "//a[@data-rr-ui-event-key='5']")
+    public WebElement girisButonu;
 
 
+    @FindBy(xpath = "//*[@class='user-input form-control']")
+    public WebElement emaill;
 
+    @FindBy(xpath = "//*[@class='user-password-input form-control']")
+    public  WebElement passwordd;
 
 
+    @FindBy(xpath = "//*[@class='submit-button btn btn-secondary']")
+    public  WebElement loginVerify;
 
+    @FindBy(xpath = "//*[@class='side-menu-link back-site nav-link']")
+    public  WebElement backToSite;
 
+    @FindBy(xpath = "(//*[@class='user-pic'])[1]")
+    public  WebElement profileButton;
 
+    @FindBy(xpath = "(//*[@class='ok-icon'])[2]")
+    public  WebElement ilanlarim;
 
+    @FindBy(xpath = "(//div[@class='text'])[2]")
+    public  WebElement kayitliIlan;
 
 
+    @FindBy(xpath = "(//*[@class='btn-link btn btn-primary'])[2]")
+    public  WebElement guncelleikon;
 
+    @FindBy(xpath = "//*[@class='dynamic-button auto-wide btn btn-primary']")
+    public  WebElement guncelleButton;
 
+    @FindBy(xpath = "//*[.='Advert updated successfully']")
+    public  WebElement textMessage;
 
 
+    @FindBy(xpath = "(//*[@class='btn-link btn btn-primary'])[1]")
+    public  WebElement deleteButton;
+    @FindBy(xpath = "(//*[@class='p-button-label p-c'])[2]")
+    public  WebElement deleteYes;
 
+    @FindBy(xpath = "//*[.='']")
+    public  WebElement deleteMessage;
+    @FindBy(xpath = "(//*[@class='p-column-title'])[2]")
+    public WebElement yayinlamaTarihi;
+    @FindBy(xpath = "(//*[@class='btn-link btn btn-primary'])[3]")
+    public WebElement durumButonu;
+    @FindBy(xpath = "(//*[@class='btn-link btn btn-primary'])[4]")
+    public WebElement goruntulemeBegeniTur;
 
 
+    @FindBy(xpath = "(//*[@class='card-img-bottom category-card-img'])[3]")
+    public WebElement evKategori;
 
+    @FindBy(xpath = "(//*[@class='card-img-top property-card-img'])[8]")
+    public WebElement sekizinciIlan;
 
 
+    @FindBy(xpath = "//*[@class='col-lg-12 col-md-6 col-12'][2]")
+    public WebElement turAyarla;
 
+    @FindBy(id = "//*[@id='tourDate']")
+    public WebElement tarihAlani;
 
 
+    @FindBy(id = "//*[@id='tourTime']")
+    public WebElement saatAlani;
 
+    @FindBy(id = "(//*[@class='btn btn-danger'])[3]")
+    public WebElement turTalebiGonder;
 
+    @FindBy(xpath = "//*[@class='p-toast-message-content']")
+    public WebElement turTalebiBilgiMesaji;
 
 
+    @FindBy(xpath = "(//*[@class='ok-icon'])[4]")
+    public WebElement turTaleblerim;
 
+    @FindBy(xpath = "//button[@class='nav-link']")
+    public WebElement turCevaplarim;
 
+    @FindBy(xpath = "(//*[@class='tr-datatable p-datatable p-component p-datatable-responsive-scroll'])[2]")
+    public WebElement ilanistegi;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//*[@class='btn-link approve-button btn btn-primary']")
+    public WebElement onayButonu;
+    @FindBy(xpath = "//*[@class='btn-link decline-button btn btn-primary']")
+    public WebElement redButonu;
 
 
 
