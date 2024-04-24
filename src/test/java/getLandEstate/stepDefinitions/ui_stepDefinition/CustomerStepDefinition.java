@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -233,5 +234,114 @@ public class CustomerStepDefinition {
     @And("Kullanici email'e . isareti olmadan  girer")
     public void kullaniciEmailEIsaretiOlmadanGirer() {
         custemerPage.email.sendKeys(ConfigReader.getProperty("eksikEmail2"));
+    }
+
+    CustomerPage customerPage=new CustomerPage();
+
+    @Given("Kullanici {string} sayfasina gider")
+    public void kullaniciSayfasinaGider(String url) {
+        Driver.getDriver().get(url);
+    }
+
+    @When("Sag ust kisimdaki Login butonuna tiklayarak giris ekranina ulasir.")
+    public void sagUstKisimdakiLoginButonunaTiklayarakGirisEkraninaUlasir() {
+        customerPage.girisButonu.click();
+    }
+
+    @And("Email ve Password alanlarina gerekli veri girisini yapar.")
+    public void emailVePasswordAlanlarinaGerekliVeriGirisiniYapar() {
+        customerPage.emailKutusu.sendKeys("akin.sakarya5116@gmail.com");
+        customerPage.passwordKutusu.sendKeys("147258369Fb.");
+    }
+
+    @And("Login butonuna tiklayarak basarili bir sekilde giris saglar.")
+    public void loginButonunaTiklayarakBasariliBirSekildeGirisSaglar() {
+        customerPage.loginButonu.click();
+    }
+
+    @And("Email girerken @ ve . kullanmadiginda Invalid email uyarisi aldigini dogrular.")
+    public void emailGirerkenVeKullanmadigindaInvalidEmailUyarisiAldiginiDogrular() {
+        customerPage.emailKutusu.sendKeys("akin.sakarya5116gmail.com", Keys.TAB);
+        Assert.assertTrue(customerPage.invalidEmail.isDisplayed());
+    }
+
+    @And("Password alanini bos biraktiginda Password is required uyarisi aldigini dogrular.")
+    public void passwordAlaniniBosBiraktigindaPasswordIsRequiredUyarisiAldiginiDogrular() {
+        customerPage.emailKutusu.sendKeys("akin.sakarya5116gmail.com",Keys.TAB,Keys.TAB,Keys.TAB);
+        Assert.assertTrue(customerPage.invalidPassword.isDisplayed());
+    }
+
+    @And("Login ekraninda iken henuz Email ve Password bilgisini girmediginde Login butonunun aktif olmadigini dogrular.")
+    public void loginEkranindaIkenHenuzEmailVePasswordBilgisiniGirmedigindeLoginButonununAktifOlmadiginiDogrular() {
+        Driver.getDriver().navigate().refresh();
+        customerPage.emailKutusu.sendKeys("",Keys.TAB);
+        Assert.assertFalse(customerPage.loginButonu.isEnabled());
+    }
+
+    @And("Sag ustteki profil butonuna tiklayarak acilan menuden My Profile butonuna tiklar.")
+    public void sagUsttekiProfilButonunaTiklayarakAcilanMenudenMyProfileButonunaTiklar() {
+        customerPage.profileButton.click();
+        ReusableMethods.bekle(3);
+        customerPage.myProfileButton.click();
+    }
+
+    @And("Gelen ekranda profil bilgilerini gorebildigini dogrular.")
+    public void gelenEkrandaProfilBilgileriniGorebildiginiDogrular() {
+        Assert.assertTrue(customerPage.myEmail.isDisplayed());
+    }
+
+    @And("Herhangi bir profil bilgisinde degisiklik yaparak update butonuna basar.")
+    public void herhangiBirProfilBilgisindeDegisiklikYaparakUpdateButonunaBasar() {
+        customerPage.myName.sendKeys(" Mete");
+        customerPage.updateButton.click();
+        ReusableMethods.bekle(10);
+    }
+
+    @And("Profil bilgisindeki guncellemenin gerceklestigini dogrular.")
+    public void profilBilgisindekiGuncellemeninGerceklestiginiDogrular() {
+        Assert.assertTrue(customerPage.updateAssert.isDisplayed());
+    }
+
+    @And("Mevcut ekranda Change Password butonuna tiklayarak sifre degistirme ekranina ulasir.")
+    public void mevcutEkrandaChangePasswordButonunaTiklayarakSifreDegistirmeEkraninaUlasir() {
+        customerPage.changePasswordButton.click();
+    }
+
+    @And("Gereken bilgileri doldurarak Change butonuna basar ve sifrenin degistirildigini dogrular.")
+    public void gerekenBilgileriDoldurarakChangeButonunaBasarVeSifreninDegistirildiginiDogrular() {
+        customerPage.currentPasswordArea.sendKeys("147258369Fb.",Keys.TAB,"1907Fbc.",Keys.TAB,"1907Fbc.",Keys.ENTER);
+        ReusableMethods.bekle(3);
+        Assert.assertTrue(customerPage.changePasswordAssert.isDisplayed());
+    }
+
+    @And("Acilan sayfadan Profile Photo butonuna tiklayarak profil fotografi ekleme ekranina ulasir.")
+    public void acilanSayfadanProfilePhotoButonunaTiklayarakProfilFotografiEklemeEkraninaUlasir() {
+        customerPage.profilePhotoButton.click();
+    }
+
+    @And("Select butonuna tiklayarak acilan ekrandan bir fotograf secer ve Done a basarak ekler.")
+    public void selectButonunaTiklayarakAcilanEkrandanBirFotografSecerVeDoneABasarakEkler() {
+        customerPage.selectButton.click();
+        String path ="\"C:\\Users\\sakarya\\Downloads\\Fenerbahçe_SK.png\"";
+        CustomerPage.uploadFileWithRobot(path);
+        customerPage.doneButton.click();
+    }
+
+    @And("Save butonuna tiklayarak eklenen fotografi kaydeder ve eklendigini dogrular.")
+    public void saveButonunaTiklayarakEklenenFotografiKaydederVeEklendiginiDogrular() {
+        customerPage.saveButton.click();
+        ReusableMethods.bekle(5);
+        Assert.assertTrue(customerPage.saveAssert.isDisplayed());
+    }
+
+    @And("Mevcut sayfadan Delete Account butonuna tiklayarak hesap silme ekranina ulasir.")
+    public void mevcutSayfadanDeleteAccountButonunaTiklayarakHesapSilmeEkraninaUlasir() {
+        customerPage.deleteAccountButton.click();
+    }
+
+    @And("Mevcut sifresini girer ve alt kisimdaki Delete Account butonuna tiklayarak hesabini siler.")
+    public void mevcutSifresiniGirerVeAltKisimdakiDeleteAccountButonunaTiklayarakHesabiniSiler() {
+        customerPage.deletePasswordArea.sendKeys("1907Fbc.");
+        customerPage.deleteButton.click();
     }
 }
