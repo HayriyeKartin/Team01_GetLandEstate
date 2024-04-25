@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 
 
 
-
-
+public class AdminStepDefinition {
+    AdminPage adminPage = new AdminPage();
 
 
 //gulsum24 //us04
@@ -329,18 +329,12 @@ import static org.junit.Assert.*;
 
     //TC_02
     @And("Okunmamis mesajlari kontrol eder")
-    public void okunmamisMesajlariKontrolEder(){
+    public void okunmamisMesajlariKontrolEder() {
         ReusableMethods.click(adminPage.contactMessages);
         ReusableMethods.click(adminPage.filterButton);
         ReusableMethods.click(adminPage.unReadMessages);
         ReusableMethods.click(adminPage.applyFilters);
-
-public class AdminStepDefinition { //baslangıc 20.satır
-
-    AdminPage adminPage= new AdminPage();
-
-    
-
+    }
     @And("Bir mesaji secer ve okundu olarak isaretler")
     public void birMesajiSecerVeOkunduOlarakIsaretler(){
         ReusableMethods.click(adminPage.inComingMessage);
@@ -375,10 +369,7 @@ public class AdminStepDefinition { //baslangıc 20.satır
     public void aramaSonuclariGoruntulenir() {
         adminPage.message4.isDisplayed();
 
-
-
-    
-      
+    }
     //TC_04
     @And("Filtre ikonuna tiklar")
     public void filtreIkonunaTiklar() {
@@ -401,6 +392,15 @@ public class AdminStepDefinition { //baslangıc 20.satır
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
