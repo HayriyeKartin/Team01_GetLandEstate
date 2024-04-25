@@ -428,6 +428,149 @@ public class CustomerPage {
 
 
     //arzu430
+    @FindBy(xpath = "//*[contains(@href,'/login')]")
+    public WebElement customerLoginButton;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement customerEmailBox;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement customerPasswordBox;
+
+    @FindBy(xpath = "//*[contains(@class,'form-submit-button')]")
+    public WebElement customerSubmitLoginButton;
+    @FindBy(xpath = "//input[@name='query']")
+    public WebElement searchBoxArea;
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement searchBoxicon;
+
+    @FindBy(xpath = "//img[@alt='Comfortable house in Kusadasi']")
+    public WebElement rentHousePicture;
+    @FindBy(xpath = "//img[@alt='v1.png']")
+    public WebElement rentVillaPicture;
+    @FindBy(xpath = "//img[@alt='Modern Office Space']")
+    public WebElement rentOfficePicture;
+
+    @FindBy(xpath = "//img[@alt='Modern Apartment in Scenic İnebolu']")
+    public WebElement rentApartmentPicture;
+
+    @FindBy(xpath = "//img[@alt='Investment opportunity Land in Darıca']")
+    public WebElement rentLandPicture;
+    @FindBy(xpath = "//img[@alt='Shop on Main Street in Kozluk']")
+    public WebElement rentShopPicture;
+
+    @FindBy(xpath = "//button[text()='Rent']")
+    public WebElement rentButton;
+    @FindBy(xpath = "//button[text()='HOUSE']")
+    public WebElement houseButton;
+    @FindBy(xpath = "//button[text()='APARTMENT']")
+    public WebElement apartmentButton;
+    @FindBy(xpath = "//button[text()='OFFICE']")
+    public WebElement officeButton;
+    @FindBy(xpath = "//button[text()='VILLA']")
+    public WebElement villaButton;
+    @FindBy(xpath = "//button[text()='LAND']")
+    public WebElement landButton;
+    @FindBy(xpath = "//button[text()='SHOP']")
+    public WebElement shopButton;
+
+    @FindBy(xpath ="//input[@name='q']")
+    public WebElement secondPageSearchBox;
+    @FindBy(xpath ="//input[@name='ps']")
+    public WebElement priceRangeMin;
+
+    @FindBy(xpath ="//input[@name='pe']")
+    public WebElement priceRangeMax;
+    @FindBy(xpath ="//select[@id='at']")
+    public WebElement advertTypeDropdown;
+    @FindBy(xpath ="//select[@id='c']")
+    public WebElement categoryDropdown;
+
+    @FindBy(xpath ="//select[@id='ctry']")
+    public WebElement countryDropdown;
+
+    @FindBy(xpath ="//select[@id='city']")
+    public WebElement cityDropdown;
+    @FindBy(xpath ="//select[@id='dist']")
+    public WebElement districtDropdown;
+    @FindBy(xpath ="//button[@class='dynamic-button  btn btn-primary']")
+    public WebElement secondPageSearchBoxSubmit;
+    @FindBy(xpath ="//div[@class='p-galleria-item']")
+    public WebElement rentRealEstatePicture;
+    @FindBy(xpath ="//h4[@class='description-title']")
+    public WebElement rentRealEstateDescription;
+    @FindBy(xpath ="//h4[@class='advert-properties-title']")
+    public WebElement rentRealEstateDetails;
+    @FindBy(xpath ="//h4[@class='advert-location-title']")
+    public WebElement rentRealEstateLocation;
+    @FindBy(xpath ="//div[@class='user-logo-nav navbar-nav']")
+    public WebElement customerProfil;
+    @FindBy(xpath ="//span[text()='My Tour Requests']")
+    public WebElement customerMyTourRequestsButton;
+
+    @FindBy(xpath ="//h1[text()='MY TOUR REQUEST']")
+    public WebElement customerMyTourRequestTitle;
+
+    @FindBy(xpath ="//p[text()='MY REQUESTS']")
+    public WebElement customerMyRequestsButton;
+
+
+    @FindBy(xpath ="//p[text()='Villa Best 210']")
+    public WebElement customerRequestsList;
+
+    @FindBy(xpath ="//span[text()='APPROVED']")
+    public WebElement customerRequestsStatus;
+
+    @FindBy(xpath ="//p[text()='MY RESPONSES']")
+    public WebElement customerMyResponsesButton;
+    @FindBy(xpath ="//button[@class='show-toggle btn btn-danger'][1]")
+    public WebElement manageContactPhoneikon;
+
+    @FindBy(xpath ="//a[@class='advert-detail-phone-link']")
+    public WebElement manageContactPhoneLink;
+    @FindBy(xpath ="//button[@class='show-toggle btn btn-danger'][2]")
+    public WebElement manageContactMailikon;
+
+    @FindBy(xpath ="//a[@class='advert-detail-mail-link']")
+    public WebElement manageContactMailLink;
+
+    @FindBy(xpath ="//input[@id='tourDate']")
+    public WebElement tourDate;
+    @FindBy(xpath ="//select[@id='tourTime']")
+    public WebElement tourTimeDropdown;
+    @FindBy(xpath ="//button[@type='submit']")
+    public WebElement submitTourRequestButton;
+
+    @FindBy(xpath ="//div[text()='TourRequest created successfully']")
+    public WebElement tourRequestCreatedText;
+
+    @FindBy(xpath = "//button[text()='Sale']")
+    public WebElement saleButton;
+    @FindBy(xpath = "//img[@alt='Calm Family House in Batman Center']")
+    public WebElement saleHousePicture;
+    @FindBy(xpath = "//img[@alt='Seaview Villa in Basiskele']")
+    public WebElement saleVillaPicture;
+
+    @FindBy(xpath = "//img[@alt='Modern Apartment in Central Location']")
+    public WebElement saleApartmentPicture;
+
+    @FindBy(xpath = "//img[@alt='Modern Office']")
+    public WebElement saleOfficePicture;
+    @FindBy(xpath = "//img[@alt='Expansive Land Parcel in Bahce']")
+    public WebElement saleLandPicture;
+
+    @FindBy(xpath = "//img[@alt='Shop on the Main Street']")
+    public WebElement saleShopPicture;
+    @FindBy(xpath ="//div[@class='p-galleria-item']")
+    public WebElement saleRealEstatePicture;
+
+    @FindBy(xpath ="//h4[@class='description-title']")
+    public WebElement saleRealEstateDescription;
+
+    @FindBy(xpath ="//h4[@class='advert-properties-title']")
+    public WebElement saleRealEstateDetails;
+    @FindBy(xpath ="//h4[@class='advert-location-title']")
+    public WebElement saleRealEstateLocation;
 
 
 
