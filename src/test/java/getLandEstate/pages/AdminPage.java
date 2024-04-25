@@ -3,17 +3,17 @@ package getLandEstate.pages;
 import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
 import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 public class AdminPage {
     public AdminPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-
-
 
 
 
@@ -217,40 +217,105 @@ public class AdminPage {
 
 
 
-//gülsüm220
+    //gülsüm220
+    @FindBy(xpath = "//a[@href='/login']")
+    public WebElement loginbutton;
 
+    @FindBy(css = "input[name='email']")
+    public WebElement emailTextBox;
 
+    @FindBy(xpath = "//span[normalize-space()='Back to Site']")
+    public WebElement backToSite;
 
+    @FindBy(xpath = "//img[@class='flag-icon']")
+    public WebElement flagIcon;
 
+    @FindBy(xpath = "//a[.='Home']")
+    public WebElement englishTextVerify;
 
+    @FindBy(xpath = "//a[normalize-space()='Türkçe']")
+    public WebElement trflagIconButton;
 
+    @FindBy(xpath = "//a[normalize-space()='Anasayfa']")
+    public WebElement turkishText;
 
+    @FindBy(xpath = "//a[normalize-space()='Français']")
+    public WebElement franchIconButton;
 
+    @FindBy(xpath = "//a[.='Accueil']")
+    public WebElement frTextVerify;
+    @FindBy(xpath = "//a[normalize-space()='Deutsch']")
+    public WebElement grIconButton;
 
+    @FindBy(xpath = "//a[.='Zuhause']")
+    public WebElement grTextVerify;
 
+    @FindBy(xpath = "//a[normalize-space()='Español']")
+    public WebElement spIconButton;
 
+    @FindBy(xpath = "//a[.='Inicio']")
+    public WebElement spTextVerify;
 
 
+    //us05 locateleri
 
+    @FindBy(xpath = "//div[.='Invalid email or password. Please check your credentials and try again.']")//div[@class='p-toast-detail']
+    public WebElement invalidEmailOrPasswordAlertMessage;
 
+    @FindBy(css = ".submit-button.btn.btn-secondary")
+    public WebElement accountLogin;
 
+    @FindBy(xpath = "//img[@src='/images/profile/user.jpg']")
+    public WebElement profileIconButton;
 
+    @FindBy(xpath = "//span[normalize-space()='My Profile']")
+    public WebElement myProfileButton;
 
+    @FindBy(xpath = "//span[.='Users']")
+    public WebElement usersButton;
 
+    @FindBy(xpath = "//input[@name='search']")
+    public WebElement searchBoxG;
 
+    @FindBy(xpath = "//button[@class='search-button btn btn-outline-secondary']")
+    public WebElement searchButtonG;
 
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public WebElement nameTextVerify;
 
+    @FindBy(xpath = "//tbody/tr[1]/td[2]")
+    public WebElement emailTextVerify;
 
+    @FindBy(xpath = "//div[.='User type save successfully']")
+    public WebElement roleVerify;
 
+    @FindBy(xpath = "(//button[@type='button'])[4]")
+    public WebElement editUsersIcon;
 
+    @FindBy(id = "firstName")
+    public WebElement firstNameBox;
 
+    @FindBy(css = ".update-button.btn.btn-primary")
+    public WebElement updateButton;
 
+    @FindBy(xpath = "//div[.='User type save successfully']")
+    public WebElement updateSuccessText;
 
+    @FindBy(css = "#role") //select[@id='role']
+    public WebElement rolesMenu;
 
 
+    @FindBy(xpath = "//button[normalize-space()='DELETE']")
+    public WebElement deleteButton;
 
+    @FindBy(xpath = "//span[@class='p-confirm-popup-message']")
+    public WebElement popUpMessage;
 
+    @FindBy(xpath = "//span[normalize-space()='Yes']")
+    public WebElement yesTextBox;
 
+    @FindBy(css = ".p-toast-detail")
+    public WebElement deletedSuccessMessage;
 
 
 
@@ -262,107 +327,42 @@ public class AdminPage {
 
 
 
+    //Delete Methodu - US05 gulsum
+    public void deleteMethod(WebElement webElement) {
+        String codeValue = webElement.getAttribute("value");
+        for (int i = 0; i < codeValue.length(); i++) {
+            webElement.sendKeys(Keys.BACK_SPACE);
+        }
+    }
 
+    //Click Methodu - US04 gulsum
+    public void iconClick(WebElement element1, WebElement element2) {
+        try {
+            element1.click();
+            element2.click();
+        } catch (Exception e) {
+            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            js.executeScript("arguments[0].click();", element1, "arguments[0].click();", element2);
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Send and click Methodu - US05 TC02 gulsum
+    public void sendKeysAndClick(WebElement elementToSendKeys, String textToSend, WebElement elementToClick) {
+        try {
+            if (elementToSendKeys == null || elementToClick == null) {
+                throw new IllegalArgumentException("Giriş verileri doğrulanamadı.");
+            }
+            if (textToSend == null || textToSend.isEmpty()) {
+                throw new IllegalArgumentException("Gönderilecek metin boş olamaz.");
+            }
+            elementToSendKeys.sendKeys(textToSend);
+            elementToClick.click();
+        } catch (IllegalArgumentException e) {
+            throw e; // Orijinal IllegalArgumentException'ı fırlat
+        } catch (Exception e) {
+            throw new RuntimeException("sendKeysAndClick metodu çalışırken bir hata oluştu.", e);
+        }
+    }
 
 
 
@@ -418,15 +418,6 @@ public class AdminPage {
 
 
 //süleyman420
-
-
-
-
-
-
-
-
-
 
 
 
