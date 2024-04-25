@@ -1,4 +1,5 @@
 package getLandEstate.stepDefinitions.ui_stepDefinition;
+
 import getLandEstate.pages.AdminPage;
 import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
@@ -6,13 +7,22 @@ import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
-public class AdminStepDefinition {
-  AdminPage adminPage = new AdminPage();
 
 
-  //gulsum15 - //us04
+
+
+
+
+
+public class AdminStepDefinition { //baslangıc 20.satır
+
+    AdminPage adminPage= new AdminPage();
+
+    //gulsum24 //us04
+
 
     @Given("kullanici {string} gider")
     public void kullaniciUrlGider(String url) {
@@ -51,13 +61,15 @@ public class AdminStepDefinition {
     }
 
     @And("Turkce dil secenegini secer ve sayfa dilinin Turkce oldugunu dogrular")
-    public void dilSeceneginiSecerVeSayfaDilininTurkceOldugunuDogrular() {
 
+    public void dilSeceneginiSecerVeSayfaDilininTurkceOldugunuDogrular() {
+      
         adminPage.iconClick(adminPage.flagIcon, adminPage.trflagIconButton);
         Assert.assertEquals("Anasayfa",adminPage.turkishText.getText());
     }
 
     @And("Francais dil secenegini secer ve sayfa dilinin Francais oldugunu dogrular")
+
     public void dilSeceneginiSecerVeSayfaDilininFrancaisOldugunuDogrular() {
 
         adminPage.iconClick(adminPage.flagIcon, adminPage.franchIconButton);
@@ -73,6 +85,7 @@ public class AdminStepDefinition {
     }
 
     @And("Espanol dil secenegini secer ve sayfa dilinin Espanol oldugunu dogrular")
+
     public void dilSeceneginiSecerVeSayfaDilininEspanolOldugunuDogrular() {
 
         adminPage.iconClick(adminPage.flagIcon, adminPage.spIconButton);
@@ -270,99 +283,24 @@ public class AdminStepDefinition {
 
 
 
-
-
-
-
-
-
-
-
-
     //selahattin282
-    //US_21 Selahattin
-    //TC_01
+    
 
-    @Given("kullanici URL e gider")
-    public void kullaniciURLEgider() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
-    }
 
-    @When("login butonuna tiklar")
-    public void loginButonunaTiklar(){
-        adminPage.loginButton.click();
-    }
 
-    @And("Email ve password bilgileri ile login olur")
-    public void emailVePasswordBilgileriIleLoginOlur(){
-        adminPage.AdEmail.sendKeys(ConfigReader.getProperty("AdLoginEmail"));
-        adminPage.AdPassword.sendKeys(ConfigReader.getProperty("AdLoginPassword"));
-        adminPage.submitLogin.click();
-    }
 
-    @And("Contact messages sayfasına gider")
-    public void contactMessagesSayfasinaGider() {
-        adminPage.contactMessages.click();
-    }
 
-    @And("Mesaj listesi goruntulenir")
-    public void mesajListesiGoruntulenir() {
-        adminPage.firstMessage.isDisplayed();
-    }
 
-    @And("Bir mesaji secer ve siler")
-    public void birMesajiSecerVeSiler(){
-        adminPage.test5Message.click();
-        adminPage.deleteMessage.click();
-    }
 
-    @And("Mesajin silindigini dogrular")
-    public void mesajinSilindiginiDogrular() {
-        Assert.assertFalse(adminPage.test5Message.isDisplayed());
-    }
 
-    //TC_02
-    @And("Okunmamis mesajlari kontrol eder")
-    public void okunmamisMesajlariKontrolEder(){
-        ReusableMethods.click(adminPage.contactMessages);
-        ReusableMethods.click(adminPage.filterButton);
-        ReusableMethods.click(adminPage.unReadMessages);
-        ReusableMethods.click(adminPage.applyFilters);
 
 
-    }
-    @And("Bir mesaji secer ve okundu olarak isaretler")
-    public void birMesajiSecerVeOkunduOlarakIsaretler(){
-        ReusableMethods.click(adminPage.message4);
-        ReusableMethods.click(adminPage.markAsRead);
 
-    }
 
-    @Then("Mesajin okundu olarak isaretlendigini dogrular")
-    public void mesajinOkunduOlarakIsaretlendiginiDogrular(){
-        ReusableMethods.click(adminPage.contactMessages);
-        ReusableMethods.click(adminPage.filterButton);
-        ReusableMethods.click(adminPage.readMessages);
-        Assert.assertTrue( adminPage.message4.isDisplayed());
 
-    }
 
-    //TC_03
-    @And("Arama cubuguna gecerli bir sorgu girer")
-    public void aramaCubugunaGecerliBirSorguGirer() {
-        adminPage.contactMessages.click();
-        adminPage.searchBoxG.sendKeys("Admin test4");
-    }
 
-    @And("Arama butonuna tiklar")
-    public void aramaButonunaTiklar() {
-        adminPage.searchButtonG.click();
-    }
 
-    @Then("Arama sonuclari goruntulenir")
-    public void aramaSonuclariGoruntulenir() {
-        adminPage.message4.isDisplayed();
-    }
 
 
 
@@ -464,22 +402,89 @@ public class AdminStepDefinition {
 
 
 
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //suleyman482
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //suleyman482
 
 
 
