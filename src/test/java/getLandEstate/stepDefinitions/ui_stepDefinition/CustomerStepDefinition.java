@@ -344,4 +344,393 @@ public class CustomerStepDefinition {
         customerPage.deletePasswordArea.sendKeys("1907Fbc.");
         customerPage.deleteButton.click();
     }
+
+    @Given("customer web sayfasina gider")
+    public void customerWebSayfasinaGider() {
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+    }
+
+    @When("customer login butonuna tiklar")
+        public void customerLoginButonunaTiklar() {
+
+        customerPage.customerLoginButton.click();
+    }
+
+    @And("customer olarak email girer")
+    public void customerOlarakEmailGirer() {
+        customerPage.customerEmailBox.sendKeys(ConfigReader.getProperty("customerEmail"));
+    }
+
+    @And("customer olarak password girer")
+    public void customerOlarakPasswordGirer() {
+        customerPage.customerPasswordBox.sendKeys(ConfigReader.getProperty("customerPassword"));
+    }
+
+    @And("giris icin login butonuna tiklar")
+    public void girisIcinLoginButonunaTiklar() {
+        customerPage.customerSubmitLoginButton.click();
+    }
+
+    @When("rent butonuna tiklar")
+    public void rentButonunaTiklar() {
+        customerPage.rentButton.click();
+    }
+
+    @And("house butonuna tiklar")
+    public void houseButonunaTiklar() {
+        customerPage.houseButton.click();
+    }
+
+    @And("villa butonuna tiklar")
+    public void villaButonunaTiklar() {
+        customerPage.villaButton.click();
+    }
+    @And("buyutec ikonuna tiklar")
+    public void buyutecIkonunaTiklar() {
+        customerPage.searchBoxicon.click();
+        ReusableMethods.bekle(20);
+    }
+
+    @Then("house ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void houseIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.rentHousePicture.isDisplayed());
+    }
+
+    @Then("villa ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void villaIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.rentVillaPicture.isDisplayed());
+    }
+
+    @When("price range bilgilerini girer")
+    public void priceRangeBilgileriniGirer() {
+        customerPage.priceRangeMin.click();
+        customerPage.priceRangeMax.click();
+    }
+
+    @And("advert type dropdowndan Rent secer")
+    public void advertTypeDropdowndanRentSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.advertTypeDropdown,"Rent");
+
+    }
+
+    @And("category dropdowndan Office secer")
+    public void categoryDropdowndanOfficeSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.categoryDropdown,"Office");
+
+    }
+
+    @And("country dropdowndan Turkiye secer")
+    public void countryDropdowndanTurkiyeSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.countryDropdown,"Türkiye");
+    }
+
+    @And("city dropdowndan Ankara secer")
+    public void cityDropdowndanAnkaraSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.cityDropdown,"Ankara");
+    }
+    @And("alttaki search butonuna tiklar")
+    public void alttakiSearchButonunaTiklar() {
+        customerPage.secondPageSearchBoxSubmit.click();
+    }
+    @Then("ofis ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void ofisIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.rentOfficePicture.isDisplayed());
+    }
+    @When("searchBox alanina apartment yazar")
+    public void searchboxAlaninaApartmentYazar() {
+        customerPage.searchBoxArea.sendKeys("apartment");
+    }
+
+
+    @Then("apartman ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void apartmanIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.rentApartmentPicture.isDisplayed());
+    }
+
+    @When("searchBox alanina land yazar")
+    public void searchboxAlaninaLandYazar() {
+        customerPage.searchBoxArea.sendKeys("land");
+    }
+
+    @And("category dropdowndan Land secer")
+    public void categoryDropdowndanLandSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.categoryDropdown,"Land");
+    }
+
+    @And("city dropdowndan Kocaeli secer")
+    public void cityDropdowndanKocaeliSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.cityDropdown,"Kocaeli");
+    }
+
+
+    @And("district dropdowndan Darica secer")
+    public void districtDropdowndanDaricaSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.districtDropdown,"Darıca");
+    }
+
+    @Then("land ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void landIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue( customerPage.rentLandPicture.isDisplayed());
+    }
+
+    @When("searchBox alanina shop yazar")
+    public void searchboxAlaninaShopYazar() {
+        customerPage.searchBoxArea.sendKeys("shop");
+    }
+
+    @And("category dropdowndan Shop secer")
+    public void categoryDropdowndanShopSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.categoryDropdown,"Shop");
+    }
+
+    @And("city dropdowndan Batman secer")
+    public void cityDropdowndanBatmanSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.cityDropdown,"Batman");
+    }
+
+    @And("district dropdowndan Kozluk secer")
+    public void districtDropdowndanKozlukSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.districtDropdown,"Kozluk");
+    }
+
+    @Then("shop ile ilgili Rent seceneklerinin geldigini dogrular")
+    public void shopIleIlgiliRentSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.rentShopPicture.isDisplayed());
+    }
+
+    @And("kiralik isyeri ilan resmine tiklar")
+    public void kiralikIsyeriIlanResmineTiklar() {
+        customerPage.rentShopPicture.click();
+    }
+
+    @Then("kiralik isyeri ilanini secebildigini dogrular")
+    public void kiralikIsyeriIlaniniSecebildiginiDogrular() {
+        Assert.assertTrue(customerPage.rentShopPicture.isDisplayed());
+    }
+
+    @Then("sectigi kiralik emlagin resmini gordugunu dogrular")
+    public void sectigiKiralikEmlaginResminiGordugunuDogrular() {
+        Assert.assertTrue(customerPage.rentRealEstatePicture.isDisplayed());
+    }
+
+    @Then("sectigi kiralik emlak ile ilgili description gordugunu dogrular")
+    public void sectigiKiralikEmlakIleIlgiliDescriptionGordugunuDogrular() {
+        Assert.assertTrue(customerPage.rentRealEstateDescription.isDisplayed());
+
+    }
+
+    @Then("sectigi kiralik emlak ile ilgili details bilgilerini gordugunu dogrular")
+    public void sectigiKiralikEmlakIleIlgiliDetailsBilgileriniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.rentRealEstateDetails.isDisplayed());
+    }
+
+    @Then("sectigi kiralik emlak ile ilgili location bilgilerini gordugunu dogrular")
+    public void sectigiKiralikEmlakIleIlgiliLocationBilgileriniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.rentRealEstateLocation.isDisplayed());
+    }
+
+    @When("profil resmine tiklar")
+    public void profilResmineTiklar() {
+        customerPage.customerProfil.click();
+    }
+
+    @And("My Tour Requests sekmesini tiklar")
+    public void myTourRequestsSekmesiniTiklar() {
+        customerPage.customerMyTourRequestsButton.click();
+        ReusableMethods.bekle(7);
+    }
+
+    @And("MY TOUR REQUEST yazisini gorur")
+    public void myTOURREQUESTYazisiniGorur() {
+        customerPage.customerMyTourRequestTitle.isDisplayed();
+        ReusableMethods.bekle(7);
+    }
+
+    @And("MY REQUESTS butonuna tiklar")
+    public void myREQUESTSButonunaTiklar() {
+        customerPage.customerMyRequestsButton.click();
+        ReusableMethods.bekle(10);
+    }
+
+    @Then("randevu isteklerini gordugunu dogrular")
+    public void randevuIstekleriniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.customerRequestsList.isDisplayed());
+    }
+
+    @And("MY RESPONSES butonuna tiklar")
+    public void myRESPONSESButonunaTiklar() {
+        customerPage.customerMyResponsesButton.click();
+    }
+
+    @Then("randevu isteklerininin onay veya red durumunu gordugunu dogrular")
+    public void randevuIsteklerinininOnayVeyaRedDurumunuGordugunuDogrular() {
+        Assert.assertTrue(customerPage.customerRequestsStatus.isDisplayed());
+    }
+
+    @Then("sectigi kiralik emlak ile ilgili iletisim bilgilerini gordugunu dogrular")
+    public void sectigiKiralikEmlakIleIlgiliIletisimBilgileriniGordugunuDogrular() {
+        customerPage.manageContactPhoneikon.click();
+        Assert.assertTrue(customerPage.manageContactPhoneLink.isDisplayed());
+        customerPage.manageContactPhoneikon.sendKeys(Keys.TAB,Keys.TAB,Keys.ENTER);
+        Assert.assertTrue(customerPage.manageContactMailLink.isDisplayed());
+
+    }
+
+    @And("rent tour date bilgisi girer")
+    public void rentTourDateBilgisiGirer() {
+        customerPage.tourDate.sendKeys("01122024");
+    }
+
+    @And("rent tour time bilgisi girer")
+    public void rentTourTimeBilgisiGirer() {
+        ReusableMethods.ddmIndex(customerPage.tourTimeDropdown,15);
+    }
+
+    @And("submit tour request butonuna tiklar")
+    public void submitTourRequestButonunaTiklar() {
+        customerPage.submitTourRequestButton.click();
+    }
+
+    @Then("TourRequest created successfully metnini gordugunu dogrular")
+    public void tourrequestCreatedSuccessfullyMetniniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.tourRequestCreatedText.isDisplayed());
+    }
+
+    @And("price range min bilgisine eksi bir girer")
+    public void priceRangeMinBilgisineEksiBirGirer() {
+        customerPage.priceRangeMin.click();
+        customerPage.priceRangeMin.sendKeys("-1");
+    }
+
+    @Then("shop ile ilgili Rent seceneklerinin listelenmedigini dogrular")
+    public void shopIleIlgiliRentSeceneklerininListelenmediginiDogrular() {
+        Assert.assertFalse(customerPage.rentShopPicture.isDisplayed());
+    }
+
+    @When("searchBox alanina villa yazar")
+    public void searchboxAlaninaVillaYazar() {
+        customerPage.searchBoxArea.sendKeys("villa");
+    }
+
+    @And("price range max bilgisine eksi bir girer")
+    public void priceRangeMaxBilgisineEksiBirGirer() {
+        customerPage.priceRangeMax.click();
+        customerPage.priceRangeMax.sendKeys("-1");
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("villa ile ilgili Rent seceneklerinin listelenmedigini dogrular")
+    public void villaIleIlgiliRentSeceneklerininListelenmediginiDogrular() {
+        Assert.assertFalse(customerPage.rentVillaPicture.isDisplayed());
+    }
+
+    @When("sale butonuna tiklar")
+    public void saleButonunaTiklar() {
+        customerPage.saleButton.click();
+    }
+
+    @Then("house ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void houseIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.saleHousePicture.isDisplayed());
+    }
+
+    @Then("villa ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void villaIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.saleVillaPicture.isDisplayed());
+    }
+
+    @Then("apartman ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void apartmanIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.saleApartmentPicture.isDisplayed());
+    }
+
+    @And("advert type dropdowndan Sale secer")
+    public void advertTypeDropdowndanSaleSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.advertTypeDropdown,"Sale");
+    }
+
+    @And("city dropdowndan Aydin secer")
+    public void cityDropdowndanAydinSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.cityDropdown,"Aydın");
+    }
+
+    @Then("ofis ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void ofisIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.saleOfficePicture.isDisplayed());
+    }
+
+
+    @And("city dropdowndan Osmaniye secer")
+    public void cityDropdowndanOsmaniyeSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.cityDropdown,"Osmaniye");
+    }
+
+    @And("district dropdowndan Bahce secer")
+    public void districtDropdowndanBahceSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.districtDropdown,"Bahçe");
+    }
+
+    @Then("land ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void landIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue( customerPage.saleLandPicture.isDisplayed());
+    }
+
+    @And("district dropdowndan Mamak secer")
+    public void districtDropdowndanMamakSecer() {
+        ReusableMethods.ddmVisibleText(customerPage.districtDropdown,"Mamak");
+    }
+
+    @Then("shop ile ilgili Sale seceneklerinin geldigini dogrular")
+    public void shopIleIlgiliSaleSeceneklerininGeldiginiDogrular() {
+        Assert.assertTrue(customerPage.saleShopPicture.isDisplayed());
+    }
+
+    @And("satilik isyeri ilan resmine tiklar")
+    public void satilikIsyeriIlanResmineTiklar() {
+        customerPage.saleShopPicture.click();
+    }
+    @Then("satilik isyeri ilanini secebildigini dogrular")
+    public void satilikIsyeriIlaniniSecebildiginiDogrular() {
+        Assert.assertTrue(customerPage.saleShopPicture.isDisplayed());
+    }
+
+
+    @Then("sectigi satilik emlagin resmini gordugunu dogrular")
+    public void sectigiSatilikEmlaginResminiGordugunuDogrular() {
+        Assert.assertTrue(customerPage.saleRealEstatePicture.isDisplayed());
+    }
+
+    @Then("sectigi satilik emlak ile ilgili description gordugunu dogrular")
+    public void sectigiSatilikEmlakIleIlgiliDescriptionGordugunuDogrular() {
+        Assert.assertTrue(customerPage.saleRealEstateDescription.isDisplayed());
+    }
+    @Then("sectigi satilik emlak ile ilgili details bilgilerini gordugunu dogrular")
+    public void sectigiSatilikEmlakIleIlgiliDetailsBilgileriniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.saleRealEstateDetails.isDisplayed());
+    }
+
+    @Then("sectigi satilik emlak ile ilgili location bilgilerini gordugunu dogrular")
+    public void sectigiSatilikEmlakIleIlgiliLocationBilgileriniGordugunuDogrular() {
+        Assert.assertTrue(customerPage.saleRealEstateLocation.isDisplayed());
+    }
+
+    @Then("sectigi satilik emlak ile ilgili iletisim bilgilerini gordugunu dogrular")
+    public void sectigiSatilikEmlakIleIlgiliIletisimBilgileriniGordugunuDogrular() {
+        customerPage.manageContactPhoneikon.click();
+        Assert.assertTrue(customerPage.manageContactPhoneLink.isDisplayed());
+        customerPage.manageContactPhoneikon.sendKeys(Keys.TAB,Keys.TAB,Keys.ENTER);
+        Assert.assertTrue(customerPage.manageContactMailLink.isDisplayed());
+    }
+
+    @And("sale tour date bilgisi girer")
+    public void saleTourDateBilgisiGirer() {
+        customerPage.tourDate.sendKeys("01012025");
+    }
+
+    @And("sale tour time bilgisi girer")
+    public void saleTourTimeBilgisiGirer() {
+        ReusableMethods.ddmIndex(customerPage.tourTimeDropdown,20);
+    }
+
+
 }
