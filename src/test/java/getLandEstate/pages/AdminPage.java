@@ -1,6 +1,8 @@
 package getLandEstate.pages;
 
+import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
+import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,10 +17,7 @@ public class AdminPage {
 
 
 
-
-
     //selahattin20
-
     @FindBy(xpath = "//a[normalize-space()='Login']")
     public WebElement loginButton;
 
@@ -70,36 +69,37 @@ public class AdminPage {
     @FindBy (xpath = "//div[@class='accordion']//div[2]//h2[1]//button[1]")
     public WebElement secondMessage;
 
-    @FindBy (xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
-    public WebElement deleteMessage;
-
     @FindBy (xpath = "//p[normalize-space()='Admin test5']")
     public WebElement test5Message;
+
+    @FindBy (xpath = "//button[@class='accordion-button']//span[@class='email'][normalize-space()='syasarit@gmail.com']")
+    public WebElement syEmail;
 
     @FindBy (xpath = "//p[normalize-space()='Admin test4']")
     public WebElement message4;
 
-    @FindBy (xpath = " //div[@class='accordion-collapse collapse show']//button[@title='Mark as read']//*[name()='svg']//*[name()='path' and contains(@d,'M12 19a6.9')]")
+    @FindBy (xpath = "//*[.='Admin test4']")
+    public WebElement test4Message;
+
+    @FindBy (xpath = " //*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[2]/div[9]/div/div/div[3]/button[1]")
     public WebElement markAsRead;
 
-    @FindBy(xpath = " //div[@class='accordion-collapse collapse show']//button[@title='Mark as unread']//*[name()='svg']//*[name()='path' and contains(@d,'M22 8.98V1')]")
-    public WebElement markAsUnread;
+    @FindBy(xpath = "(//button[@title='Mark as read'])[1]")
+    public WebElement markAsReadIcon;
 
+    @FindBy(xpath = "(//button[@title='Mark as unread'])[1]")
+    public WebElement markAsUnreadIcon;
 
+    @FindBy(xpath = "//span[text()='ContactMessages']")
+    public WebElement contactMessagesButton;
 
+    @FindBy(xpath = "//span[text()='customer@selahattin.com']")
+    public WebElement inComingMessage;
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//p[text()='Admin Mesaj Testi']")
+    public WebElement inComingMessageText;
+    @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
+    public WebElement deleteMessageIcon;
 
 
 
@@ -363,24 +363,6 @@ public class AdminPage {
             throw new RuntimeException("sendKeysAndClick metodu çalışırken bir hata oluştu.", e);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -5,11 +5,10 @@ import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
 import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import io.cucumber.java.en.*;
+
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 
 
@@ -17,11 +16,12 @@ import static org.junit.Assert.assertEquals;
 
 
 
-public class AdminStepDefinition { //baslangıc 20.satır
 
-    AdminPage adminPage= new AdminPage();
 
-    //gulsum24 //us04
+
+
+
+//gulsum24 //us04
 
 
     @Given("kullanici {string} gider")
@@ -115,13 +115,13 @@ public class AdminStepDefinition { //baslangıc 20.satır
     @Then("uyari mesaji goruntulenir ve login olunamadigini dogrular")
     public void uyariMesajiGoruntulenirVeLoginOlunamadiginiDogrular() {
 
+
         String alertMessage = "Invalid email or password. Please check your credentials and try again.";
         assertEquals(alertMessage,adminPage.invalidEmailOrPasswordAlertMessage.getText());
         ReusableMethods.bekle(2);
     }
 
-
-    @When("Users kutusuna tiklar")
+@When("Users kutusuna tiklar")
     public void usersKutusunaTiklar() {
         adminPage.usersButton.click();
         ReusableMethods.bekle(3);
@@ -235,9 +235,9 @@ public class AdminStepDefinition { //baslangıc 20.satır
         adminPage.yesTextBox.click();
         ReusableMethods.bekle(2);
 
-    }
 
-    @Then("{string} yazisini gorur ve kullanicinin silindigini dogrular")
+    }
+       @Then("{string} yazisini gorur ve kullanicinin silindigini dogrular")
     public void kullanicininSilindiginiDogrular(String str) {
         assertEquals(str, adminPage.deletedSuccessMessage.getText());
     }
@@ -283,245 +283,609 @@ public class AdminStepDefinition { //baslangıc 20.satır
 
 
 
-    //selahattin282
+//US_21 Selahattin - 286
+    //TC_01
+    @Given("kullanici URL e gider")
+    public void kullaniciURLEgider() {
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+    }
+
+    @When("login butonuna tiklar")
+    public void loginButonunaTiklar() {
+        ReusableMethods.click(adminPage.loginButton);
+    }
+
+    @And("Email ve password bilgileri ile login olur")
+    public void emailVePasswordBilgileriIleLoginOlur() {
+        adminPage.AdEmail.sendKeys(ConfigReader.getProperty("AdLoginEmail"));
+        adminPage.AdPassword.sendKeys(ConfigReader.getProperty("AdLoginPassword"));
+        ReusableMethods.click(adminPage.submitLogin);
+    }
+
+    @And("Contact messages sayfasına gider")
+    public void contactMessagesSayfasinaGider() {
+        ReusableMethods.click(adminPage.contactMessages);
+    }
+
+    @And("Mesaj listesi goruntulenir")
+    public void mesajListesiGoruntulenir() {
+        adminPage.inComingMessage.click();
+        ReusableMethods.bekle(2);
+        String expectedData = "Admin Mesaj Testi";
+        String actualData = adminPage.inComingMessageText.getText();
+        Assert.assertEquals(expectedData, actualData);
+        ReusableMethods.bekle(2);
+    }
+    @And("Bir mesaji secer ve siler")
+    public void birMesajiSecerVeSiler() {
+        adminPage.deleteMessageIcon.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @Then("Mesajin silindigini dogrular")
+    public void mesajinSilindiginiDogrular() {
+        Assert.assertTrue(adminPage.inComingMessageText.isDisplayed());
+    }
+
+    //TC_02
+    @And("Okunmamis mesajlari kontrol eder")
+    public void okunmamisMesajlariKontrolEder(){
+        ReusableMethods.click(adminPage.contactMessages);
+        ReusableMethods.click(adminPage.filterButton);
+        ReusableMethods.click(adminPage.unReadMessages);
+        ReusableMethods.click(adminPage.applyFilters);
+
+public class AdminStepDefinition { //baslangıc 20.satır
+
+    AdminPage adminPage= new AdminPage();
+
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @And("Bir mesaji secer ve okundu olarak isaretler")
+    public void birMesajiSecerVeOkunduOlarakIsaretler(){
+        ReusableMethods.click(adminPage.inComingMessage);
+        ReusableMethods.click(adminPage.markAsReadIcon);
+
+    }
+
+    @Then("Mesajin okundu olarak isaretlendigini dogrular")
+    public void mesajinOkunduOlarakIsaretlendiginiDogrular(){
+        ReusableMethods.click(adminPage.contactMessages);
+        ReusableMethods.click(adminPage.filterButton);
+        ReusableMethods.click(adminPage.readMessages);
+        ReusableMethods.click(adminPage.applyFilters);
+        String expText = "Mark as unread";
+        String actText = adminPage.markAsUnreadIcon.getAttribute("title");
+        Assert.assertEquals(expText,actText);
+
+    }
+    //TC_03
+    @And("Arama cubuguna gecerli bir sorgu girer")
+    public void aramaCubugunaGecerliBirSorguGirer() {
+        ReusableMethods.click(adminPage.contactMessages);
+        adminPage.searchBox.sendKeys("Admin test4");
+    }
+
+    @And("Arama butonuna tiklar")
+    public void aramaButonunaTiklar() {
+        ReusableMethods.click(adminPage.searchButton);
+    }
+
+    @Then("Arama sonuclari goruntulenir")
+    public void aramaSonuclariGoruntulenir() {
+        adminPage.message4.isDisplayed();
 
 
 
     
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  //suleyman482
+      
+    //TC_04
+    @And("Filtre ikonuna tiklar")
+    public void filtreIkonunaTiklar() {
+        ReusableMethods.click(adminPage.filterButton);
+    }
 
+    @And("Bir tarih araligi secer")
+    public void birTarihAraligiSecer() {
+        adminPage.startDate.sendKeys("16.04.2024");
+        adminPage.endDate.sendKeys("25.04.2024");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @And("Apply Filters butonuna tiklar")
+    public void applyFiltersButonunaTiklar() {
+        ReusableMethods.click(adminPage.applyFilters);
+    }
+    @Then("Sonuclar goruntulenir")
+    public void sonuclarGoruntulenir() {
+        Assert.assertTrue(adminPage.firstMessage.isDisplayed());
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//suleyman482
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
