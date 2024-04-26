@@ -1,5 +1,6 @@
 @US23
-Feature: Kullanici (Manager)  5 farkli dilde sayfayi goruntuleyebilmelidir
+Feature: Kullanici (Manager) 5 farkli dilde sayfayi goruntuleyebilmelidir
+
   Scenario: TC01 Kullanici (Manager) sayfayi bes farkli dilde goruntuleyebilmeli
     Given kullanici web sayfasina gider
     When kullanici login butonuna tiklar
