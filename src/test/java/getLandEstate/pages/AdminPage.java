@@ -1,6 +1,8 @@
 package getLandEstate.pages;
 
+import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
+import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,10 +17,7 @@ public class AdminPage {
 
 
 
-
-
     //selahattin20
-
     @FindBy(xpath = "//a[normalize-space()='Login']")
     public WebElement loginButton;
 
@@ -70,36 +69,37 @@ public class AdminPage {
     @FindBy (xpath = "//div[@class='accordion']//div[2]//h2[1]//button[1]")
     public WebElement secondMessage;
 
-    @FindBy (xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
-    public WebElement deleteMessage;
-
     @FindBy (xpath = "//p[normalize-space()='Admin test5']")
     public WebElement test5Message;
+
+    @FindBy (xpath = "//button[@class='accordion-button']//span[@class='email'][normalize-space()='syasarit@gmail.com']")
+    public WebElement syEmail;
 
     @FindBy (xpath = "//p[normalize-space()='Admin test4']")
     public WebElement message4;
 
-    @FindBy (xpath = " //div[@class='accordion-collapse collapse show']//button[@title='Mark as read']//*[name()='svg']//*[name()='path' and contains(@d,'M12 19a6.9')]")
+    @FindBy (xpath = "//*[.='Admin test4']")
+    public WebElement test4Message;
+
+    @FindBy (xpath = " //*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[2]/div[9]/div/div/div[3]/button[1]")
     public WebElement markAsRead;
 
-    @FindBy(xpath = " //div[@class='accordion-collapse collapse show']//button[@title='Mark as unread']//*[name()='svg']//*[name()='path' and contains(@d,'M22 8.98V1')]")
-    public WebElement markAsUnread;
+    @FindBy(xpath = "(//button[@title='Mark as read'])[1]")
+    public WebElement markAsReadIcon;
 
+    @FindBy(xpath = "(//button[@title='Mark as unread'])[1]")
+    public WebElement markAsUnreadIcon;
 
+    @FindBy(xpath = "//span[text()='ContactMessages']")
+    public WebElement contactMessagesButton;
 
+    @FindBy(xpath = "//span[text()='customer@selahattin.com']")
+    public WebElement inComingMessage;
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//p[text()='Admin Mesaj Testi']")
+    public WebElement inComingMessageText;
+    @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
+    public WebElement deleteMessageIcon;
 
 
 
@@ -256,6 +256,77 @@ public class AdminPage {
     @FindBy(xpath = "//a[.='Inicio']")
     public WebElement spTextVerify;
 
+
+    //us05 locateleri
+
+    @FindBy(xpath = "//div[.='Invalid email or password. Please check your credentials and try again.']")//div[@class='p-toast-detail']
+    public WebElement invalidEmailOrPasswordAlertMessage;
+
+    @FindBy(css = ".submit-button.btn.btn-secondary")
+    public WebElement accountLogin;
+
+    @FindBy(xpath = "//img[@src='/images/profile/user.jpg']")
+    public WebElement profileIconButton;
+
+    @FindBy(xpath = "//span[normalize-space()='My Profile']")
+    public WebElement myProfileButton;
+
+    @FindBy(xpath = "//span[.='Users']")
+    public WebElement usersButton;
+
+    @FindBy(xpath = "//input[@name='search']")
+    public WebElement searchBoxG;
+
+    @FindBy(xpath = "//button[@class='search-button btn btn-outline-secondary']")
+    public WebElement searchButtonG;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public WebElement nameTextVerify;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[2]")
+    public WebElement emailTextVerify;
+
+    @FindBy(xpath = "//div[.='User type save successfully']")
+    public WebElement roleVerify;
+
+    @FindBy(xpath = "(//button[@type='button'])[4]")
+    public WebElement editUsersIcon;
+
+    @FindBy(id = "firstName")
+    public WebElement firstNameBox;
+
+    @FindBy(css = ".update-button.btn.btn-primary")
+    public WebElement updateButton;
+
+    @FindBy(xpath = "//div[.='User type save successfully']")
+    public WebElement updateSuccessText;
+
+    @FindBy(css = "#role") //select[@id='role']
+    public WebElement rolesMenu;
+
+
+    @FindBy(xpath = "//button[normalize-space()='DELETE']")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//span[@class='p-confirm-popup-message']")
+    public WebElement popUpMessage;
+
+    @FindBy(xpath = "//span[normalize-space()='Yes']")
+    public WebElement yesTextBox;
+
+    @FindBy(css = ".p-toast-detail")
+    public WebElement deletedSuccessMessage;
+
+
+
+
+
+
+
+
+
+
+
     //Delete Methodu - US05 gulsum
     public void deleteMethod(WebElement webElement) {
         String codeValue = webElement.getAttribute("value");
@@ -275,94 +346,23 @@ public class AdminPage {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Send and click Methodu - US05 TC02 gulsum
+    public void sendKeysAndClick(WebElement elementToSendKeys, String textToSend, WebElement elementToClick) {
+        try {
+            if (elementToSendKeys == null || elementToClick == null) {
+                throw new IllegalArgumentException("Giriş verileri doğrulanamadı.");
+            }
+            if (textToSend == null || textToSend.isEmpty()) {
+                throw new IllegalArgumentException("Gönderilecek metin boş olamaz.");
+            }
+            elementToSendKeys.sendKeys(textToSend);
+            elementToClick.click();
+        } catch (IllegalArgumentException e) {
+            throw e; // Orijinal IllegalArgumentException'ı fırlat
+        } catch (Exception e) {
+            throw new RuntimeException("sendKeysAndClick metodu çalışırken bir hata oluştu.", e);
+        }
+    }
 
 
 
@@ -418,120 +418,120 @@ public class AdminPage {
 
 
 //süleyman420
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@FindBy(xpath = "//a[@href='/login']")
+public WebElement giriş;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement adminmail;
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement adminşifre;
+    @FindBy(xpath = "//div[@class='form-submit-button']")
+    public WebElement admingiriş;
+    @FindBy(xpath = "//a[@title='Adverts']")
+    public WebElement adminİlanlar;
+    @FindBy(xpath = "//a[@title='Categories']")
+    public WebElement  adminKategoriler;
+    @FindBy(xpath = "//a[@title='Advert Types']")
+    public WebElement  adminİlanTürü;
+    @FindBy(xpath = "//a[@title='Users']")
+    public WebElement  adminKullanıcılar;
+    @FindBy(xpath = "//a[@title='Tour Requests']")
+    public WebElement  adminTurİstekleri;
+    @FindBy(xpath = "//input[@name='q']")
+    public WebElement  adminİlanAramakutusu;
+    @FindBy(xpath = "//input[@name='price_start']")
+    public WebElement  adminİlanBaslangıçFiyatı;
+    @FindBy(xpath = "//div[text()='Price must be 0 or greater']")
+    public WebElement  adminİlanBaslangıçFiyatıuyarı;
+    @FindBy(xpath = "//input[@name='price_end']")
+    public WebElement  adminİlanBitişFiyatı;
+    @FindBy(xpath = "//div[text()='Price must be positive']")
+    public WebElement  adminİlanBitişFiyatıuyarı;
+    @FindBy(xpath = "//div[@class='p-toast p-component p-toast-top-right p-ripple-disabled']")
+    public WebElement  adminİlanBitişBaşlangıçuyarı;
+    @FindBy(xpath = "//select[@name='status']")
+    public WebElement  adminilanDurum;
+    @FindBy(xpath = "//select[@name='advert_type_id']")
+    public WebElement  adminilanTür;
+    @FindBy(xpath = "//select[@name='category_id']")
+    public WebElement  adminİlanKategori;
+    @FindBy(xpath = "//button[@class='dynamic-button  btn btn-primary']")
+    public WebElement  adminİlanara;
+    @FindBy(xpath = "(//button[@class='btn-link btn btn-primary'])[1]")
+    public WebElement  adminİlansilme;
+    @FindBy(xpath = "(//button[@class='btn-link btn btn-primary'])[2]")
+    public WebElement  adminİlanDüzenleme;
+    @FindBy(xpath = "//input[@name='title']")
+    public WebElement  adminİlanDüzenlemeBaşlık;
+    @FindBy(xpath = "//select[@name='statusForAdvert']")
+    public WebElement  adminİlanDüzenlemeDurum;
+    @FindBy(xpath = "//select[@name='advertTypeId']")
+    public WebElement  adminİlanDüzenlemeİlanTürü;
+    @FindBy(xpath = "//select[@name='categoryId']")
+    public WebElement  adminİlanDüzenlemeKategori;
+    @FindBy(xpath = "//button[@class='dynamic-button auto-wide btn btn-primary']")
+    public WebElement  adminİlangüncelleme;
+    @FindBy(xpath = "//div[@class='p-toast-message p-toast-message-success p-toast-message-enter-done']")
+    public WebElement  adminİlangüncellemedoğrulama;
+    @FindBy(xpath = "//table/tbody/tr[1]/td[3]")
+    public WebElement  adminİlanDoğrulama;
+    @FindBy(xpath = "//table/tbody/tr[1]/td[0]")
+    public WebElement  adminİlanDoğrulama4;
+    @FindBy(xpath = "//input[@name='search']")
+    public WebElement  adminKategoriAramaKutusu;
+    @FindBy(xpath = "//button[@class='search-button btn btn-outline-secondary']")
+    public WebElement  adminKategoriArama;
+    @FindBy(xpath = "//button[@title='Add New']")
+    public WebElement  adminKategoriArtı;
+    @FindBy(xpath = "//input[@name='title']")
+    public WebElement  adminKategoriEklemeBaşlık;
+    @FindBy(xpath = "//input[@name='seq']")
+    public WebElement  adminKategoriEklemeSıra;
+    @FindBy(xpath = "////span[text()='Info']")
+    public WebElement  adminKategoriEklemeİconİnfo;
+    @FindBy(xpath = "//a[@href='https://fontawesome.com/search?o=r&m=free&s=solid']")
+    public WebElement  adminKategoriEklemeİnfoLink;
+    @FindBy(xpath = "//input[@name='icon']")
+    public WebElement  adminKategoriEklemeİcontext;
+    @FindBy(xpath = "//input[@name='active']")
+    public WebElement  adminKategoriEklemeAktif;
+    @FindBy(xpath = "//button[@class='category-common-button create-button btn btn-primary']")
+    public WebElement  adminKategoriEklemeOluştur;
+    @FindBy(xpath = "//button[@class='category-common-button update-button btn btn-warning']")
+    public WebElement  adminKategoriGüncellme;
+    @FindBy(xpath = "(//span[@class='p-button-label p-c'])[2]")
+    public WebElement  adminKategoriSilmeEvet;
+    @FindBy(xpath = "//div[@class='p-toast-message p-toast-message-success p-toast-message-enter-done']")
+    public WebElement  adminKategoriGüncellmeDoğrulama;
+    @FindBy(xpath = "//div[@class='p-toast p-component p-toast-top-right p-ripple-disabled']")
+    public WebElement  adminKategoriSilmeDoğrulama;
+    @FindBy(xpath = "//div[@class='p-toast-message p-toast-message-info p-toast-message-enter-done']")
+    public WebElement  adminKategoriEklemeDoğrulama;
+    @FindBy(xpath = "//button[@class='dynamic-button  btn btn-primary']")
+    public WebElement  adminİlanTürüEklemeOluştur;
+    @FindBy(xpath = "//button[@class='dynamic-button  btn btn-primary']")
+    public WebElement  adminİlanTürüEklemeDoğrulama;
+    @FindBy(xpath = "//table/tbody/tr[1]/td[4]")
+    public WebElement  adminİlanTurTalebleriDoğrulama;
+    @FindBy(xpath = "(//div[@style='display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;'])[2]")
+    public WebElement  adminKullanıcıAramaDoğrulama;
+    @FindBy(xpath = "(//div[@style='display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;'])[4]")
+    public WebElement  adminKullanıcıAramaDoğrulamaAdmin;
+    @FindBy(xpath = "//input[@name='phone']")
+    public WebElement  adminKullanıcıTelefonGüncelleme;
+    @FindBy(xpath = "//select[@name='role']")
+    public WebElement  adminKullanıcıRolGüncelleme;
+    @FindBy(xpath = "//button[@class='update-button btn btn-primary']")
+    public WebElement  adminKullanıcıGüncelleme;
+    @FindBy(xpath = "//div[@class='p-toast-message p-toast-message-success p-toast-message-enter-done']")
+    public WebElement  adminKullanıcıGüncellemeDoğrulama;
+    @FindBy(xpath = "//a[@title='Logout']")
+    public WebElement  logOut;
+    @FindBy(xpath = "//button[@class='p-confirm-dialog-accept p-button p-component']")
+    public WebElement  getLogOutEvet;
+    @FindBy(xpath = "//div[@class='user-logo-nav navbar-nav']")
+    public WebElement  user;
+    @FindBy(xpath = "//span[text()='Control Panel']")
+    public WebElement  kontrolPaneli;
 
 
 
