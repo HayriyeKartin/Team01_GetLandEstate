@@ -418,89 +418,89 @@ public class ManagerPage {
 
 
     //mehmet420
+    //US 13 Locate'leri
+    //TC01
+    @FindBy(xpath = "//a[@data-rr-ui-event-key='5']")
+    public WebElement loginButtonn;
 
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement eMail;
 
+    @FindBy (xpath = "//input[@name='password']")
+    public WebElement paswordd;
 
+    @FindBy(xpath = "//*[@class='submit-button btn btn-secondary']")
+    public WebElement Login;
 
+    @FindBy(xpath = "//span[text()='Back to Site']")
+    public WebElement backToSiteButtonn;
 
+    @FindBy(xpath = "(//*[@class='user-pic'])[1]")
+    public  WebElement profileButtonn;
 
+    @FindBy(xpath = "(//*[@class='ok-icon'])[4]")
+    public  WebElement myTourRequests;
 
+    @FindBy (xpath = "//*[@id='react-aria9381675401-:rd:-tab-response']")
+    public WebElement myResponsess;
 
+    @FindBy (xpath = "//div[@class='text']")
+    public WebElement randevuIstekGoruntuleme;
 
+//TC02
 
+    @FindBy (xpath = "//*[@class='btn-link decline-button btn btn-primary']")
+    public WebElement randevuRed;
 
+    @FindBy (xpath = "(//*[@class='p-button-label p-c'])[2]")
+    public WebElement randevuRedOnay;
 
+    @FindBy(xpath = "//*[@class='p-tag-value']")
+    public WebElement randevuRedDogrulama;
 
+    @FindBy (xpath = "//*[@class='btn-link approve-button btn btn-primary']")
+    public WebElement randevuKabul;
 
+    @FindBy (xpath = "(//*[@class='p-button-label p-c'])[1]")
+    public WebElement randevuKabulOnay;
 
+    @FindBy(xpath = "//*[@class='p-tag-value']")
+    public WebElement randevuKabulDogrulama;
 
+//US 14 Locate'leri
+//TC01
 
+    @FindBy(xpath = "(//*[@class='d-none d-sm-inline'])[6]")
+    public WebElement tourRequest;
 
+    @FindBy(xpath = "//*[@class='form-control']")
+    public WebElement searchBox;
 
+    @FindBy(xpath = "//*[@class='search-button btn btn-outline-secondary']")
+    public WebElement searchBoxForClick;
 
+    @FindBy(xpath = "(//*[@class='text'])[1]")
+    public WebElement ilanSec;
 
+    @FindBy(xpath = "//*[@id='tourDate']")
+    public WebElement turTarihSec;
 
+    @FindBy(xpath = "//*[@id='tourTime']")
+    public WebElement turSaatSec;
 
+    @FindBy(xpath = "//*[@class='tour-request-form-button-wrapper']")
+    public WebElement submitTourRequest;
 
+    @FindBy(xpath = "//*[@class='p-toast-detail']")
+    public WebElement talepDogrulama;
 
+//TC02
 
+    @FindBy (xpath = "//*[@id='react-aria6964455574-:r5:-tab-request']")
+    public WebElement MyRequests;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy (xpath = "(//*[@class='p-tag-value'])[1]")
+    public WebElement verification;
 
 
 
