@@ -257,7 +257,7 @@ public class AdminPage {
     public WebElement spTextVerify;
 
 
-    //us05 locateleri
+    //us05 locateleri - gulsum
 
     @FindBy(xpath = "//div[.='Invalid email or password. Please check your credentials and try again.']")//div[@class='p-toast-detail']
     public WebElement invalidEmailOrPasswordAlertMessage;
