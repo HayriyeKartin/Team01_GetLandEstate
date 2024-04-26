@@ -14,11 +14,11 @@ import org.openqa.selenium.Keys;
 public class ManagerStepDefinition {
    ManagerPage managerPage = new ManagerPage();
 
-    @Given("Kullanici {string} sayfasina gider")
-    public void kullanici_sayfasina_gider(String url) {
-        Driver.getDriver().get(url);
-
-    }
+//    @Given("Kullanici {string} sayfasina gider")
+//    public void kullanici_sayfasina_gider(String url) {
+//        Driver.getDriver().get(url);
+//
+//    }
     @When("Kullanici login butonuna tiklar")
     public void kullaniciLoginButonunaTiklar() {
         managerPage.girisButonu.click();
@@ -73,8 +73,8 @@ public class ManagerStepDefinition {
         Assert.assertTrue(managerPage.deleteMessage.isDisplayed());
 
     }
-    @And("sayfayi kapatir")
-    public void sayfayi_kapatir() {
+     @And("sayfayi kapatir")
+   public void sayfayi_kapatir() {
 
     }
 
