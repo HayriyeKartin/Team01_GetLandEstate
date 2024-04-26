@@ -16,9 +16,11 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features/ui_features", // çalıştırılacak features'ın yolunu gösteriyoruz
         glue = {"getLandEstate/stepDefinitions/ui_stepDefinition", "getLandEstate/hooks"}, // senaryo ile methodları birbirine yapıştırıyoruz
+  
 
-        tags = "@US11", // hangi senaryoyu çalıştırmak istediğimizi belirtiyoruz
+        tags = "", // hangi senaryoyu çalıştırmak istediğimizi belirtiyoruz
 
+    
         dryRun = false, //--> eğer true seçilirse scenario'ları çalıştırmadan feature file'da eksik step definition'ların
         //olup olmadığını kontrol eder ve browser'ı çalıştırmaz
         monochrome = false

@@ -1,27 +1,26 @@
 package getLandEstate.stepDefinitions.ui_stepDefinition;
 
 import getLandEstate.pages.ManagerPage;
+import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
 import getLandEstate.utilities.ui_utilities.ReusableMethods;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class ManagerStepDefinition {
-   ManagerPage managerPage = new ManagerPage();
+    ManagerPage managerPage = new ManagerPage();
 
-    @Given("Kullanici {string} sayfasina gider")
-    public void kullanici_sayfasina_gider(String url) {
-        Driver.getDriver().get(url);
 
+    @Given("Kullanici getLandEstate web sayfasina gider")
+    public void kullaniciGetLandEstateWebSayfasinaGider() {
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
+
     @When("Kullanici login butonuna tiklar")
     public void kullaniciLoginButonunaTiklar() {
-        managerPage.girisButonu.click();
+        ReusableMethods.bekle(5);
+        managerPage.loginButonu.click();
     }
 
     @Then("Kullanici {string} ve {string} ile login olur")
@@ -31,128 +30,115 @@ public class ManagerStepDefinition {
         managerPage.passwordd.sendKeys(passwordd, Keys.ENTER);
     }
 
-    @And("Kullanici siteye geri don sekmesine tiklar")
-    public void kullanici_siteye_geri_don_sekmesine_tiklar() {
-        managerPage.backToSite.click();
-
-    }
     @And("Kullanici profile sekmesine tiklar")
-    public void kullanici_profile_sekmesine_tiklar() {
+    public void kullaniciProfileSekmesineTiklar() {
         managerPage.profileButton.click();
-
     }
+
     @And("Kullanici ilanlarim sekmesine tiklar")
-    public void kullanici_ilanlarim_sekmesine_tiklar() {
-       managerPage.ilanlarim.click();
-
+    public void kullaniciIlanlarimSekmesineTiklar() {
+        managerPage.ilanlarim.click();
     }
+
     @And("Kullanici sayfada ilan oldugunu dogrular")
-    public void kullanici_sayfada_ilan_oldugunu_dogrular() {
+    public void kullaniciSayfadaIlanOldugunuDogrular() {
         Assert.assertTrue(managerPage.kayitliIlan.isDisplayed());
-
     }
+
     @And("Kullanici ilani guncelle sekmesine tiklar")
-    public void kullanici_ilani_guncelle_sekmesine_tiklar() {
+    public void kullaniciIlaniGuncelleSekmesineTiklar() {
         managerPage.guncelleikon.click();
-
     }
+
     @And("Kullanici ilani guncellendigini dogrular")
-    public void kullanici_ilani_guncellendigini_dogrular() {
+    public void kullaniciIlaniGuncellendiginiDogrular() {
         ReusableMethods.bekle(2);
         Assert.assertTrue(managerPage.textMessage.isDisplayed());
-
     }
+
     @And("Kullanici ilani siler")
-    public void kullanici_ilani_siler() {
+    public void kullaniciIlaniSiler() {
         managerPage.deleteButton.click();
-
     }
+
     @And("Kullanici ilanin silebildigini dogrular")
-    public void kullanici_ilanin_silebildigini_dogrular() {
+    public void kullaniciIlaninSilebildiginiDogrular() {
         managerPage.deleteYes.click();
         Assert.assertTrue(managerPage.deleteMessage.isDisplayed());
-
-    }
-    @And("sayfayi kapatir")
-    public void sayfayi_kapatir() {
-
     }
 
     @And("Kullanici sayfanin Yayinlama Tarihi icerdigini dogrular")
-    public void kullanici_sayfanin_yayinlama_tarihi_icerdigini_dogrular() {
+    public void kullaniciSayfaninYayinlamaTarihiIcerdiginiDogrular() {
         Assert.assertTrue(managerPage.yayinlamaTarihi.isDisplayed());
-
     }
+
     @And("Kullanici sayfanin Durum icerdigini dogrular")
-    public void kullanici_sayfanin_durum_icerdigini_dogrular() {
+    public void kullaniciSayfaninDurumIcerdiginiDogrular() {
         Assert.assertTrue(managerPage.durumButonu.isDisplayed());
-
     }
+
     @And("Kullanici sayfanin Goruntuleme-Begeni-Tur icerdigini dogrular")
-    public void kullanici_sayfanin_goruntuleme_begeni_tur_icerdigini_dogrular() {
+    public void kullaniciSayfaninGoruntulemeBegeniTurIcerdiginiDogrular() {
         Assert.assertTrue(managerPage.goruntulemeBegeniTur.isDisplayed());
+    }
+    //--------------------------US18------------------------------------------------
 
+    @When("Sayfanin sag ust bolumundeki Login butonuna tiklayarak giris ekranina ulasir.")
+    public void sayfaninSagUstBolumundekiLoginButonunaTiklayarakGirisEkraninaUlasir() {
+       managerPage.loginButonu.click();
     }
 
-    // ------------------------ US18-------------------------------------------------------
-
-    @And("Kullanici ev kategorisine tiklar")
-    public void kullaniciEvKategorisineTiklar() {
-        managerPage.evKategori.click();
+    @Then("Kullanici ilgili alanlara Email ve Enter password bilgisini yazar ve giris yapar.")
+    public void kullaniciIlgiliAlanlaraEmailVeEnterPasswordBilgisiniYazarVeGirisYapar() {
+        managerPage.emailKutusu.sendKeys("iamhafsa94@gmail.com");
+        managerPage.passwordKutusu.sendKeys("Hafsa.46");
     }
 
-
-    @And("Kullanici liste de sekizinci ilana tiklar")
-    public void kullaniciListeDeSekizinciIlanaTiklar() {
-        managerPage.sekizinciIlan.click();
+    @And("Acilan sayfada soldaki menuden Back to Site butonuna tiklar.")
+    public void acilanSayfadaSoldakiMenudenBackToSiteButonunaTiklar() {
+        managerPage.backToSiteButonu.click();
     }
 
-
-
-    @And("Kullanici sayfanin tur ayarla icerdigini test eder")
-    public void kullaniciSayfaninTurAyarlaIcerdiginiTestEder(String TurAyarla) {
-        Assert.assertTrue(managerPage.turAyarla.getText().contains(TurAyarla));
+    @And("Kullanici acilan sayfada Properties bolumune tiklar")
+    public void kullaniciAcilanSayfadaPropertiesBolumuneTiklar() {
+        managerPage.propertiesKutucugu.click();
     }
 
-
-    @And("Kullanici tarih alanina deger girer")
-    public void kullaniciTarihAlaninaDegerGirer() {
-        managerPage.tarihAlani.sendKeys("26.06.2024");
+    @And("Kullanici acilan sayfada istedigi ilani secer")
+    public void kullaniciAcilanSayfadaIstedigiIlaniSecer() {
+        ReusableMethods.click(managerPage.cankayaAnkara);
+        ReusableMethods.visibleWait(managerPage.cankayaAnkara, 5);
     }
 
-    @And("Kullanici saat alanina deger girer")
-    public void kullaniciSaatAlaninaDegerGirer() {
-        managerPage.saatAlani.sendKeys("2");
-    }
-
-    @And("Kullanici Tur talebi gönder butonuna tiklar")
-    public void kullaniciTurTalebiGönderButonunaTiklar() {
-        managerPage.turTalebiGonder.click();
-
-    }
-
-
-    @And("Kullanici  bilgi mesajı alir")
-    public void kullaniciBilgiMesajıAlir() {
+    @And("Kullanici sayfanin sag kismindaki Schedule a tour bolumunden gun ay yil ve saat bolumlerini doldurur")
+    public void kullaniciSayfaninSagKismindakiScheduleATourBolumundenGunAyYilVeSaatBolumleriniDoldurur() {
+        managerPage.gunAyTarih.sendKeys("27042027", Keys.TAB, "1");
         ReusableMethods.bekle(2);
-        Assert.assertTrue(managerPage.turTalebiBilgiMesaji.isDisplayed());
-
     }
 
-
-    @And("Kullanici Tur taleplerim  sekmesine tiklar")
-    public void kullaniciTurTaleplerimSekmesineTiklar() {
-        managerPage.turTaleblerim.click();
+    @And("islemler tamamlandiktan sonra Submit a tour request butonuna tiklar")
+    public void islemlerTamamlandiktanSonraSubmitATourRequestButonunaTiklar() {
+        managerPage.submitButonu.click();
+        ReusableMethods.bekle(2);
     }
 
-    @And("Kullanici Tur cevaplarim sekmesine tiklar")
-    public void kullaniciTurCevaplarimSekmesineTiklar() {
-        managerPage.turCevaplarim.click();
-
+    @And("Kullanici bilgi mesajini aldigini dogrular")
+    public void kullaniciBilgiMesajiniAldiginiDogrular() {
+        Assert.assertTrue(managerPage.bilgiMesaji.isDisplayed());
     }
-    @And("Kullanici ilan istegini gorebilmeli")
-    public void kullaniciIlanIsteginiGorebilmeli() {
-        Assert.assertTrue(managerPage.ilanistegi.isDisplayed());
+
+    @And("Kullanici sag ust kisimdaki profil bolumune tiklar ve My Tour Requests'e tiklar")
+    public void kullaniciSagUstKisimdakiProfilBolumuneTiklarVeMyTourRequestsETiklar() {
+        managerPage.profilBolumu.click();
+        managerPage.myToRequest.click();
+        ReusableMethods.bekle(5);
+    }
+
+    @And("Acilan pencerede My Responses bolumune tiklar")
+    public void acilanPenceredeMyResponsesBolumuneTiklar() {
+        managerPage.myResponses.click();
+        Assert.assertTrue(managerPage.ilanDogrulama1.isDisplayed());
+        ReusableMethods.bekle(5);
     }
 
     @And("Kullanici red butonunu dogrular")
@@ -160,9 +146,10 @@ public class ManagerStepDefinition {
         Assert.assertTrue(managerPage.redButonu.isDisplayed());
     }
 
-    @And("Kullanici kabul butonunu dogrular")
-    public void kullaniciKabulButonunuDogrular() {
+    @And("Kullanici onay butonunu dogrular")
+    public void kullaniciOnayButonunuDogrular() {
         Assert.assertTrue(managerPage.onayButonu.isDisplayed());
+    }
+}
 
 
-    }}
