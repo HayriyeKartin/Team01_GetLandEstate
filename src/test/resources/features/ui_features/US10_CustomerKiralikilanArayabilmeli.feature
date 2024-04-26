@@ -8,6 +8,7 @@ Feature: US10 Customer Kiralik ilan Arama Testi
     And giris icin login butonuna tiklar
 
   @rentHouse
+
   Scenario: TC01 Customer kiralik ev ilani arayabilmeli
 
     When rent butonuna tiklar
