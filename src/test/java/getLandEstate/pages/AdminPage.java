@@ -474,8 +474,8 @@ public WebElement giriş;
     public WebElement  adminİlangüncellemedoğrulama;
     @FindBy(xpath = "//table/tbody/tr[1]/td[3]")
     public WebElement  adminİlanDoğrulama;
-    @FindBy(xpath = "//table/tbody/tr[1]/td[0]")
-    public WebElement  adminİlanDoğrulama4;
+    @FindBy(xpath = "//p[1]")
+    public WebElement  adminİlanbaşlıktıkla;
     @FindBy(xpath = "//input[@name='search']")
     public WebElement  adminKategoriAramaKutusu;
     @FindBy(xpath = "//button[@class='search-button btn btn-outline-secondary']")
@@ -514,7 +514,7 @@ public WebElement giriş;
     public WebElement  adminİlanTurTalebleriDoğrulama;
     @FindBy(xpath = "(//div[@style='display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;'])[2]")
     public WebElement  adminKullanıcıAramaDoğrulama;
-    @FindBy(xpath = "(//div[@style='display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;'])[4]")
+    @FindBy(xpath = "//span[text()='ADMIN']")                               //DEĞİŞTİ
     public WebElement  adminKullanıcıAramaDoğrulamaAdmin;
     @FindBy(xpath = "//input[@name='phone']")
     public WebElement  adminKullanıcıTelefonGüncelleme;
@@ -532,6 +532,14 @@ public WebElement giriş;
     public WebElement  user;
     @FindBy(xpath = "//span[text()='Control Panel']")
     public WebElement  kontrolPaneli;
+    @FindBy(xpath = "//div[@class='advert-type']") //eklendi
+    public WebElement  adminilandoğrulama2;
+    @FindBy(xpath = "//div[@class='advert-type']") //eklendi
+    public WebElement  adminilandoğrulma14;
+    @FindBy(xpath = "(//span[@class='p-tag-value'])[1]") //eklendi
+    public WebElement  adminilandoğrulamarol;
+
+
 
 
 

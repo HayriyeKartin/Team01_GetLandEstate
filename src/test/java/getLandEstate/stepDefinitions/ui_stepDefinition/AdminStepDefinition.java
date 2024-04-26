@@ -569,40 +569,31 @@ public class AdminStepDefinition {
     @And("durum kısmını aktif şeçer")
     public void durumKısmınıAktifŞeçer() {
         ReusableMethods.ddmValue(adminPage.adminilanDurum,"2");
-    }
+    }    //DEĞİŞTİ
     @Then("ilan araması yapılabildiği doğrulanır aktif")
     public void ilanAramasıYapılabildiğiDoğrulanırAktif() {
-        String ecpected="Activated";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeDurum);
-        String actual=select.getFirstSelectedOption().getText();
+        String ecpected="ACTIVATED";
+        String actual=adminPage.adminilandoğrulamarol.getText();
         Assert.assertEquals(ecpected,actual);
     }
     @And("durum kısmını beklemede şeçer")
     public void durumKısmınıBeklemedeŞeçer() {
         ReusableMethods.ddmValue(adminPage.adminilanDurum,"1");
-    }
+    }  //DEĞİŞTİ
     @Then("ilan araması yapılabildiği doğrulanır beklemede")
     public void ilanAramasıYapılabildiğiDoğrulanırBeklemede() {
-        String ecpected="Pending";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeDurum);
-        String actual=select.getFirstSelectedOption().getText();
+        String ecpected="PENDING";
+        String actual=adminPage.adminilandoğrulamarol.getText();
         Assert.assertEquals(ecpected,actual);
     }
-    @And("durum kısmını reddedildi  şeçer")
+    @And("durum kısmını reddedildi  şeçer")                              //DEĞİŞTİ
     public void durumKısmınıReddedildiŞeçer() {
         ReusableMethods.ddmValue(adminPage.adminilanDurum,"3");
     }
     @Then("ilan araması yapılabildiği doğrulanır reddedildi")
     public void ilanAramasıYapılabildiğiDoğrulanırReddedildi() {
-        String ecpected="Rejected";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeDurum);
-        String actual=select.getFirstSelectedOption().getText();
+        String ecpected="REJECTED";
+        String actual=adminPage.adminilandoğrulamarol.getText();
         Assert.assertEquals(ecpected,actual);
     }
     @And("kategori kısmından evi seçer")
@@ -860,77 +851,69 @@ public class AdminStepDefinition {
         ReusableMethods.click(adminPage.getLogOutEvet);
         //Driver.closeDriver();
     }
-    @Then("ilan araması yapılabildiği doğrulanır iki")
+    @Then("ilan araması yapılabildiği doğrulanır iki")                  //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırIki() {
-        String ecpected="Rent";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeİlanTürü);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        String ecpected="RENT";
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulama2.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır üç")
+    @Then("ilan araması yapılabildiği doğrulanır üç")                    //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırÜç() {
-        String ecpected="Sale";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeİlanTürü);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        String ecpected="SALE";
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulama2.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır ondört")
+    @Then("ilan araması yapılabildiği doğrulanır ondört")           //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOndört() {
         String ecpected="House";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır onbeş")
+    @Then("ilan araması yapılabildiği doğrulanır onbeş")                   //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOnbeş() {
         String ecpected="Apartment";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır onaltı")
+    @Then("ilan araması yapılabildiği doğrulanır onaltı")               //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOnaltı() {
         String ecpected="Office";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır onyedi")
+    @Then("ilan araması yapılabildiği doğrulanır onyedi")                    //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOnyedi() {
         String ecpected="Villa";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır onsekiz")
+    @Then("ilan araması yapılabildiği doğrulanır onsekiz")                           //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOnsekiz() {
         String ecpected="Land";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
-    @Then("ilan araması yapılabildiği doğrulanır ondokuz")
+    @Then("ilan araması yapılabildiği doğrulanır ondokuz")                      //değişti
     public void ilanAramasıYapılabildiğiDoğrulanırOndokuz() {
         String ecpected="Shop";
-        ReusableMethods.click(adminPage.adminİlanDüzenleme);
-        ReusableMethods.bekle(5);
-        Select select = new Select(adminPage.adminİlanDüzenlemeKategori);
-        String actual=select.getFirstSelectedOption().getText();
-        Assert.assertEquals(ecpected,actual);
+        ReusableMethods.click(adminPage.adminİlanbaşlıktıkla);
+        ReusableMethods.bekle(3);
+        String actual=adminPage.adminilandoğrulma14.getText();
+        Assert.assertTrue(actual.contains(ecpected));
     }
 
 
