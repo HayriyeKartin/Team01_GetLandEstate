@@ -7,6 +7,7 @@ import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 
 public class ManagerStepDefinition {
     ManagerPage managerPage = new ManagerPage();
@@ -149,6 +150,123 @@ public class ManagerStepDefinition {
     @And("Kullanici onay butonunu dogrular")
     public void kullaniciOnayButonunuDogrular() {
         Assert.assertTrue(managerPage.onayButonu.isDisplayed());
+    }
+
+    @Given("kullanici web sayfasina gider")
+    public void kullaniciWebSayfasinaGider() {
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+    }
+
+    @And("kullanici email ve password bilgileriylen login olur")
+    public void kullaniciEmailVePasswordBilgileriylenLoginOlur() {
+        ReusableMethods.bekle(5);
+        managerPage.eMail.sendKeys(ConfigReader.getProperty("manageremail"));
+        managerPage.paswordd.sendKeys(ConfigReader.getProperty("managerpassword"));
+        managerPage.Login.click();
+    }
+
+    @And("Back to Site butonuna tiklar")
+    public void backToSiteButonunaTiklar() {
+        managerPage.backToSiteButtonn.click();
+    }
+
+    @And("kullanici profil sekmesine tiklar")
+    public void kullaniciProfilSekmesineTiklar() {
+        managerPage.profileButtonn.click();
+    }
+
+    @And("kullanici tur istekleri sekmesine tiklar")
+    public void kullaniciTurIstekleriSekmesineTiklar() {
+        managerPage.myTourRequests.click();
+    }
+
+    @And("kullanici my responses basligina tiklar")
+    public void kullaniciMyResponsesBasliginaTiklar() {
+        managerPage.myResponsess.click();
+    }
+
+    @Then("kullanici randevu isteginin goruntulendigini dogrular")
+    public void kullaniciRandevuIstegininGoruntulendiginiDogrular() {
+        Assert.assertTrue(managerPage.randevuIstekGoruntuleme.isDisplayed());
+    }
+
+    //TC02
+
+    @And("kullanici randevu istegini reddeder")
+    public void kullaniciRandevuIsteginiReddeder() {
+        managerPage.randevuRed.click();
+    }
+
+    @And("kullanici randevu isteginin reddini onaylar")
+    public void kullaniciRandevuIstegininReddiniOnaylar() {
+        managerPage.randevuRedOnay.click();
+    }
+
+    @Then("kullanici randevu isteginin reddini dogrular")
+    public void kullaniciRandevuIstegininReddiniDogrular() {
+        Assert.assertEquals(managerPage.randevuRedDogrulama.getText(),"DECLINED");
+    }
+
+    @And("kullanici randevu istegini kabul eder")
+    public void kullaniciRandevuIsteginiKabulEder() {
+        managerPage.randevuKabul.click();
+    }
+
+    @And("kullanici randevu isteginin kabulunu onaylar")
+    public void kullaniciRandevuIstegininKabulunuOnaylar() {
+        managerPage.randevuKabulOnay.click();
+    }
+
+    @Then("kullanici randevu isteginin kabulunu dogrular")
+    public void kullaniciRandevuIstegininKabulunuDogrular() {
+        Assert.assertEquals(managerPage.randevuKabulDogrulama.getText(),"APPROVED");
+    }
+
+    @And("kullanici menuden tour request sekmesine tiklar")
+    public void kullaniciMenudenTourRequestSekmesineTiklar() {
+        managerPage.tourRequest.click();
+    }
+
+    @And("kullanici arama kutusuna tur talabi gonderilicek ilani yazar")
+    public void kullaniciAramaKutusunaTurTalabiGonderilicekIlaniYazar() {
+        managerPage.searchBox.sendKeys("Best 210");
+    }
+
+    @And("kullanici arama butonuna tiklar")
+    public void kullaniciAramaButonunaTiklar() {
+        managerPage.searchBoxForClick.click();
+    }
+
+    @And("kullanici tur talebi gonderilecek ilani secer")
+    public void kullaniciTurTalebiGonderilecekIlaniSecer() {
+        managerPage.ilanSec.click();
+    }
+
+    @And("kullanici tur tarihi ve tur suresini secer")
+    public void kullaniciTurTarihiVeTurSuresiniSecer() {
+        managerPage.turTarihSec.sendKeys("26.06.2024");
+        ReusableMethods.ddmValue(managerPage.turSaatSec,"02:00");
+    }
+
+    @And("kullanici submit a tour request butonuna tiklar")
+    public void kullaniciSubmitATourRequestButonunaTiklar() {
+        managerPage.submitTourRequest.click();
+    }
+
+    @Then("kullanici tur talebinin gonderildigini dogrular")
+    public void kullaniciTurTalebininGonderildiginiDogrular() {
+        ReusableMethods.visibleWait(managerPage.talepDogrulama,3);
+        Assert.assertTrue(managerPage.talepDogrulama.isDisplayed());
+    }
+
+    @And("kullanici My Requests basligina tiklar")
+    public void kullaniciMyRequestsBasliginaTiklar() {
+        managerPage.MyRequests.click();
+    }
+
+    @Then("kullanici tur talebinin onaylanip onaylanmadigini dogrular")
+    public void kullaniciTurTalebininOnaylanipOnaylanmadiginiDogrular() {
+        Assert.assertEquals(managerPage.verification.getText(),"APPROVED");
     }
 }
 
