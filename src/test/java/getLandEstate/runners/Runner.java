@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features/ui_features", // çalıştırılacak features'ın yolunu gösteriyoruz
         glue = {"getLandEstate/stepDefinitions/ui_stepDefinition", "getLandEstate/hooks"}, // senaryo ile methodları birbirine yapıştırıyoruz
-
+  
 
         tags = "", // hangi senaryoyu çalıştırmak istediğimizi belirtiyoruz
 
