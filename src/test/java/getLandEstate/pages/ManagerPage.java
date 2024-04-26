@@ -219,8 +219,7 @@ public class ManagerPage {
 
     //hafsa220
 //----------------------------US08---------------------------------------------
-    @FindBy(xpath = "//a[@data-rr-ui-event-key='5']")
-    public WebElement girisButonu;
+
 
 
     @FindBy(xpath = "//*[@class='user-input form-control']")
@@ -230,11 +229,6 @@ public class ManagerPage {
     public  WebElement passwordd;
 
 
-    @FindBy(xpath = "//*[@class='submit-button btn btn-secondary']")
-    public  WebElement loginVerify;
-
-    @FindBy(xpath = "//*[@class='side-menu-link back-site nav-link']")
-    public  WebElement backToSite;
 
     @FindBy(xpath = "(//*[@class='user-pic'])[1]")
     public  WebElement profileButton;
@@ -270,47 +264,53 @@ public class ManagerPage {
     @FindBy(xpath = "(//*[@class='btn-link btn btn-primary'])[4]")
     public WebElement goruntulemeBegeniTur;
 
+    //--------------------------------US18-----------------------------
+    @FindBy(xpath = "//a[text()='Login']")
+    public WebElement loginButonu;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement emailKutusu;
 
-    @FindBy(xpath = "(//*[@class='card-img-bottom category-card-img'])[3]")
-    public WebElement evKategori;
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordKutusu;
 
-    @FindBy(xpath = "(//*[@class='card-img-top property-card-img'])[8]")
-    public WebElement sekizinciIlan;
+    @FindBy(xpath = "//a[@title='Back to Site']")
+    public WebElement backToSiteButonu;
 
+    @FindBy(xpath = "//a[@data-rr-ui-event-key='2']")
+    public WebElement propertiesKutucugu;
 
-    @FindBy(xpath = "//*[@class='col-lg-12 col-md-6 col-12'][2]")
-    public WebElement turAyarla;
+    @FindBy(xpath = "//img[@alt='Scenic_Spacious_Garden_House']")
+    public WebElement cankayaAnkara;
 
-    @FindBy(id = "//*[@id='tourDate']")
-    public WebElement tarihAlani;
+    @FindBy(xpath = "//input[@class='form-control']")
+    public WebElement gunAyTarih;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement submitButonu;
 
-    @FindBy(id = "//*[@id='tourTime']")
-    public WebElement saatAlani;
+    @FindBy(xpath = "//*[.='TourRequest created successfully']")
+    public WebElement bilgiMesaji;
 
-    @FindBy(id = "(//*[@class='btn btn-danger'])[3]")
-    public WebElement turTalebiGonder;
+    @FindBy(xpath = "//div[@class='user-logo-nav navbar-nav']")
+    public WebElement profilBolumu;
 
-    @FindBy(xpath = "//*[@class='p-toast-message-content']")
-    public WebElement turTalebiBilgiMesaji;
-
-
-    @FindBy(xpath = "(//*[@class='ok-icon'])[4]")
-    public WebElement turTaleblerim;
+    @FindBy(xpath = "//*[.='My Tour Requests']")
+    public WebElement myToRequest;
 
     @FindBy(xpath = "//button[@class='nav-link']")
-    public WebElement turCevaplarim;
+    public WebElement myResponses;
 
-    @FindBy(xpath = "(//*[@class='tr-datatable p-datatable p-component p-datatable-responsive-scroll'])[2]")
-    public WebElement ilanistegi;
+    @FindBy(xpath = "//*[.='MALTEPE YALI SAHİLDE SATILIK 3+2 TERAS DUBLEKS']")
+    public WebElement ilanDogrulama1;
 
+    @FindBy(xpath = "//*[.='BÜYÜKÇEKMECE FEZA PARK VİLLALARI SATIŞ OFİSİNDEN 5+1 VİLLA']")
+    public WebElement ilanDogrulama2;
 
-    @FindBy(xpath = "//*[@class='btn-link approve-button btn btn-primary']")
-    public WebElement onayButonu;
-    @FindBy(xpath = "//*[@class='btn-link decline-button btn btn-primary']")
+    @FindBy(xpath = "//button[@class='btn-link decline-button btn btn-primary']")
     public WebElement redButonu;
 
-
+    @FindBy(xpath = "(//button[@class='btn-link approve-button btn btn-primary'])[1]")
+    public WebElement onayButonu;
 
 
 
