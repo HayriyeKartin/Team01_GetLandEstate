@@ -8,7 +8,6 @@ import io.cucumber.java.en.*;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.Assert.*;
 
@@ -64,7 +63,7 @@ public class AdminStepDefinition {
 
     public void dilSeceneginiSecerVeSayfaDilininTurkceOldugunuDogrular() {
 
-        adminPage.iconClick(adminPage.flagIcon, adminPage.trflagIconButton);
+        adminPage.multipleClick(adminPage.flagIcon, adminPage.trflagIconButton);
         Assert.assertEquals("Anasayfa", adminPage.turkishText.getText());
     }
 
@@ -72,14 +71,14 @@ public class AdminStepDefinition {
 
     public void dilSeceneginiSecerVeSayfaDilininFrancaisOldugunuDogrular() {
 
-        adminPage.iconClick(adminPage.flagIcon, adminPage.franchIconButton);
+        adminPage.multipleClick(adminPage.flagIcon, adminPage.franchIconButton);
         Assert.assertEquals("Accueil", adminPage.frTextVerify.getText());
     }
 
     @And("Deutsch dil secenegini secer ve sayfa dilinin Deutsch oldugunu dogrular")
     public void dilSeceneginiSecerVeSayfaDilininDeutschOldugunuDogrular() {
 
-        adminPage.iconClick(adminPage.flagIcon, adminPage.grIconButton);
+        adminPage.multipleClick(adminPage.flagIcon, adminPage.grIconButton);
         Assert.assertEquals("Zuhause", adminPage.grTextVerify.getText());
 
     }
@@ -88,7 +87,7 @@ public class AdminStepDefinition {
 
     public void dilSeceneginiSecerVeSayfaDilininEspanolOldugunuDogrular() {
 
-        adminPage.iconClick(adminPage.flagIcon, adminPage.spIconButton);
+        adminPage.multipleClick(adminPage.flagIcon, adminPage.spIconButton);
         Assert.assertEquals("Inicio", adminPage.spTextVerify.getText());
     }
 
@@ -176,8 +175,7 @@ public class AdminStepDefinition {
         adminPage.firstNameBox.sendKeys(
                 "Damon", Keys.TAB,
                 "Salvatore", Keys.TAB,
-                "(966) 778-1000",
-                Keys.TAB, "rebelvamp@mail.com");
+                "(966) 778-1000");
 
         ReusableMethods.bekle(5);
 
@@ -242,6 +240,8 @@ public class AdminStepDefinition {
     public void kullanicininSilindiginiDogrular(String str) {
         assertEquals(str, adminPage.deletedSuccessMessage.getText());
     }
+
+
 
 
 
