@@ -1,8 +1,6 @@
 package getLandEstate.pages;
 
-import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -14,6 +12,8 @@ public class AdminPage {
     public AdminPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+
 
 
 
@@ -218,6 +218,7 @@ public class AdminPage {
 
 
     //gülsüm220
+
     @FindBy(xpath = "//a[@href='/login']")
     public WebElement loginbutton;
 
@@ -317,16 +318,6 @@ public class AdminPage {
     @FindBy(css = ".p-toast-detail")
     public WebElement deletedSuccessMessage;
 
-
-
-
-
-
-
-
-
-
-
     //Delete Methodu - US05 gulsum
     public void deleteMethod(WebElement webElement) {
         String codeValue = webElement.getAttribute("value");
@@ -336,7 +327,7 @@ public class AdminPage {
     }
 
     //Click Methodu - US04 gulsum
-    public void iconClick(WebElement element1, WebElement element2) {
+    public void multipleClick(WebElement element1, WebElement element2) {
         try {
             element1.click();
             element2.click();
@@ -363,6 +354,15 @@ public class AdminPage {
             throw new RuntimeException("sendKeysAndClick metodu çalışırken bir hata oluştu.", e);
         }
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -538,79 +538,6 @@ public WebElement giriş;
     public WebElement  adminilandoğrulma14;
     @FindBy(xpath = "(//span[@class='p-tag-value'])[1]") //eklendi
     public WebElement  adminilandoğrulamarol;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

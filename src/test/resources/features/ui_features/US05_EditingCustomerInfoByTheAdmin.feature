@@ -20,8 +20,8 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     Then kullanici bilgilerinin goruntulendigi dogrulanir
     And sayfayi kapatir
     Examples:
-      | name  | email              | phone          | role     |
-      | Damon | rebelvamp@mail.com | (966) 778-1000 | CUSTOMER |
+      | name     | email              | phone          | role     |
+      | customer | rebelvamp@mail.com | (966) 778-1000 | CUSTOMER |
 
   @update
   Scenario: TC03 Kullanici bilgilerini guncelleyebilmeli
