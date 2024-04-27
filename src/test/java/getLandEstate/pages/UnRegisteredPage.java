@@ -57,18 +57,6 @@ public class UnRegisteredPage {
     public WebElement messageInvalidEmail;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     //gulsum60 - US12
     @FindBy(xpath = "//button[normalize-space()='Rent']")
     public WebElement rentButton;
@@ -162,72 +150,4 @@ public class UnRegisteredPage {
     public WebElement sendMailEyeIcon;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //hayriye220
 }
