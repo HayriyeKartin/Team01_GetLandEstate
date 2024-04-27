@@ -183,4 +183,13 @@ public class ReusableMethods {
             // Herhangi bir hata oluşursa, bu hata yoksayılır.
         }
     }
+
+    public static void deleteMethod(WebElement webElement) {
+
+        String codeValue = webElement.getAttribute("value");
+        for (int i = 0; i < codeValue.length(); i++) {
+            webElement.sendKeys(Keys.BACK_SPACE);
+        }
+
+    }
 }

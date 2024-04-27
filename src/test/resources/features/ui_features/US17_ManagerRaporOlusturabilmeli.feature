@@ -3,8 +3,8 @@ Feature: Manager Rapor Olusturabilmeli
 
   Background:
     Given kullanici web sayfasina gider
-    When kullanici login butonuna tiklar
-    And kullanici email ve password bilgileri ile login olur
+    When login butonuna tiklar
+    And kullanici giris bilgileriyle login olur
     And menuden reports secenegine tiklar
 
   @US17TC01
@@ -26,7 +26,7 @@ Feature: Manager Rapor Olusturabilmeli
 
   @US17TC03
   Scenario: TC03 Kullanıcı bilgilerine göre rapor oluşturabilmeli
-    When USERS baslıgı altindaki rollerden biri secilir
+    When USERS basligi altindaki rollerden biri secilir
     And users excel ikonuna tiklanir
     Then Success mesajinin goruntulendigi dogrulanir
     And sayfayi kapatir
