@@ -9,6 +9,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
+import static org.junit.Assert.assertEquals;
+
 public class ManagerStepDefinition {
     ManagerPage managerPage = new ManagerPage();
 
@@ -267,6 +269,203 @@ public class ManagerStepDefinition {
     @Then("kullanici tur talebinin onaylanip onaylanmadigini dogrular")
     public void kullaniciTurTalebininOnaylanipOnaylanmadiginiDogrular() {
         Assert.assertEquals(managerPage.verification.getText(),"APPROVED");
+    }
+
+    //US17
+    @When("kullanici giris bilgileriyle login olur")
+    public void kullaniciGirisBilgileriyleLoginOlur() {
+
+        managerPage.email.sendKeys(ConfigReader.getProperty("email"));
+        managerPage.password.sendKeys(ConfigReader.getProperty("passwordd"), Keys.ENTER);
+
+    }
+
+    @And("menuden reports secenegine tiklar")
+    public void menudenReportsSecenegineTiklar() {
+        managerPage.reports.click();
+    }
+
+    @When("ADVERTS basligi altindaki {string}, {string}, category, advertType, status alaninda gecerli secim yapilir")
+    public void advertsBasligiAltindakiCategoryAdvertTypeStatusAlanindaGecerliSecimYapilir(String startDate, String endDate) {
+        managerPage.advertsStartDate.sendKeys(startDate,
+                Keys.TAB,endDate);
+        ReusableMethods.ddmVisibleText(managerPage.advertsCategory, "Villa");
+        ReusableMethods.ddmVisibleText(managerPage.advertType, "Rent");
+        ReusableMethods.ddmVisibleText(managerPage.advertsStatus, "Activated");
+    }
+
+    @And("adverts excel ikonuna tiklanir")
+    public void advertsExcelIkonunaTiklanir() {
+        managerPage.advertsExcelIcon.click();
+    }
+
+    @Then("Success mesajinin goruntulendigi dogrulanir")
+    public void successMesajininGoruntulendigiDogrulanir() {
+        ReusableMethods.visibleWait(managerPage.messageSuccess,5);
+        Assert.assertTrue(managerPage.messageSuccess.isDisplayed());
+    }
+
+    @When("MOST POPULAR PROPERTIES basligi altinda Amount alanina gecerli bir deger girilir")
+    public void mostPOPULARPROPERTIESBasligiAltindaAmountAlaninaGecerliBirDegerGirilir() {
+        ReusableMethods.deleteMethod(managerPage.amount);
+        managerPage.amount.sendKeys("5");
+    }
+
+    @And("amount excel ikonuna tiklanir")
+    public void amountExcelIkonunaTiklanir() {
+        managerPage.amountExcelIcon.click();
+    }
+
+    @When("USERS basligi altindaki rollerden biri secilir")
+    public void usersBasligiAltindakiRollerdenBiriSecilir() {
+        ReusableMethods.ddmVisibleText(managerPage.users, "MANAGER");
+    }
+
+    @And("users excel ikonuna tiklanir")
+    public void usersExcelIkonunaTiklanir() {
+        managerPage.usersExcelIcon.click();
+    }
+
+    @When("TOUR REQUESTS basligi altindaki {string}, {string}, {string} alaninda gecerli secim yapilir")
+    public void tourREQUESTSBasligiAltindakiAlanindaGecerliSecimYapilir(String startDate, String endDate, String status) {
+        managerPage.tourRequestStartDate.sendKeys(startDate,
+                Keys.TAB,endDate,
+                Keys.TAB, status
+        );
+    }
+
+    @And("tourRequest excel ikonuna tiklanir")
+    public void tourrequestExcelIkonunaTiklanir() {
+        managerPage.tourRequestExcelIcon.click();
+    }
+
+    //US20
+    @And("ContactMessages butonuna tiklar")
+    public void contactmessagesButonunaTiklar() {
+        managerPage.contactMessageSend();
+        ReusableMethods.bekle(3);
+        managerPage.contactMessagesButton.click();
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.bekle(5);
+    }
+
+    @Then("gelen mesaja tiklar ve mesajin goruntulendigini dogrular")
+    public void gelenMesajaTiklarVeMesajinGoruntulendiginiDogrular() {
+        managerPage.inComingMessage.click();
+        ReusableMethods.bekle(2);
+        String expectedData = "Merhaba, sayfanızda ilan vermek istiyorum.";
+        String actualData = managerPage.inComingMessageText.getText();
+        Assert.assertEquals(expectedData, actualData);
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("gelen mesaji siler ve mesajin silindigini dogrular")
+    public void gelenMesajiSilerVeMesajinSilindiginiDogrular() {
+        managerPage.deleteMessageIcon.click();
+        ReusableMethods.bekle(3);
+        Assert.assertTrue(managerPage.inComingMessageText.isDisplayed());
+    }
+
+    @When("gelen mesaja tiklar")
+    public void gelenMesajaTiklar() {
+        managerPage.inComingMessage.click();
+        ReusableMethods.bekle(2);
+    }
+
+    @And("mark as read ikonuna tiklar")
+    public void markAsReadIkonunaTiklar() {
+        managerPage.markAsReadIcon.click();
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("mesajin okundu olarak isaretlendigini dogrular")
+    public void mesajinOkunduOlarakIsaretlendiginiDogrular() {
+        String expectedData = "Mark as unread";
+        String actualData = managerPage.markAsUnreadIcon.getAttribute("title");
+        Assert.assertEquals(expectedData, actualData);
+        ReusableMethods.bekle(2);
+    }
+
+    @When("arama kutusuna gecerli bir deger girer ve arama butonuna tiklar")
+    public void aramaKutusunaGecerliBirDegerGirerVeAramaButonunaTiklar() {
+        managerPage.messageSearchBox.sendKeys("customer@hayriye.com");
+        managerPage.messageSearchButton.click();
+    }
+
+    @Then("arama sonucunun goruntulendigini dogrular")
+    public void aramaSonucununGoruntulendiginiDogrular() {
+        String expectedData = "customer@hayriye.com";
+        String actualData = managerPage.messageSearchResult.getText();
+        Assert.assertEquals(expectedData, actualData);
+    }
+
+    @When("filtreleme ikonuna tiklar")
+    public void filtrelemeIkonunaTiklar() {
+        managerPage.messageFilterButton.click();
+    }
+
+    @And("okunan mesajlari secer")
+    public void okunanMesajlariSecer() {
+        ReusableMethods.ddmVisibleText(managerPage.messageFilterSelect, "Read");
+    }
+
+    @And("baslangic ve bitis tarihi secer")
+    public void baslangicVeBitisTarihiSecer() {
+        managerPage.messageFilterStartDate.sendKeys("01.04.2024");
+        managerPage.messageFilterEndDate.sendKeys("30.04.2024");
+    }
+
+    @Then("filtreleme sonuclarinin goruntulendigini dogrular")
+    public void filtrelemeSonuclarininGoruntulendiginiDogrular() {
+        Assert.assertTrue(managerPage.filterMessage.isDisplayed());
+    }
+
+    @And("okunmayan mesajlari secer")
+    public void okunmayanMesajlariSecer() {
+        ReusableMethods.ddmVisibleText(managerPage.messageFilterSelect, "Unread");
+    }
+
+    @Then("kullanici sayfa dilinin default olarak ingilizce oldugunu dogrular")
+    public void kullaniciSayfaDilininDefaultOlarakIngilizceOldugunuDogrular() {
+        String expectedData = "Home";
+        String actualData = managerPage.homeMenuButton.getText();
+        assertEquals(expectedData, actualData);
+    }
+
+    @Then("turkce dil secenegini secer ve sayfa dilinin turkce oldugunu dogrular")
+    public void turkceDilSeceneginiSecerVeSayfaDilininTurkceOldugunuDogrular() {
+        managerPage.flagIconButton.click();
+        managerPage.trFlagIconButton.click();
+        String expectedData = "Anasayfa";
+        String actualData = managerPage.anasayfaMenuButton.getText();
+        assertEquals(expectedData, actualData);
+    }
+
+    @Then("fransizca dil secenegini secer ve sayfa dilinin fransizca oldugunu dogrular")
+    public void fransizcaDilSeceneginiSecerVeSayfaDilininFransizcaOldugunuDogrular() {
+        managerPage.flagIconButton.click();
+        managerPage.frFlagIconButton.click();
+        String expectedData = "Accueil";
+        String actualData = managerPage.accueilMenuButton.getText();
+        assertEquals(expectedData, actualData);
+    }
+
+    @Then("almanca dil secenegini secer ve sayfa dilinin almanca oldugunu dogrular")
+    public void almancaDilSeceneginiSecerVeSayfaDilininAlmancaOldugunuDogrular() {
+        managerPage.flagIconButton.click();
+        managerPage.deFlagIconButton.click();
+        String expectedData = "Zuhause";
+        String actualData = managerPage.zuhauseMenuButton.getText();
+        assertEquals(expectedData, actualData);
+    }
+
+    @Then("ispanyolca dil secenegini secer ve sayfa dilinin ispanyolca oldugunu dogrular")
+    public void ispanyolcaDilSeceneginiSecerVeSayfaDilininIspanyolcaOldugunuDogrular() {
+        managerPage.flagIconButton.click();
+        managerPage.esFlagIconButton.click();
+        String expectedData = "Inicio";
+        String actualData = managerPage.inicioMenuButton.getText();
+        assertEquals(expectedData, actualData);
     }
 }
 

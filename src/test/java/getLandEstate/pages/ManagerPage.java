@@ -1,15 +1,18 @@
 package getLandEstate.pages;
 
+import getLandEstate.utilities.ui_utilities.ConfigReader;
+import getLandEstate.utilities.ui_utilities.Driver;
+import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ManagerPage {
 
-
-
-
-
-
+    public ManagerPage(){
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
 
 
@@ -683,6 +686,9 @@ public class ManagerPage {
     @FindBy(xpath = "(//div[@class='admin-report-button-wrapper'])[1]")
     public WebElement advertsExcelIcon;
 
+    @FindBy(xpath ="//span[text()='Success']")
+    public WebElement messageSuccess;
+
     @FindBy(xpath ="//input[@id='amount']")
     public WebElement amount;
 
@@ -708,24 +714,96 @@ public class ManagerPage {
     public WebElement tourRequestExcelIcon;
 
     // US20 locate'leri
+
+    @FindBy(xpath = "(//a[text()='Contact'])[1]")
+    public WebElement contactMenuButton;
+
+    @FindBy(css = "#firstName")
+    public WebElement firstNameInput;
+
+    @FindBy(css = "#lastName")
+    public WebElement lastNameInput;
+
+    @FindBy(css = "#email")
+    public WebElement emailInput;
+
+    @FindBy(css = "#message")
+    public WebElement messageTextArea;
+
+    @FindBy(xpath = "//div[@class='recaptcha-wrapper']")
+    public WebElement notRobotIframe;
+
+    @FindBy(xpath = "//div[@class='recaptcha-checkbox-border']")
+    public WebElement notRobotCheckBox;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement contactMessageSendButton;
+
     @FindBy(xpath = "//span[text()='ContactMessages']")
     public WebElement contactMessagesButton;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/h2/button")
-    public WebElement firstMessage;
+    @FindBy(xpath = "//span[text()='customer@hayriye.com']")
+    public WebElement inComingMessage;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/h2/button")
-    public WebElement secondMessage;
-
+    @FindBy(xpath = "//p[text()='Merhaba, sayfanızda ilan vermek istiyorum.']")
+    public WebElement inComingMessageText;
     @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
     public WebElement deleteMessageIcon;
 
-    @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Mark as unread']//*[name()='svg']//*[name()='path' and contains(@d,'M22 8.98V1')]")
-    public WebElement markAsUnreadIcon;
-
-    @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Mark as read']//*[name()='svg']//*[name()='path' and contains(@d,'M12 19a6.9')]")
+    @FindBy(xpath = "(//button[@title='Mark as read'])[1]")
     public WebElement markAsReadIcon;
 
+    @FindBy(xpath = "(//button[@title='Mark as unread'])[1]")
+    public WebElement markAsUnreadIcon;
+
+    @FindBy(xpath = "//input[@placeholder='Type Something']")
+    public WebElement messageSearchBox;
+
+    @FindBy(xpath = "//button[@class='search-button btn btn-primary']")
+    public WebElement messageSearchButton;
+
+    @FindBy(xpath = "//span[text()='customer@hayriye.com']")
+    public WebElement messageSearchResult;
+
+    @FindBy(xpath = "//button[@class='filter-button btn btn-primary']")
+    public WebElement messageFilterButton;
+
+    @FindBy(css = "#status")
+    public WebElement messageFilterSelect;
+
+    @FindBy(css = "#startDate")
+    public WebElement messageFilterStartDate;
+
+    @FindBy(css = "#endDate")
+    public WebElement messageFilterEndDate;
+
+    @FindBy(xpath = "//button[@title='Apply Filters']")
+    public WebElement messageApplyFiltersButton;
+
+    @FindBy(xpath = "(//span[@class='email'])[1]")
+    public WebElement filterMessage;
+
+    public void contactMessageSend(){
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ManagerPage getLandEstatePage = new ManagerPage();
+        getLandEstatePage.contactMenuButton.click();
+        getLandEstatePage.firstNameInput.sendKeys("hayriye");
+        getLandEstatePage.lastNameInput.sendKeys("customer");
+        getLandEstatePage.emailInput.sendKeys("customer@hayriye.com");
+        getLandEstatePage.messageTextArea.sendKeys("Merhaba, sayfanızda ilan vermek istiyorum.");
+        ReusableMethods.visibleWait(getLandEstatePage.notRobotIframe,3);
+        Driver.getDriver().switchTo().frame(1);
+        getLandEstatePage.notRobotCheckBox.click();
+        ReusableMethods.bekle(2);
+        Driver.getDriver().switchTo().defaultContent();
+        ReusableMethods.bekle(3);
+        getLandEstatePage.contactMessageSendButton.click();
+        ReusableMethods.bekle(3);
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        getLandEstatePage.loginButton.click();
+        getLandEstatePage.email.sendKeys(ConfigReader.getProperty("email"));
+        getLandEstatePage.password.sendKeys(ConfigReader.getProperty("passwordd"), Keys.ENTER);
+    }
 
 
 
