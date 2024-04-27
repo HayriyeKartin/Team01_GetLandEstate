@@ -7,7 +7,7 @@ Feature:Customer sayfaya kayıt olabilmelidir.
 
 
   @B6
-  Scenario:TC01 Kullanici( Customer) Olusturma
+  Scenario:TC01 Kullanici( Customer) Olusturma.
 
 
     When Kullanici first name girer
@@ -22,7 +22,7 @@ Feature:Customer sayfaya kayıt olabilmelidir.
     And sayfayi kapatir
 
   @B7
-  Scenario Outline:TC02 Kullanici( Customer), zorunlu alanlari boş birakirsa kayit işlemi gerceklesmemeli
+  Scenario Outline:TC02 Kullanici( Customer), zorunlu alanlari boş birakirsa kayit işlemi gerceklesmemeli.
 
     When first name "<first_name>" girer
     And last name "<last_name>" girer
@@ -101,4 +101,9 @@ Feature:Customer sayfaya kayıt olabilmelidir.
     And Terms of Use ve Privacy Policy checkbox'ı  secer
     Then Register butonu aktif olmamali
     And sayfayi kapatir
+
+
+
+
+
 
