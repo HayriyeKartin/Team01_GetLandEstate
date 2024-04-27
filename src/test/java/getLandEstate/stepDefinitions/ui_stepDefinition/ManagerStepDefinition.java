@@ -91,7 +91,7 @@ public class ManagerStepDefinition {
 
     @When("Sayfanin sag ust bolumundeki Login butonuna tiklayarak giris ekranina ulasir.")
     public void sayfaninSagUstBolumundekiLoginButonunaTiklayarakGirisEkraninaUlasir() {
-       managerPage.loginButonu.click();
+        managerPage.loginButonu.click();
     }
 
     @Then("Kullanici ilgili alanlara Email ve Enter password bilgisini yazar ve giris yapar.")

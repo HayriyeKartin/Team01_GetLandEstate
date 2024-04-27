@@ -19,7 +19,7 @@
       Then Sayfa dilinin Türkçe oldugunu dogrular
       And sayfayi kapatir
 
-    @B3
+     @B3
     Scenario: TC03 Sayfa dili Français olarak secilir
       And Sayfa dilini Français olarak secer
       Then Sayfa dilinin Français oldugunu dogrular
@@ -31,7 +31,7 @@
      Then Sayfa dilinin Deutsch oldugunu dogrular
      And sayfayi kapatir
 
-    @B5
+     @B5
     Scenario: TC05 Sayfa dili Espanol olarak secilir
       And Sayfa dilini Espanol olarak secer
       Then Sayfa dilinin Espanol oldugunu dogrular

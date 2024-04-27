@@ -238,10 +238,10 @@ public class CustomerStepDefinition {
 
     CustomerPage customerPage=new CustomerPage();
 
-    @Given("Kullanici {string} sayfasina gider")
-    public void kullaniciSayfasinaGider(String url) {
-        Driver.getDriver().get(url);
-    }
+   @Given("Kullanici {string} sayfasina gider")
+   public void kullaniciSayfasinaGider(String url) {
+       Driver.getDriver().get(url);
+   }
 
     @When("Sag ust kisimdaki Login butonuna tiklayarak giris ekranina ulasir.")
     public void sagUstKisimdakiLoginButonunaTiklayarakGirisEkraninaUlasir() {

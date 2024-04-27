@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 
         tags = "@US07TC22", // hangi senaryoyu çalıştırmak istediğimizi belirtiyoruz
 
-    
+
         dryRun = false, //--> eğer true seçilirse scenario'ları çalıştırmadan feature file'da eksik step definition'ların
         //olup olmadığını kontrol eder ve browser'ı çalıştırmaz
         monochrome = false
