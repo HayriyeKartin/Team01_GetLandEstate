@@ -4,7 +4,7 @@ Feature:
   Background:
     Given kullanici web sayfasina gider
     When Kullanici login butonuna tiklar
-    And kullanici email ve password bilgileriyle login olur
+    And kullanici email ve password bilgileriylen login olur
 
   @US14TC01
   Scenario: TC01 Kullanici kendine ait olmayan bir ilan icin randevu olusturabilmeli
