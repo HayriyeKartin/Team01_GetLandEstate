@@ -84,7 +84,7 @@ Feature: Kayitli olmayan kullanici satilik ve kiralik ilan arayabilmeli
   Scenario Outline: TC09 Ilan verenin iletisim bilgileri tiklandiginda "Don't have an account? Create one now!" uyari metni gelmeli
     When Rent secenegine tiklar ve emlak tipini secer
     And search iconuna tiklar
-    And price range bilgilerini girer
+    And price range bilgilerini girerG
     And ilan arama kategorilerini doldurur "<advert Type>", "<category>", "<country>", "<city>", "<district>"
     And cikan ilk ilana tiklar
     And contact number ve send mail kutusunda goz sembolune tiklar
