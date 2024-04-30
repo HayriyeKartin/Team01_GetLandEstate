@@ -8,6 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 public class ManagerPage {
 
     public ManagerPage(){
@@ -17,120 +21,113 @@ public class ManagerPage {
 
 
 
-
-
-
     //fatih20
+    @FindBy(xpath = "//a[@class='add-property btn btn-primary']")
+    public WebElement createPropertyButton;
 
+    @FindBy(xpath = "//input[@placeholder='Title']")
+    public WebElement title;
 
+    @FindBy(xpath = "//div[text()='Enter a title']")
+    public WebElement titleMessage;
+//div[text()='Enter a title']
 
+    @FindBy(xpath = "//textarea")
+    public WebElement description;
 
+    @FindBy(xpath = "//div[text()='Enter a description']")
+    public WebElement descriptionMessage;
 
+    @FindBy(xpath = "//input[@id='price']")
+    public WebElement price;
 
+    @FindBy(xpath = "//div[text()='Price must be positive']")
+    public WebElement priceMessage;
 
+    @FindBy(xpath = "//select[@name='advertTypeId']")
+    public WebElement advertTypeDDM;
 
+    @FindBy(xpath = "//select[@name='categoryId']")
+    public WebElement categoryDDM;
 
+    @FindBy(xpath = "//select[@name='countryId']")
+    public WebElement countryDDM;
 
+    @FindBy(xpath = "//select[@name='cityId']")
+    public WebElement cityDDM;
 
+    @FindBy(xpath = "//select[@name='districtId']")
+    public WebElement districtDDM;
 
+    @FindBy(xpath = "//input[@placeholder='Address']")
+    public WebElement address;
 
+    @FindBy(xpath = "//div[text()='newAdvertPageTranslations.requiredAddress']")
+    public WebElement addressMessage;
 
+    @FindBy(xpath = "//input[@id='Size']")
+    public WebElement size;
 
+    @FindBy(xpath = "//input[@id='Bedrooms']")
+    public WebElement bedrooms;
 
+    @FindBy(xpath = "//input[@id='Bathrooms']")
+    public WebElement bathrooms;
 
+    @FindBy(xpath = "//select[@id='Garage']")
+    public WebElement garage;
 
+    @FindBy(xpath = "//input[@id='Year of Build']")
+    public WebElement yearOfBuild;
 
+    @FindBy(xpath = "//select[@id='Furniture']")
+    public WebElement furnitureDDM;
 
+    @FindBy(xpath = "//input[@id='Maintenance Fee']")
+    public WebElement maintenanceFee;
 
+    @FindBy(xpath = "//select[@id='Terrace']")
+    public WebElement terrace;
 
+    @FindBy(xpath = "//p[text()='Drag and drop the images or click here']")
+    public WebElement uploadImages;
 
+    @FindBy(xpath = "//div[@class='image-feedback']")
+    public WebElement uploadImagesMessage;
 
+    @FindBy(xpath = "//div[@class='plus-button']")
+    public WebElement uploadImagesPlusButton;
 
+    @FindBy(xpath = "//div[@class='img-wrapper']")
+    public WebElement uploadImagesDogrulama;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement createButton;
 
+    @FindBy(xpath = "//span[@class='p-toast-summary']")
+    public WebElement advertCreatedMessage;
 
+    @FindBy(xpath = "//div[@class='p-toast-detail']")
+    public WebElement districtMessage;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void uploadFilePath(String dosyaYolu){
+        try{
+            ReusableMethods.bekle(3);
+            StringSelection stringSelection = new StringSelection(dosyaYolu);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.delay(3000);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.delay(3000);
+        }catch (Exception ignored){
+        }
+    }
 
 
 

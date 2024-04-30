@@ -1,11 +1,13 @@
 package getLandEstate.stepDefinitions.ui_stepDefinition;
 
+import com.github.javafaker.Faker;
 import getLandEstate.pages.ManagerPage;
 import getLandEstate.utilities.ui_utilities.ConfigReader;
 import getLandEstate.utilities.ui_utilities.Driver;
 import getLandEstate.utilities.ui_utilities.ReusableMethods;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
@@ -13,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ManagerStepDefinition {
     ManagerPage managerPage = new ManagerPage();
+    Faker faker = new Faker();
 
 
     @Given("Kullanici getLandEstate web sayfasina gider")
@@ -88,7 +91,7 @@ public class ManagerStepDefinition {
 
     @When("Sayfanin sag ust bolumundeki Login butonuna tiklayarak giris ekranina ulasir.")
     public void sayfaninSagUstBolumundekiLoginButonunaTiklayarakGirisEkraninaUlasir() {
-       managerPage.loginButonu.click();
+        managerPage.loginButonu.click();
     }
 
     @Then("Kullanici ilgili alanlara Email ve Enter password bilgisini yazar ve giris yapar.")
@@ -468,6 +471,315 @@ public class ManagerStepDefinition {
         String actualData = managerPage.inicioMenuButton.getText();
         assertEquals(expectedData, actualData);
     }
+    @And("Create Property butonuna tiklar")
+    public void createPropertyButonunaTiklar() {
+        managerPage.createPropertyButton.click();
+    }
+    @And("Common Information bilgilerini girer")
+    public void commonInformationBilgileriniGirer() {
+        managerPage.title.sendKeys(faker.lorem().sentence());
+        managerPage.description.sendKeys(faker.lorem().paragraph());
+        managerPage.price.sendKeys(faker.number().randomDigitNotZero() +"");
+        ReusableMethods.ddmValue(managerPage.advertTypeDDM,"1");
+        ReusableMethods.ddmValue(managerPage.categoryDDM, "1");
+    }
+    @And("Address Information bilgilerini girer")
+    public void addressInformationBilgileriniGirer() {
+        ReusableMethods.ddmValue(managerPage.countryDDM, "223");
+        ReusableMethods.ddmValue(managerPage.cityDDM, "4121");
+        ReusableMethods.ddmValue(managerPage.districtDDM, "48317");
+        managerPage.address.sendKeys(faker.address().fullAddress());
+    }
+    @And("Properties Information bilgilerini girer")
+    public void propertiesInformationBilgileriniGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+    @Then("Common Information, Address Information, Properties bilgilerinin girilebildigini dogrular")
+    public void commonInformationAddressInformationPropertiesBilgilerininGirilebildiginiDogrular() {
+        Assert.assertEquals("form-control is-valid", managerPage.title.getAttribute("class"));
+        Assert.assertEquals("form-control is-valid", managerPage.description.getAttribute("class"));
+        Assert.assertEquals("form-control is-valid", managerPage.price.getAttribute("class"));
+        Assert.assertEquals("select form-select is-valid", managerPage.advertTypeDDM.getAttribute("class"));
+        Assert.assertEquals("1", managerPage.categoryDDM.getAttribute("value"));
+        Assert.assertEquals("select form-select is-valid", managerPage.countryDDM.getAttribute("class"));
+        Assert.assertEquals("select form-select is-valid", managerPage.cityDDM.getAttribute("class"));
+        Assert.assertEquals("select form-select is-valid", managerPage.districtDDM.getAttribute("class"));
+        Assert.assertEquals("form-control is-valid", managerPage.address.getAttribute("class"));
+        Assert.assertNotEquals(" ", managerPage.size.getAttribute("value"));
+        Assert.assertNotEquals(" ", managerPage.bedrooms.getAttribute("value"));
+        Assert.assertNotEquals(" ", managerPage.bathrooms.getAttribute("value"));
+        Assert.assertEquals("select form-select",managerPage.garage.getAttribute("class"));
+        Assert.assertNotEquals(" ", managerPage.yearOfBuild.getAttribute("value"));
+        Assert.assertEquals("select form-select",managerPage.furnitureDDM.getAttribute("class"));
+        Assert.assertNotEquals(" ", managerPage.maintenanceFee.getAttribute("value"));
+        Assert.assertEquals("select form-select",managerPage.terrace.getAttribute("class"));
+    }
+    @And("Common Information bolumunde Title ve Description alanlarini bos birakir")
+    public void commonInformationBolumundeTitleVeDescriptionAlanlariniBosBirakir() {
+        managerPage.title.click();
+        managerPage.title.sendKeys(Keys.TAB);
+        managerPage.description.click();
+        managerPage.description.sendKeys(Keys.TAB);
+    }
+
+    @Then("Enter a title ve Enter a description uyari metinlerinin goruldugunu dogrular")
+    public void enterATitleVeEnterADescriptionUyariMetinlerininGoruldugunuDogrular() {
+        Assert.assertEquals("Enter a title",managerPage.titleMessage.getText());
+        Assert.assertEquals("Enter a description",managerPage.descriptionMessage.getText());
+    }
+
+    @And("Address Information bolumunde Address alani bos birakilir")
+    public void addressInformationBolumundeAddressAlaniBosBirakilir() {
+        managerPage.address.click();
+        managerPage.address.sendKeys(Keys.TAB);
+    }
+
+    @Then("newAdvertPageTranslations.requiredAddress uyari metninin goruldugunu dogrular")
+    public void newadvertpagetranslationsRequiredAddressUyariMetnininGoruldugunuDogrular() {
+        Assert.assertEquals("newAdvertPageTranslations.requiredAddress",managerPage.addressMessage.getText());
+    }
+
+    @And("Drag and drop the images or click here yazan alana tiklanarak ya da surukleyip  birakarak resim yukler")
+    public void dragAndDropTheImagesOrClickHereYazanAlanaTiklanarakYaDaSurukleyipBirakarakResimYukler() {
+        managerPage.uploadImages.click();
+        ReusableMethods.bekle(3);
+        String dosyaYolu = System.getProperty("user.home")+"\\Desktop\\kiralik\\Screenshot_1.png";
+        managerPage.uploadFilePath(dosyaYolu);
+    }
+
+    @Then("Resim yuklendigini dogrular")
+    public void resimYuklendiginiDogrular() {
+        Assert.assertEquals("img-wrapper",managerPage.uploadImagesDogrulama.getAttribute("class"));
+    }
+
+    @And("Drag and drop the images or click here yazan alana tiklanarak ya da surukleyip  birakarak boyutu uc MB tan buyuk olacak sekilde resim yukler")
+    public void dragAndDropTheImagesOrClickHereYazanAlanaTiklanarakYaDaSurukleyipBirakarakBoyutuUcMBTanBuyukOlacakSekildeResimYukler() {
+        managerPage.uploadImages.click();
+        ReusableMethods.bekle(3);
+        String dosyaYolu = System.getProperty("user.home")+"\\Desktop\\hd\\pexels-quang-nguyen-vinh-222549-2476632.jpg";
+        managerPage.uploadFilePath(dosyaYolu);
+    }
+
+    @Then("Each image should be a maximum of uc MB uyari metninin goruldugunu dogrular")
+    public void eachImageShouldBeAMaximumOfUcMBUyariMetnininGoruldugunuDogrular() {
+        Assert.assertEquals("Each image should be a maximum of 3 MB", managerPage.uploadImagesMessage.getText());
+    }
+
+    @And("Common Information bolumunde Title alanini bos birakir, diger tum alanlara gerekli datalari girer")
+    public void commonInformationBolumundeTitleAlaniniBosBirakirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.description.sendKeys(faker.lorem().paragraph());
+        managerPage.price.sendKeys(faker.number().randomDigitNotZero() +"");
+        ReusableMethods.ddmValue(managerPage.advertTypeDDM,"1");
+        ReusableMethods.ddmValue(managerPage.categoryDDM, "1");
+    }
+
+    @Then("Create butonuna tiklanmadigini dogrular")
+    public void createButonunaTiklanmadiginiDogrular() {
+        Assert.assertFalse(managerPage.createButton.isEnabled());
+    }
+
+    @And("Common Information bolumunde Description alanini bos birakir, diger tum alanlara gerekli datalari girer")
+    public void commonInformationBolumundeDescriptionAlaniniBosBirakirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.title.sendKeys(faker.lorem().sentence());
+        managerPage.price.sendKeys(faker.number().randomDigitNotZero() +"");
+        ReusableMethods.ddmValue(managerPage.advertTypeDDM,"1");
+        ReusableMethods.ddmValue(managerPage.categoryDDM, "1");
+    }
+
+    @And("Common Information bolumunde Price alanini bos birakir, diger tum alanlara gerekli datalari girer")
+    public void commonInformationBolumundePriceAlaniniBosBirakirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.title.sendKeys(faker.lorem().sentence());
+        managerPage.description.sendKeys(faker.lorem().paragraph());
+        ReusableMethods.ddmValue(managerPage.advertTypeDDM,"1");
+        ReusableMethods.ddmValue(managerPage.categoryDDM, "1");
+    }
+
+    @And("Address Information bolumunde Country alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void addressInformationBolumundeCountryAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.cityDDM.click();
+        managerPage.districtDDM.click();
+        managerPage.address.sendKeys(faker.address().fullAddress());
+    }
+
+    @And("Address Information bolumunde City alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void addressInformationBolumundeCityAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        ReusableMethods.ddmValue(managerPage.countryDDM, "223");
+        managerPage.districtDDM.click();
+        managerPage.address.sendKeys(faker.address().fullAddress());
+    }
+
+    @And("Address Information bolumunde District alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void addressInformationBolumundeDistrictAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        ReusableMethods.ddmValue(managerPage.countryDDM, "223");
+        ReusableMethods.ddmValue(managerPage.cityDDM, "4121");
+        managerPage.address.sendKeys(faker.address().fullAddress());
+    }
+
+    @And("Common Information bolumunde Advert Type alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void commonInformationBolumundeAdvertTypeAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.title.sendKeys(faker.lorem().sentence());
+        managerPage.description.sendKeys(faker.lorem().paragraph());
+        managerPage.price.sendKeys(faker.number().randomDigitNotZero() +"");
+        ReusableMethods.ddmValue(managerPage.categoryDDM, "1");
+    }
+
+    @And("Common Information bolumunde Category alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void commonInformationBolumundeCategoryAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.title.sendKeys(faker.lorem().sentence());
+        managerPage.description.sendKeys(faker.lorem().paragraph());
+        managerPage.price.sendKeys(faker.number().randomDigitNotZero() +"");
+        ReusableMethods.ddmValue(managerPage.advertTypeDDM,"1");
+    }
+
+    @And("Address Information bolumunde Address alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void addressInformationBolumundeAddressAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        ReusableMethods.ddmValue(managerPage.countryDDM, "223");
+        ReusableMethods.ddmValue(managerPage.cityDDM, "4121");
+        ReusableMethods.ddmValue(managerPage.districtDDM, "48317");
+    }
+
+    @And("Properties bolumunde Size alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeSizeAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Bedrooms alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeBedroomsAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Bathrooms alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeBathroomsAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Garage alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeGarageAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Year of Build alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeYearOfBuildAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Furniture alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeFurnitureAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Maintenance Fee alani bos birakilir, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeMaintenanceFeeAlaniBosBirakilirDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Properties bolumunde Terrace alaninda secim yapilmaz, diger tum alanlara gerekli datalari girer")
+    public void propertiesBolumundeTerraceAlanindaSecimYapilmazDigerTumAlanlaraGerekliDatalariGirer() {
+        managerPage.size.sendKeys(faker.number().digit());
+        managerPage.bedrooms.sendKeys(faker.number().digit());
+        managerPage.bathrooms.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.garage,"Yes");
+        managerPage.yearOfBuild.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.furnitureDDM,"Yes");
+        managerPage.maintenanceFee.sendKeys(faker.number().digit());
+        ReusableMethods.ddmValue(managerPage.terrace, "Yes");
+    }
+
+    @And("Drag and drop the images or click here alani bos birakilir")
+    public void dragAndDropTheImagesOrClickHereAlaniBosBirakilir() {
+    }
+
+    @And("Create butonuna tiklar")
+    public void createButonunaTiklar() {
+        ReusableMethods.click(managerPage.createButton);
+    }
+
+    @And("Address Information alaninda Country Deutschland ve City Auvergne bilgilerini girer")
+    public void addressInformationAlanindaCountryDeutschlandVeCityAuvergneBilgileriniGirer() {
+        ReusableMethods.ddmValue(managerPage.countryDDM,"82");
+        ReusableMethods.ddmValue(managerPage.cityDDM,"1354");
+        managerPage.address.sendKeys(faker.address().fullAddress());
+    }
+
+    @Then("ilan olusturuldugunu dogrular")
+    public void ilanOlusturuldugunuDogrular() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        String text = (String) js.executeScript("return arguments[0].innerText;", managerPage.advertCreatedMessage);
+        Assert.assertEquals("Advert created!", text);
+    }
+
+
+    @Then("District alaninda secim yapilamadigindan ilan olusturulamadigini dogrular")
+    public void districtAlanindaSecimYapilamadigindanIlanOlusturulamadiginiDogrular() {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        String text = (String) js.executeScript("return arguments[0].innerText;", managerPage.districtMessage);
+        Assert.assertEquals("District not found.",text);
+
+    }
+
+    @When("kullanici manager olarak giris yapmak icin login butonuna tiklar")
+    public void kullaniciManagerOlarakGirisYapmakIcinLoginButonunaTiklar() {
+        managerPage.loginButton.click();
+    }
+
+    @And("kullanici manager email ve password bilgileri ile login olur")
+    public void kullaniciManagerEmailVePasswordBilgileriIleLoginOlur() {
+        managerPage.email.sendKeys(ConfigReader.getProperty("ManEmail"));
+        managerPage.password.sendKeys(ConfigReader.getProperty("ManPassword"),Keys.ENTER);
+    }
+
+
+
 }
 
 
