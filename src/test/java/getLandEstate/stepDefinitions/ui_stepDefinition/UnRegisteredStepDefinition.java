@@ -157,7 +157,7 @@ public class UnRegisteredStepDefinition {
 
     @And("price range degerlerini girer")
     public void priceRangeDegerleriniGirer() {
-        unRegisteredPage.priceRangeMin.sendKeys("0", Keys.ENTER, "500000");
+        unRegisteredPage.priceRangeMin.sendKeys("0", Keys.TAB, "500000");
     }
 
     @And("ilan arama kategorilerini doldurur {string}, {string}, {string}, {string}, {string}")
@@ -220,8 +220,8 @@ public class UnRegisteredStepDefinition {
         adminPage.multipleClick(unRegisteredPage.rentButton, unRegisteredPage.officeButton);
     }
 
-    @And("price range bilgilerini girer")
-    public void priceRangeBilgileriniGirer() {
+    @And("price range bilgilerini girerG")
+    public void priceRangeBilgileriniGirerG() {
         unRegisteredPage.priceRangeMin.sendKeys("1", Keys.TAB, "50000");
     }
 
