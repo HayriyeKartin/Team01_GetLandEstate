@@ -184,6 +184,7 @@ public class ManagerStepDefinition {
 
     @And("kullanici my responses basligina tiklar")
     public void kullaniciMyResponsesBasliginaTiklar() {
+        ReusableMethods.visibleWait(managerPage.myResponsess,5);
         managerPage.myResponsess.click();
     }
 
