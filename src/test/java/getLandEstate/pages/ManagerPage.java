@@ -214,9 +214,6 @@ public class ManagerPage {
 
 
 
-
-
-
     //hafsa220
 //----------------------------US08---------------------------------------------
 
@@ -441,7 +438,7 @@ public class ManagerPage {
     @FindBy(xpath = "(//*[@class='ok-icon'])[4]")
     public  WebElement myTourRequests;
 
-    @FindBy (xpath = "//*[@id='react-aria9381675401-:rd:-tab-response']")
+    @FindBy (xpath = "//*[@class='nav-link active']") //*[@class="nav-link active"]
     public WebElement myResponsess;
 
     @FindBy (xpath = "//div[@class='text']")
