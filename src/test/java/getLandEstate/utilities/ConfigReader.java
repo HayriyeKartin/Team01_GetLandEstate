@@ -1,4 +1,4 @@
-package getLandEstate.utilities.ui_utilities;
+package getLandEstate.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;

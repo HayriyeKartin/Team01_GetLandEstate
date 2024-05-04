@@ -1,4 +1,4 @@
-package getLandEstate.utilities.api_utilities;
+package getLandEstate.utilities;
 
 import io.restassured.http.ContentType;
 

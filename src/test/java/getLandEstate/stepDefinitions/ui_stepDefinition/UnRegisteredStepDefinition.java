@@ -2,8 +2,8 @@ package getLandEstate.stepDefinitions.ui_stepDefinition;
 
 import getLandEstate.pages.AdminPage;
 import getLandEstate.pages.UnRegisteredPage;
-import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,8 +1,8 @@
 package getLandEstate.pages;
 
-import getLandEstate.utilities.ui_utilities.ConfigReader;
-import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import getLandEstate.utilities.ConfigReader;
+import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ReusableMethods;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
