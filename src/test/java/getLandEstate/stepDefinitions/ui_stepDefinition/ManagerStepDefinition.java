@@ -2,14 +2,13 @@ package getLandEstate.stepDefinitions.ui_stepDefinition;
 
 import com.github.javafaker.Faker;
 import getLandEstate.pages.ManagerPage;
-import getLandEstate.utilities.ui_utilities.ConfigReader;
-import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import getLandEstate.utilities.ConfigReader;
+import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ReusableMethods;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.Assert.assertEquals;
 

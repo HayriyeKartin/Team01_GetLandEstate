@@ -1,7 +1,7 @@
 package getLandEstate.hooks;
 
-import getLandEstate.utilities.ui_utilities.ConfigReader;
-import getLandEstate.utilities.ui_utilities.Driver;
+import getLandEstate.utilities.ConfigReader;
+import getLandEstate.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -12,7 +12,7 @@ import static getLandEstate.baseUrl.BaseUrl.setUp;
 
 public class Hook {
 
-    //Hayriye
+    //Hayriye15
     @Before("@ApiAdminHayriye")
     public void apiAdmin(){
         setUp(ConfigReader.getProperty("adminMailHayriye"), ConfigReader.getProperty("adminPasswordHayriye"));
@@ -32,7 +32,7 @@ public class Hook {
 
 
 
-    //Gülsüm
+    //Gülsüm35
 
 
 
@@ -52,7 +52,7 @@ public class Hook {
 
 
 
-    //Hafsa
+    //Hafsa55
 
 
 
@@ -72,7 +72,7 @@ public class Hook {
 
 
 
-    //Fatih
+    //Fatih75
 
 
 
@@ -92,7 +92,7 @@ public class Hook {
 
 
 
-    //Selahattin
+    //Selahattin95
 
 
 
@@ -112,7 +112,7 @@ public class Hook {
 
 
 
-    //Arzu
+    //Arzu115
 
 
 
@@ -132,7 +132,7 @@ public class Hook {
 
 
 
-    //Mehmet
+    //Mehmet135
 
 
 
@@ -152,7 +152,7 @@ public class Hook {
 
 
 
-    //Akın
+    //Akın155
 
 
 
@@ -172,7 +172,7 @@ public class Hook {
 
 
 
-    //Süleyman
+    //Süleyman175
 
 
 
@@ -192,13 +192,37 @@ public class Hook {
 
 
 
-    //Bilal
+    //Bilal195
 
 
 
 
 
-    @After
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @After //225.satırda
     public void tearDown(Scenario scenario) throws Exception {
         if (scenario.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();

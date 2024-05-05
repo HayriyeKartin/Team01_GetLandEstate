@@ -1,9 +1,9 @@
 package getLandEstate.stepDefinitions.ui_stepDefinition;
 
 import getLandEstate.pages.AdminPage;
-import getLandEstate.utilities.ui_utilities.ConfigReader;
-import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import getLandEstate.utilities.ConfigReader;
+import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ReusableMethods;
 import io.cucumber.java.en.*;
 
 import org.junit.Assert;

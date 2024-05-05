@@ -2,8 +2,8 @@ package getLandEstate.stepDefinitions.ui_stepDefinition;
 
 import getLandEstate.pages.AdminPage;
 import getLandEstate.pages.UnRegisteredPage;
-import getLandEstate.utilities.ui_utilities.Driver;
-import getLandEstate.utilities.ui_utilities.ReusableMethods;
+import getLandEstate.utilities.Driver;
+import getLandEstate.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -155,9 +155,10 @@ public class UnRegisteredStepDefinition {
         unRegisteredPage.shopButton.click();
     }
 
-    @And("price range degerlerini girer")
-    public void priceRangeDegerleriniGirer() {
-        unRegisteredPage.priceRangeMin.sendKeys("0", Keys.TAB, "500000");
+
+    @And("kullanici price range degerlerini girer")
+    public void kullaniciPriceRangeDegerleriniGirer() {
+        unRegisteredPage.priceRangeMin.sendKeys("0", Keys.ENTER, "500000");
     }
 
     @And("ilan arama kategorilerini doldurur {string}, {string}, {string}, {string}, {string}")
@@ -220,8 +221,9 @@ public class UnRegisteredStepDefinition {
         adminPage.multipleClick(unRegisteredPage.rentButton, unRegisteredPage.officeButton);
     }
 
-    @And("price range bilgilerini girerG")
-    public void priceRangeBilgileriniGirerG() {
+
+    @And("kullanici price range bilgilerini girer")
+    public void kullaniciPriceRangeBilgileriniGirer() {
         unRegisteredPage.priceRangeMin.sendKeys("1", Keys.TAB, "50000");
     }
 
