@@ -13,7 +13,7 @@ public class DB_Utilty {
     private static ResultSet resultSet;
 
 
-    public  static void createConnection(){
+    public  static Connection createConnection(){
         // connection = DriverManager.getConnection("jdbc:postgresql://64.227.123.49:5432/prettierhomes", "tech_pro_edu", "testingIsFun");
 
         String url = "jdbc:postgresql://64.227.123.49:5432/prettierhomes";
@@ -26,6 +26,7 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return connection;
     }
 
 
