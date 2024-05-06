@@ -13,7 +13,7 @@ public class DB_Utilty {
     private static ResultSet resultSet;
 
 
-    public  static void createConnection(){
+    public  static Connection createConnection(){
         // connection = DriverManager.getConnection("jdbc:postgresql://64.227.123.49:5432/prettierhomes", "tech_pro_edu", "testingIsFun");
 
         String url = "jdbc:postgresql://64.227.123.49:5432/prettierhomes";
@@ -26,11 +26,12 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return connection;
     }
 
 
 
-    public static void executeQuery(String query) {
+    public static ResultSet executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
@@ -43,6 +44,7 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return resultSet;
     }
 
     public static List<List<Object>> getQueryResultList(String query) {
