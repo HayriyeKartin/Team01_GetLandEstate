@@ -9,7 +9,7 @@ import java.util.Map;
 public class DB_Utilty {
 
     private static Connection connection;
-    private static Statement statement;
+    public static Statement statement;
     private static ResultSet resultSet;
 
 
@@ -111,5 +111,31 @@ public class DB_Utilty {
     }
     public static Map<String, Object> getRowMap(String query) {
         return getQueryResultMap(query).get(0);
+    }
+
+    public static Connection connectToDatabase(){
+
+        String url = "jdbc:postgresql://64.227.123.49:5432/prettierhomes";
+        String user = "tech_pro_edu";
+        String password = "testingIsFun";
+
+        try {
+            connection = DriverManager.getConnection(url,user,password);//database'e baglandık
+            //tekrar Connection yazmaya gerek yok cunku yukarda degişkenimizin varlıgından bahsettık
+        } catch (SQLException e) {//olası exception ıcın try-catch ıle sarmaladık
+            throw new RuntimeException(e);
+        }
+        return connection;
+    }
+
+    public static Statement createStatement(){
+        try {
+            statement = connectToDatabase().createStatement();//method uzerınden statement olusturduk
+            //            //tekrar Statement yazmaya gerek yok cunku yukarda degişkenimizin varlıgından bahsettık
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return statement;
     }
 }
