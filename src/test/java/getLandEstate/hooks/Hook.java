@@ -113,15 +113,15 @@ public class Hook {
 
 
     //Arzu115
+    @Before("@ApiAdminArzu")
+    public void apiAdminArzu(){
+        setUp("admin@arzu.com","Arzub01*");
+    }
 
-
-
-
-
-
-
-
-
+    @Before("@ApiCustomerArzu")
+    public void apiCustomerArzu(){
+        setUp("customer@arzu.com","Arzub01*");
+    }
 
 
 
