@@ -20,7 +20,8 @@ public class AdminStepDefinition {
     AdminPage adminPage = new AdminPage();
 
 
-//gulsum24 //us04
+
+    //gulsum24 //us04
 
 
     @Given("kullanici {string} gider")
