@@ -1,21 +1,17 @@
 package getLandEstate.stepDefinitions.db_stepDefinition;
 
 import getLandEstate.utilities.DB_Utilty;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class CategoryPropertyValueStepDefs {
-    Connection connection;
     static String sqlQuery;
     List<String> valueColumn;
     ResultSet resultSet;
@@ -23,11 +19,6 @@ public class CategoryPropertyValueStepDefs {
     int category_property_key_id;
     int id;
     String value;
-
-    @Given("Category Property Value icin database baglantisi kurulur")
-    public void categoryPropertyValueIcinDatabaseBaglantisiKurulur() {
-        connection = DB_Utilty.createConnection();
-    }
 
     @When("Category Property Value sutun isimlerini almak icin query gonderilir")
     public void categoryPropertyValueSutunIsimleriniAlmakIcinQueryGonderilir() throws SQLException {

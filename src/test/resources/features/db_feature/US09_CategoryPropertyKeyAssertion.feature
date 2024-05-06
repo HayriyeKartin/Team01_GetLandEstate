@@ -2,7 +2,7 @@
 Feature: Category Property Key Data Dogrulama
 
   Background:
-    Given Category Property Key icin database baglantisi kurulur
+    Given Database baglantisi kurulur
 
   Scenario: TC01 | Category Property Key Sutun Isimlerini Dogrulama Testi
     And Category Property Key sutun isimleri icin data duzenlenir
