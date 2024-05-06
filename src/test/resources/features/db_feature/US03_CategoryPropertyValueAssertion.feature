@@ -2,7 +2,7 @@
 Feature: Category Property Value Data Dogrulama
 
   Background:
-    Given Category Property Value icin database baglantisi kurulur
+    Given Database baglantisi kurulur
 
   Scenario: TC01 | Category Property Value Sutun Isimlerini Dogrulama Testi
     When Category Property Value sutun isimlerini almak icin query gonderilir

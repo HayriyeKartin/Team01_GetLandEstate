@@ -25,8 +25,8 @@ public class CategoryPropertyKeyStepDefs {
     String key_type;
     String name;
 
-    @Given("Category Property Key icin database baglantisi kurulur")
-    public void categoryPropertyKeyIcinDatabaseBaglantisiKurulur() throws SQLException {
+    @Given("Database baglantisi kurulur")
+    public void databaseBaglantisiKurulur() throws SQLException {
         connection = DB_Utilty.createConnection();
     }
 
