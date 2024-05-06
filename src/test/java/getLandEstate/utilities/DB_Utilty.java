@@ -30,7 +30,7 @@ public class DB_Utilty {
 
 
 
-    public static void executeQuery(String query) {
+    public static ResultSet executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
@@ -43,6 +43,7 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return resultSet;
     }
 
     public static List<List<Object>> getQueryResultList(String query) {

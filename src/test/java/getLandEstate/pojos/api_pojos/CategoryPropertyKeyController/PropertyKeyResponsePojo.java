@@ -1,8 +1,11 @@
 package getLandEstate.pojos.api_pojos.CategoryPropertyKeyController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
-public class DenemePojo implements Serializable {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PropertyKeyResponsePojo implements Serializable {
 	private int id;
 	private String name;
 	private String keyType;
@@ -10,10 +13,10 @@ public class DenemePojo implements Serializable {
 	private String suffix;
 	private boolean builtIn;
 
-	public DenemePojo() {
+	public PropertyKeyResponsePojo() {
 	}
 
-	public DenemePojo(int id, String name, String keyType, Object prefix, String suffix, boolean builtIn) {
+	public PropertyKeyResponsePojo(int id, String name, String keyType, Object prefix, String suffix, boolean builtIn) {
 		this.id = id;
 		this.name = name;
 		this.keyType = keyType;
@@ -73,7 +76,7 @@ public class DenemePojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"DenemePojo{" + 
+			"PropertyKeyResponsePojo{" + 
 			"id = '" + id + '\'' + 
 			",name = '" + name + '\'' + 
 			",keyType = '" + keyType + '\'' + 
