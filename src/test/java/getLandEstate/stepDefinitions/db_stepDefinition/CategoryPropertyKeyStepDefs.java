@@ -25,10 +25,6 @@ public class CategoryPropertyKeyStepDefs {
     String key_type;
     String name;
 
-    @Given("Database baglantisi kurulur")
-    public void databaseBaglantisiKurulur() throws SQLException {
-        connection = DB_Utilty.createConnection();
-    }
 
     @When("Category Property Key sutun isimlerini almak icin query gonderilir")
     public void categoryPropertyKeySutunIsimleriniAlmakIcinQueryGonderilir() throws SQLException {

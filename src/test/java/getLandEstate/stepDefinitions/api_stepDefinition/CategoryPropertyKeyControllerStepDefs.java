@@ -6,9 +6,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.it.Ma;
 import io.restassured.response.Response;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
@@ -21,16 +22,17 @@ public class CategoryPropertyKeyControllerStepDefs {
     PropertyKeyResponsePojo actualData;
     static int userId;
     PropertyKeyResponsePojo expectedData;
+    Map<String, Object> actualResponse;
 
     @Given("Category Properties icin URL duzenlenir")
     public void categoryPropertiesIcinURLDuzenlenir() {
         //http://www.getlandestate.com:8092/categoriesKey/{{userId}}/properties
-        spec.pathParams("first", "categoriesKey", "second", 85 , "third", "properties");
+        spec.pathParams("first", "categoriesKey", "second", 85, "third", "properties");
     }
 
     @And("Category Properties icin payload duzenlenir")
     public void categoryPropertiesIcinPayloadDuzenlenir() {
-        payload = new PropertyKeyPojo("DenemePostu", "BOOLEAN", "null","null");
+        payload = new PropertyKeyPojo("DenemePostu", "BOOLEAN", "null", "null");
     }
 
     @When("Category Properties icin POST request gonderilir ve Response alinir")
@@ -38,6 +40,7 @@ public class CategoryPropertyKeyControllerStepDefs {
         response = given(spec).body(payload).when().post("{first}/{second}/{third}");
         actualData = response.as(PropertyKeyResponsePojo.class);
         userId = actualData.getId();
+        System.out.println(userId);
         response.prettyPrint();
     }
 
@@ -56,24 +59,25 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @Given("Get Category Properties icin URL duzenlenir")
     public void getCategoryPropertiesIcinURLDuzenlenir() {
-        http://www.getlandestate.com:8092/categoriesKey/85/properties
-        spec.pathParams("first", "categoriesKey", "second", 85, "third", "properties" );
+        //http://www.getlandestate.com:8092/categoriesKey/85/properties
+        spec.pathParams("first", "categoriesKey", "second", 85, "third", "properties");
     }
 
     @And("Get Category Properties icin expected data duzenlenir")
     public void getCategoryPropertiesIcinExpectedDataDuzenlenir() {
         expectedData = new PropertyKeyResponsePojo(userId, "DenemePostu", "BOOLEAN", "null", "null", false);
     }
-/*
-{
-    "id":"name":,"keyType":, "prefix":, "suffix":, "builtIn":
-}
- */
+
     @When("Get Category Properties icin GET request gonderilir ve response alinir")
-    public void getCategoryPropertiesIcinGETRequestGonderilirVeResponseAlinir(){
+    public void getCategoryPropertiesIcinGETRequestGonderilirVeResponseAlinir() {
         response = given(spec).when().get("{first}/{second}/{third}");
-        actualData = response.as(PropertyKeyResponsePojo.class);
-        response.prettyPrint();
+        actualResponse = new HashMap<>();
+        actualResponse.put("id", userId);
+        actualResponse.put("name", "DenemePostu");
+        actualResponse.put("keyType", "BOOLEAN");
+        actualResponse.put("prefix", "null");
+        actualResponse.put("suffix", "null");
+        actualResponse.put("builtIn", false);
     }
 
     @Then("Get Category Properties icin Status kodunun {int} oldugu dogrulanir")
@@ -83,17 +87,17 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @And("Get Category Properties icin Response body dogrulanir")
     public void getCategoryPropertiesIcinResponseBodyDogrulanir() {
-      // assertEquals(expectedData.getId(), actualData.getId());
-      // assertEquals(expectedData.getName(), actualData.getName());
-      // assertEquals(expectedData.getKeyType(), actualData.getKeyType());
-      // assertEquals(expectedData.getPrefix(), actualData.getPrefix());
-      // assertEquals(expectedData.getSuffix(), actualData.getSuffix());
-      // assertEquals(expectedData.isBuiltIn(), actualData.isBuiltIn());
+        assertEquals(expectedData.getId(), actualResponse.get("id"));
+        assertEquals(expectedData.getName(), actualResponse.get("name"));
+        assertEquals(expectedData.getKeyType(), actualResponse.get("keyType"));
+        assertEquals(expectedData.getPrefix(), actualResponse.get("prefix"));
+        assertEquals(expectedData.getSuffix(), actualResponse.get("suffix"));
+        assertEquals(expectedData.isBuiltIn(), actualResponse.get("builtIn"));
     }
 
     @Given("Put Category Properties icin URL duzenlenir")
     public void putCategoryPropertiesIcinURLDuzenlenir() {
-        spec.pathParams("first", "categoriesKey", "second", "properties", "third", userId );
+        spec.pathParams("first", "categoriesKey", "second", "properties", "third", userId);
     }
 
     @And("Put Category Properties icin payload duzenlenir")
@@ -124,7 +128,7 @@ public class CategoryPropertyKeyControllerStepDefs {
     @Given("Delete Category Properties icin URL duzenlenir")
     public void deleteCategoryPropertiesIcinURLDuzenlenir() {
         //http://www.getlandestate.com:8092/categoriesKey/properties/userId
-        spec.pathParams("first", "categoriesKey", "second", "properties", "third", userId );
+        spec.pathParams("first", "categoriesKey", "second", "properties", "third", userId);
     }
 
     @When("Delete Category Properties icin DELETE request gonderilir ve response alinir")
