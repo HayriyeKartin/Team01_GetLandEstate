@@ -62,7 +62,7 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @And("Get Category Properties icin expected data duzenlenir")
     public void getCategoryPropertiesIcinExpectedDataDuzenlenir() {
-        expectedData = new PropertyKeyResponsePojo(userId, "DenemePostu", "BOOLEAN", "null", "null", true);
+        expectedData = new PropertyKeyResponsePojo(userId, "DenemePostu", "BOOLEAN", "null", "null", false);
     }
 /*
 {
