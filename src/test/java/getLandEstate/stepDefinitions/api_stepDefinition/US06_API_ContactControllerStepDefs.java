@@ -44,7 +44,6 @@ import static org.junit.Assert.assertEquals;
          */
 
 public class US06_API_ContactControllerStepDefs {
-
     ContactMessagesPostPojo payload;
     String postActualData;
     Response response;
