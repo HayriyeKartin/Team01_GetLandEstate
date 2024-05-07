@@ -1,4 +1,4 @@
-package getLandEstate.utilities;
+package getLandEstate.utilities.api_utilities;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,10 +9,11 @@ import java.util.Map;
 public class DB_Utilty {
 
     private static Connection connection;
-    public static Statement statement;
+    private static Statement statement;
     private static ResultSet resultSet;
 
-    public  static Connection createConnection(){
+
+    public  static void createConnection(){
         // connection = DriverManager.getConnection("jdbc:postgresql://64.227.123.49:5432/prettierhomes", "tech_pro_edu", "testingIsFun");
 
         String url = "jdbc:postgresql://64.227.123.49:5432/prettierhomes";
@@ -25,10 +26,11 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return connection;
     }
 
-    public static ResultSet executeQuery(String query) {
+
+
+    public static void executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
@@ -41,7 +43,6 @@ public class DB_Utilty {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return resultSet;
     }
 
     public static List<List<Object>> getQueryResultList(String query) {
@@ -68,6 +69,7 @@ public class DB_Utilty {
         return getQueryResultList(query).get(0);
     }
 
+
     public static List<String> getColumnNames(String query) {
         executeQuery(query);
         List<String> columns = new ArrayList<>();
@@ -84,6 +86,7 @@ public class DB_Utilty {
         }
         return columns;
     }
+
 
     public static List<Map<String, Object>> getQueryResultMap(String query) {
         executeQuery(query);
@@ -104,10 +107,12 @@ public class DB_Utilty {
         }
         return rowList;
     }
-
     public static Map<String, Object> getRowMap(String query) {
         return getQueryResultMap(query).get(0);
     }
+
+
+    //mehmet hoca---------------
 
     public static Connection connectToDatabase(){
 
@@ -125,6 +130,8 @@ public class DB_Utilty {
     }
 
     public static Statement createStatement(){
+
+
         try {
             statement = connectToDatabase().createStatement();//method uzerınden statement olusturduk
             //            //tekrar Statement yazmaya gerek yok cunku yukarda degişkenimizin varlıgından bahsettık
@@ -134,4 +141,36 @@ public class DB_Utilty {
         }
         return statement;
     }
+
+    public static ResultSet executeQueryM(String sql){
+
+        ResultSet resultSet ;//degıskenımızı scope ıcınde kalsın dıye yazdık
+
+        try {
+            resultSet = createStatement().executeQuery(sql);//createStatement()methodu uzerınden executeQueryi calıstırdık
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultSet;
+    }
+
+    public static void closeConnection(){
+        try {
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    /*
+    son olarak burda; her baglantı sonrası kapama yapmamız gerektıgı ıcın
+    connectıon ve statementi kapatacak methodlarımızı yazdık.
+    Artık bu classtaki her methodu yapacagımız her otomasyonda dırek cagırabılırız
+    */
+
+
 }
