@@ -2,7 +2,6 @@ package getLandEstate.stepDefinitions.db_stepDefinition;
 
 import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.sql.ResultSet;
@@ -22,10 +21,6 @@ public class DBCategoryControllerStepDefinition {
     Map<String,Object>actualData;
     List<String> expectedData;
 
-    @Given("Database baglantisi kurulur")
-    public void databaseBaglantisiKurulur() {
-        DB_Utilty.createConnection();
-    }
 
     @And("Beklenen categories datalari duzenlenir")
     public void beklenenCategoriesDatalariDuzenlenir() {
