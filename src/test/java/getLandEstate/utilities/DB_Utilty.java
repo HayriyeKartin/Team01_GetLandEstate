@@ -28,6 +28,7 @@ public class DB_Utilty {
         return connection;
     }
 
+
     public static ResultSet executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
