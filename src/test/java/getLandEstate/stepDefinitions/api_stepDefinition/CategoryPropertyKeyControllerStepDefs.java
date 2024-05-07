@@ -32,7 +32,7 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @And("Category Properties icin payload duzenlenir")
     public void categoryPropertiesIcinPayloadDuzenlenir() {
-        payload = new PropertyKeyPojo("DenemePostu", "BOOLEAN", "null", "null");
+        payload = new PropertyKeyPojo("Yerden Isitma", "BOOLEAN", "null", "null");
     }
 
     @When("Category Properties icin POST request gonderilir ve Response alinir")
@@ -40,7 +40,6 @@ public class CategoryPropertyKeyControllerStepDefs {
         response = given(spec).body(payload).when().post("{first}/{second}/{third}");
         actualData = response.as(PropertyKeyResponsePojo.class);
         userId = actualData.getId();
-        System.out.println(userId);
         response.prettyPrint();
     }
 
@@ -65,7 +64,7 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @And("Get Category Properties icin expected data duzenlenir")
     public void getCategoryPropertiesIcinExpectedDataDuzenlenir() {
-        expectedData = new PropertyKeyResponsePojo(userId, "DenemePostu", "BOOLEAN", "null", "null", false);
+        expectedData = new PropertyKeyResponsePojo(userId, "Yerden Isitma", "BOOLEAN", "null", "null", false);
     }
 
     @When("Get Category Properties icin GET request gonderilir ve response alinir")
@@ -73,7 +72,7 @@ public class CategoryPropertyKeyControllerStepDefs {
         response = given(spec).when().get("{first}/{second}/{third}");
         actualResponse = new HashMap<>();
         actualResponse.put("id", userId);
-        actualResponse.put("name", "DenemePostu");
+        actualResponse.put("name", "Yerden Isitma");
         actualResponse.put("keyType", "BOOLEAN");
         actualResponse.put("prefix", "null");
         actualResponse.put("suffix", "null");
@@ -102,7 +101,7 @@ public class CategoryPropertyKeyControllerStepDefs {
 
     @And("Put Category Properties icin payload duzenlenir")
     public void putCategoryPropertiesIcinPayloadDuzenlenir() {
-        payload = new PropertyKeyPojo("DenemePutu", "BOOLEAN", "null", "null");
+        payload = new PropertyKeyPojo("Bireysel Isitma", "BOOLEAN", "null", "null");
     }
 
     @When("Put Category Properties icin PUT request gonderilir ve response alinir")

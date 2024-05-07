@@ -12,7 +12,6 @@ import java.sql.*;
 import static org.junit.Assert.*;
 
 public class CategoryPropertyKeyStepDefs {
-    Connection connection;
     ResultSet resultSet;
     PropertyKeyResponsePojo expectedData;
     static String sqlQuery;
@@ -27,8 +26,7 @@ public class CategoryPropertyKeyStepDefs {
 
     @When("Category Property Key sutun isimlerini almak icin query gonderilir")
     public void categoryPropertyKeySutunIsimleriniAlmakIcinQueryGonderilir() throws SQLException {
-        Statement statement = connection.createStatement();
-        resultSet = statement.executeQuery("select * from category_property_keys");
+        resultSet = DB_Utilty.executeQuery("select * from category_property_keys");
     }
 
     @And("Category Property Key sutun isimleri icin data duzenlenir")
