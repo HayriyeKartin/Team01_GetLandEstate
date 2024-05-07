@@ -25,12 +25,10 @@ public class CategoryPropertyKeyStepDefs {
     String key_type;
     String name;
 
-
     @When("Category Property Key sutun isimlerini almak icin query gonderilir")
     public void categoryPropertyKeySutunIsimleriniAlmakIcinQueryGonderilir() throws SQLException {
         Statement statement = connection.createStatement();
         resultSet = statement.executeQuery("select * from category_property_keys");
-
     }
 
     @And("Category Property Key sutun isimleri icin data duzenlenir")
