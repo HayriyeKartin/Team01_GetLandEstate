@@ -4,7 +4,6 @@ import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
