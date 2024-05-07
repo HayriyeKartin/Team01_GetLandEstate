@@ -12,7 +12,6 @@ public class DB_Utilty {
     private static Statement statement;
     private static ResultSet resultSet;
 
-
     public  static Connection createConnection(){
         // connection = DriverManager.getConnection("jdbc:postgresql://64.227.123.49:5432/prettierhomes", "tech_pro_edu", "testingIsFun");
 
@@ -28,8 +27,6 @@ public class DB_Utilty {
         }
         return connection;
     }
-
-
 
     public static ResultSet executeQuery(String query) {
         try {
@@ -71,7 +68,6 @@ public class DB_Utilty {
         return getQueryResultList(query).get(0);
     }
 
-
     public static List<String> getColumnNames(String query) {
         executeQuery(query);
         List<String> columns = new ArrayList<>();
@@ -88,7 +84,6 @@ public class DB_Utilty {
         }
         return columns;
     }
-
 
     public static List<Map<String, Object>> getQueryResultMap(String query) {
         executeQuery(query);
@@ -109,6 +104,7 @@ public class DB_Utilty {
         }
         return rowList;
     }
+
     public static Map<String, Object> getRowMap(String query) {
         return getQueryResultMap(query).get(0);
     }
