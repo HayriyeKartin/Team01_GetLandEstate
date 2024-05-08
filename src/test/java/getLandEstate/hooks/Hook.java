@@ -194,10 +194,10 @@ public class Hook {
 
     //Bilal195
 
-
-
-
-
+    @Before("@ApiAdminBilal")
+    public void apiAdminBilal() {
+        setUp("payiz@gmail.com", "Payiz23.");
+    }
 
 
 
