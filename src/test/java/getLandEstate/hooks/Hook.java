@@ -173,24 +173,24 @@ public class Hook {
 
 
     //Süleyman175
+    @Before("@ApiUS08LogControllerAdmin")
+    public void ApiUS08LogControllerAdmin(){
+        setUp("suleymanakgun1710@gmail.com","12345Sa.");
+    }
+    @Before("@ApiUS12CountryControllerAdmin")
+    public void ApiUS12CountryControllerAdmin() {
+        setUp("suleymanakgun1710@gmail.com","12345Sa.");
+    }
 
+    @Before("@ApiUS08LogControllerCustomer")
+    public void ApiUS08LogControllerCustomer(){
+        setUp("abc@gmail.com","12345Sa.");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Before("@ApiUS12CountryControllerCustomer")
+    public void ApiUS12CountryControllerCustomer(){
+        setUp("abc@gmail.com","12345Sa.");
+    }
 
     //Bilal195
 
@@ -230,4 +230,41 @@ public class Hook {
             Driver.closeDriver();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Süleyman255 devamı
+    @Before("@ApiUS08LogControllerManagerTC03")
+    public void ApiUS08LogControllerManagerTC03(){
+        setUp("hij@gmail.com","12345Sa.");
+    }
+    @Before("@ApiUS08LogControllerManagerTC04")
+    public void ApiUS08LogControllerManager(){
+        setUp("hij@gmail.com","12345Sa.");
+    }
+    @Before("@ApiUS12CountryControllerManager")
+    public void ApiUS12CountryControllerManager(){
+        setUp("hij@gmail.com","12345Sa.");
+    }
+    @Before("@US09AdvertE2ETC02")
+    public void US09AdvertE2ETC0(){
+        //setUp(ConfigReader.getProperty("adminMail"), ConfigReader.getProperty("sifre"));
+        setUp("suleymanakgun1710@gmail.com","12345Sa.");
+    }
+
+
 }
