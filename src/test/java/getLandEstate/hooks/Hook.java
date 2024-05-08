@@ -34,20 +34,20 @@ public class Hook {
 
     //Gülsüm35
 
+    @Before("@ApiAdminGulsum")
+    public void apiAdminGulsum() {
+        setUp("admin@gulsum.com", "Gulsum61!");
+    }
 
+    @Before("@ApiCustomerGulsum")
+    public void apiCustomerGulsum() {
+        setUp("customer@gulsum.com", "Gulsum61!");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @Before("@ApiManagerGulsum")
+    public void apiManagerGulsum() {
+        setUp("manager@gulsum.com", "Gulsumm61!");
+    }
 
 
 
@@ -113,15 +113,15 @@ public class Hook {
 
 
     //Arzu115
+    @Before("@ApiAdminArzu")
+    public void apiAdminArzu(){
+        setUp("admin@arzu.com","Arzub01*");
+    }
 
-
-
-
-
-
-
-
-
+    @Before("@ApiCustomerArzu")
+    public void apiCustomerArzu(){
+        setUp("customer@arzu.com","Arzub01*");
+    }
 
 
 

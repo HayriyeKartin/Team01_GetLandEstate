@@ -190,6 +190,5 @@ public class ReusableMethods {
         for (int i = 0; i < codeValue.length(); i++) {
             webElement.sendKeys(Keys.BACK_SPACE);
         }
-
     }
 }
