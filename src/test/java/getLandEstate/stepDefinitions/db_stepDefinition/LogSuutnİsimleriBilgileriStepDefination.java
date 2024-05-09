@@ -17,8 +17,8 @@ import java.util.List;
 
 public class LogSuutnİsimleriBilgileriStepDefination {
     List<String> expectedLog=new ArrayList<>();
-
-
+    String expectedE2eDB;
+    String actualDB;
     ResultSet resultSetLog1;
     ResultSet resultSetLog2;
     List<String> jdbcColumnNameslog=new ArrayList<>();
@@ -69,5 +69,26 @@ public class LogSuutnİsimleriBilgileriStepDefination {
 
     @Then("Sutun bilgileri dogrulanir")
     public void sutunBilgileriDogrulanir() {
+    }
+
+    @And("Expected data duzenlenir")
+    public void expectedDataDuzenlenir() {
+        expectedE2eDB="2";
+    }
+
+    @When("İlan değişikliği bilgisini almak icin query gonderilir")
+    public void ilanDeğişikliğiBilgisiniAlmakIcinQueryGonderilir() throws SQLException {
+        Statement statement = CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
+        ResultSet  resultSetE2E=statement.executeQuery("select * from adverts where title ='satilik ev'");
+        while (resultSetE2E.next()){
+            actualDB=resultSetE2E.getString("status_for_advert");
+            System.out.println(actualDB);
+        }
+    }
+
+    @Then("İlan değişikliği dogrulanir")
+    public void ilanDeğişikliğiDogrulanir() {
+        Assert.assertEquals(expectedE2eDB,actualDB);
+
     }
 }
