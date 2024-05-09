@@ -93,10 +93,10 @@ public class Hook {
 
 
     //Selahattin95
-
-
-
-
+    @Before("@APIAdminUS5SY")
+    public void apiAdminSy(){
+        setUp(ConfigReader.getProperty("AdLoginEmail"), ConfigReader.getProperty("AdLoginPassword"));
+    }
 
 
 
