@@ -17,10 +17,7 @@ public class US16_AdvertsColumnAssertionsStepDefs{
 
     static ResultSet actualAdvertData;
 
-    @Given(": Database baglantisi kurulur")
-    public void databaseBaglantisiKurulur() {
-        DB_Utilty.createConnection();
-    }
+
 
     @And("Adverts sutun isimleri icin query gönderilir")
     public void advertsSutunIsimleriIcinQueryGönderilir() {
