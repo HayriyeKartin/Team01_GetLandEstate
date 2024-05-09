@@ -12,7 +12,7 @@ import static getLandEstate.baseUrl.BaseUrl.setUp;
 
 public class Hook {
 
-    //Hayriye
+    //Hayriye15
     @Before("@ApiAdminHayriye")
     public void apiAdmin(){
         setUp(ConfigReader.getProperty("adminMailHayriye"), ConfigReader.getProperty("adminPasswordHayriye"));
@@ -32,7 +32,7 @@ public class Hook {
 
 
 
-    //Gülsüm
+    //Gülsüm35
 
 
 
@@ -52,7 +52,7 @@ public class Hook {
 
 
 
-    //Hafsa
+    //Hafsa55
 
 
 
@@ -72,7 +72,7 @@ public class Hook {
 
 
 
-    //Fatih
+    //Fatih75
 
 
 
@@ -92,7 +92,7 @@ public class Hook {
 
 
 
-    //Selahattin
+    //Selahattin95
 
 
 
@@ -112,7 +112,7 @@ public class Hook {
 
 
 
-    //Arzu
+    //Arzu115
 
 
 
@@ -132,7 +132,19 @@ public class Hook {
 
 
 
-    //Mehmet
+    //Mehmet135
+    @Before("@ApiAdminMehmet")
+    public void apiAdminM(){
+        setUp(ConfigReader.getProperty("adminMailMehmet"), ConfigReader.getProperty("adminPasswordMehmet"));
+    }
+    @Before("@ApiManagerMehmet")
+    public void apiManagerM(){
+        setUp(ConfigReader.getProperty("managerMailMehmet"), ConfigReader.getProperty("managerPasswordMehmet"));
+    }
+    @Before("@ApiCustomerMehmet")
+    public void apiCustomerM(){
+        setUp(ConfigReader.getProperty("customerMailMehmet"), ConfigReader.getProperty("customerPasswordMehmet"));
+    }
 
 
 
@@ -140,6 +152,7 @@ public class Hook {
 
 
 
+    //Akın155
 
 
 
@@ -152,7 +165,6 @@ public class Hook {
 
 
 
-    //Akın
 
 
 
@@ -160,6 +172,7 @@ public class Hook {
 
 
 
+    //Süleyman175
 
 
 
@@ -172,7 +185,6 @@ public class Hook {
 
 
 
-    //Süleyman
 
 
 
@@ -180,6 +192,7 @@ public class Hook {
 
 
 
+    //Bilal195
 
 
 
@@ -192,7 +205,8 @@ public class Hook {
 
 
 
-    //Bilal
+
+
 
 
 

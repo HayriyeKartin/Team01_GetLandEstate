@@ -165,8 +165,8 @@ public class ManagerStepDefinition {
     @And("kullanici email ve password bilgileriylen login olur")
     public void kullaniciEmailVePasswordBilgileriylenLoginOlur() {
         ReusableMethods.bekle(5);
-        managerPage.eMail.sendKeys(ConfigReader.getProperty("manageremail"));
-        managerPage.paswordd.sendKeys(ConfigReader.getProperty("managerpassword"));
+        managerPage.eMail.sendKeys(ConfigReader.getProperty("managerMailMehmet"));
+        managerPage.paswordd.sendKeys(ConfigReader.getProperty("managerPasswordMehmet"));
         managerPage.Login.click();
     }
 
