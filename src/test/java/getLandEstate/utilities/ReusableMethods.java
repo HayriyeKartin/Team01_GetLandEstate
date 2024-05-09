@@ -1,4 +1,4 @@
-package getLandEstate.utilities.ui_utilities;
+package getLandEstate.utilities;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -190,6 +190,5 @@ public class ReusableMethods {
         for (int i = 0; i < codeValue.length(); i++) {
             webElement.sendKeys(Keys.BACK_SPACE);
         }
-
     }
 }

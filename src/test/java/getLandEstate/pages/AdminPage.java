@@ -1,6 +1,6 @@
 package getLandEstate.pages;
 
-import getLandEstate.utilities.ui_utilities.Driver;
+import getLandEstate.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

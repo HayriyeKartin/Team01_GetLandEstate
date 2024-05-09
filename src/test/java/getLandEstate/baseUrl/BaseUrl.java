@@ -4,7 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static getLandEstate.utilities.api_utilities.Authentication.token;
+import static getLandEstate.utilities.Authentication.token;
 
 public class BaseUrl {
 
