@@ -221,8 +221,7 @@ public class Hook {
 
 
 
-
-    @After //225.satırda
+ @After //224.satırda
     public void tearDown(Scenario scenario) throws Exception {
         if (scenario.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
