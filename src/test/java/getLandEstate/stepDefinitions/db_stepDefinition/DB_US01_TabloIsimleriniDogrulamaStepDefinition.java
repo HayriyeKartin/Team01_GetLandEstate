@@ -1,4 +1,4 @@
-package getLandEstate.stepDefinitions.api_stepDefinition;
+package getLandEstate.stepDefinitions.db_stepDefinition;
 
 import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
