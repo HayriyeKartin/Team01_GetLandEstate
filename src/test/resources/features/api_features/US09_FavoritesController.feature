@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @US09_API
 Feature: Favorites Controller
 
@@ -13,19 +12,4 @@ Feature: Favorites Controller
     Given Delete Favorites icin URL duzenlenir
     When Delete Favorites icin DELETE request gonderilir ve response alinir
     Then Delete Favorites icin Status kodunun 200 oldugu dogrulanir
-=======
-@API
-Feature: API Favorites Controller (Get-Delete)
-  
-@ApiManagerMehmet
-Scenario: Favorites Auth Testi
-Given Get Favorites Auth icin URL duzenlenir
-And Get Favorites Auth icin expected data duzenlenir
-When Get Favorites Auth icin GET request gonderilir ve response alinir
-Then Get Favorites Auth icin Status kodunun 200 oldugu dogrulanir
-And Get Favorites Auth icin Response body dogrulanir
 
-
-  @ApiCustomerMehmet
-Scenario: Favorites Auth Testi
->>>>>>> master
