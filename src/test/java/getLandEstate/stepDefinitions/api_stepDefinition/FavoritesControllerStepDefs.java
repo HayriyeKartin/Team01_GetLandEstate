@@ -14,7 +14,6 @@ public class FavoritesControllerStepDefs {
 
     @And("Get Favorites icin expected data duzenlenir")
     public void getFavoritesIcinExpectedDataDuzenlenir() {
-
     }
 
     @When("Get Favorites icin GET request gonderilir ve response alinir")
