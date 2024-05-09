@@ -1,7 +1,7 @@
 package getLandEstate.stepDefinitions.db_stepDefinition;
 
 
-import getLandEstate.utilities.api_utilities.DB_Utilty;
+import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -56,7 +56,7 @@ public class US16_AdvertsColumnAssertionsStepDefs{
 
     @And("Kayitli Advert datasini almak icin query gönderilir")
     public void kayitliAdvertDatasiniAlmakIcinQueryGönderilir() {
-        actualAdvertData = DB_Utilty.executeQueryM("select * from adverts where id=40");
+        actualAdvertData = DB_Utilty.executeQuery("select * from adverts where id=40");
     }
 
     @Then("Kayitli Advert datasinin bilgilileri dogrulanir")
