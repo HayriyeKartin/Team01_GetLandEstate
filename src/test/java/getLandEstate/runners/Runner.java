@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"getLandEstate/stepDefinitions", "getLandEstate/hooks"},
 
-        tags = "@US09_API",
+        tags = "",
 
         dryRun = false,
         monochrome = false
