@@ -60,7 +60,7 @@ Feature: Kayitli olmayan kullanici satilik ve kiralik ilan arayabilmeli
 
   Scenario Outline: TC07 Price Range, Advert Type, Category, Country, City, District bolumlerini girerek ozel arama yapabilmeli
     When search iconuna tiklar
-    And price range degerlerini girer
+    And kullanici price range degerlerini girer
     And ilan arama kategorilerini doldurur "<advertType>", "<category>", "<country>", "<city>", "<district>"
     And search butonuna tiklar
     Then ozel arama yapilarak ilanin goruldugunu dogrular
@@ -84,7 +84,7 @@ Feature: Kayitli olmayan kullanici satilik ve kiralik ilan arayabilmeli
   Scenario Outline: TC09 Ilan verenin iletisim bilgileri tiklandiginda "Don't have an account? Create one now!" uyari metni gelmeli
     When Rent secenegine tiklar ve emlak tipini secer
     And search iconuna tiklar
-    And price range bilgilerini girerG
+    And kullanici price range bilgilerini girer
     And ilan arama kategorilerini doldurur "<advert Type>", "<category>", "<country>", "<city>", "<district>"
     And cikan ilk ilana tiklar
     And contact number ve send mail kutusunda goz sembolune tiklar

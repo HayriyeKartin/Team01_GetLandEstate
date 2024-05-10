@@ -1,4 +1,4 @@
-package getLandEstate.utilities.ui_utilities;
+package getLandEstate.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

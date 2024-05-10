@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions( //bu notasyon sayesinde hangi scenario'ları çalıştıracağımızı ve hangi raporları alacağımızı belirtiriz
 
         plugin = "html:raporlar/CucumberReport.html",
-        features = "src/test/resources/features/api_features",
-        glue = {"getLandEstate/stepDefinitions/api_stepDefinition", "getLandEstate/hooks"},
+        features = "src/test/resources/features",
+        glue = {"getLandEstate/stepDefinitions", "getLandEstate/hooks"},
 
         tags = "",
 
