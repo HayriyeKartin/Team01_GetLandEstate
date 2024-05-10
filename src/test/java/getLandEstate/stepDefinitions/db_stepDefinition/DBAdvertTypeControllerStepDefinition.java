@@ -67,4 +67,20 @@ public class DBAdvertTypeControllerStepDefinition {
 
 
     }
+
+    @Given("DataBase baglantisi kurulur")
+    public void databaseBaglantisiKurulur() {
+    }
+
+    @And("Beklenen User datalari duzenlenir")
+    public void beklenenUserDatalariDuzenlenir() {
+    }
+
+    @When("Kayitli User datalari icin query gonderilir")
+    public void kayitliUserDatalariIcinQueryGonderilir() {
+    }
+
+    @Then("Kayitli User sutun isimleri ve bilgileri dogrulanir")
+    public void kayitliUserSutunIsimleriVeBilgileriDogrulanir() {
+    }
 }

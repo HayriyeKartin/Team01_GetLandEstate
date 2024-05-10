@@ -7,7 +7,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import java.time.Duration;
 import static getLandEstate.baseUrl.BaseUrl.setUp;
 
 public class Hook {
@@ -38,12 +38,10 @@ public class Hook {
     public void apiAdminGulsum() {
         setUp("admin@gulsum.com", "Gulsum61!");
     }
-
     @Before("@ApiCustomerGulsum")
     public void apiCustomerGulsum() {
         setUp("customer@gulsum.com", "Gulsum61!");
     }
-
     @Before("@ApiManagerGulsum")
     public void apiManagerGulsum() {
         setUp("manager@gulsum.com", "Gulsumm61!");
@@ -52,7 +50,9 @@ public class Hook {
 
 
 
-    //Hafsa55
+
+
+   //Hafsa55
 
 
 
@@ -66,7 +66,7 @@ public class Hook {
 
 
 
-    
+
 
 
 

@@ -2,6 +2,7 @@ package getLandEstate.stepDefinitions.api_stepDefinition;
 
 import getLandEstate.pojos.api_pojos.AdvertTypeController.AdvertTypePayloadPojo;
 import getLandEstate.pojos.api_pojos.AdvertTypeController.AdvertTypePostResponsePojo;
+import getLandEstate.pojos.api_pojos.UserController.UserPostResponsePojo;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
 import static getLandEstate.baseUrl.BaseUrl.spec;
+import static getLandEstate.stepDefinitions.api_stepDefinition.US05_Api_UserControllerStepDefs.userId;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +22,8 @@ public class ApiAdvertTypeControllerStepDefinition {
     AdvertTypePostResponsePojo actualData;
     static int advertTypeId;
     AdvertTypePostResponsePojo expectedData;
-
+    UserPostResponsePojo userExpectedData;
+    UserPostResponsePojo userActualData;
 
     @Given("Create Advert Type icin URL duzenlenir")
     public void createAdvertTypeIcinURLDuzenlenir() {
@@ -125,4 +128,30 @@ public class ApiAdvertTypeControllerStepDefinition {
         assertEquals(statusCode, response.statusCode());
     }
 
+    @Given("Get User icin url duzenlenir")
+    public void getUserIcinUrlDuzenlenir() {
+        spec.pathParams("first", "users", "second", userId, "third", "admin");
+    }
+
+    @And("Get User icin Expected data duzenlenir")
+    public void getUserIcinExpectedDataDuzenlenir() {
+        userExpectedData = new UserPostResponsePojo(userId, "customer", "gülsüm", "customer@gulsum.com", "(521) 556-1610");
+    }
+
+    @When("User icin GET request duzenlenir")
+    public void userIcinGETRequestDuzenlenir() {
+        response = given(spec).when().get("{first}/{second}/{third}"); //var olan response u kullandık
+        userActualData = response.as(UserPostResponsePojo.class);
+        response.prettyPrint();
+    }
+
+    @Then("Get User icin status kodunun {int} oldugu dogrulanir")
+    public void getUserIcinStatusKodununOlduguDogrulanir(int statusCode) {
+        assertEquals(statusCode, response.statusCode());
+    }
+
+    @And("Get User icin response body dogrulanir")
+    public void getUserIcinResponseBodyDogrulanir() {
+        assertEquals(expectedData.getId(), actualData.getId());
+    }
 }
