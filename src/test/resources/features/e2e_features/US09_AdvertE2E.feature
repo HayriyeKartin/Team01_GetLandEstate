@@ -20,3 +20,10 @@
         And Admin Adverts kontroller için expected data düzenler
         When Admin Adverts kontroller icin GET request gönderir
         Then Admin Adverts kontroller icin Response Body doğrular
+        
+    @US09AdvertE2ETC03
+    Scenario:TC03 DB ilan güncellemesini Dogrulama
+      Given Database baglantisi kurulur suleyman
+      And Expected data duzenlenir
+      When İlan değişikliği bilgisini almak icin query gonderilir
+      Then İlan değişikliği dogrulanir

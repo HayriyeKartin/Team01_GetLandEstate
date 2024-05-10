@@ -24,10 +24,7 @@ public class DBDailyReportsStepDefinetions {
     long number_of_users=373;
     long id=18;
 
-    @Given("Database baglantisi kurulur.")
-    public void databaseBaglantisiKurulur() {
-        DB_Utilty.createConnection();
-    }
+
 
     @And("Kayitli daily_reports sutun isimleri almak icin query gonderilir")
     public void kayitliDaily_reportsSutunIsimleriAlmakIcinQueryGonderilir() {

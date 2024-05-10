@@ -7,13 +7,13 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     When kullanici login butonuna tiklar
     And kullanici email ve password bilgileri ile login olur
 
-  @login
+
   Scenario: TC01 Sayfaya Admin olarak giris yapabilmeli
     When Back To Site butonuna tiklar
     Then login oldugu dogrulanir
     And sayfayi kapatir
 
-  @ui
+
   Scenario Outline: TC02 Arama kutusunda kullanici aratilarak,olusturulan kullanici bilgileri gorulebilmeli(Name,Email,Phone,Role)
     When Users kutusuna tiklar
     And arama kutusunda verilen bilgileri aratir "<name>", "<email>", "<phone>", "<role>"
@@ -23,7 +23,7 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
       | name     | email              | phone          | role     |
       | customer | rebelvamp@mail.com | (966) 778-1000 | CUSTOMER |
 
-  @update
+
   Scenario: TC03 Kullanici bilgilerini guncelleyebilmeli
     When Users kutusuna tiklar
     And arama kutusunda "rebelvamp@mail.com" aratilir
@@ -33,7 +33,7 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     Then user bilgilerinin guncellendigini dogrular
     And sayfayi kapatir
 
-  @manager
+
   Scenario: TC04 Manager, Customer ve Admin rolu atanabilmeli
     When Users kutusuna tiklar
     And arama kutusunda "rebelvamp@mail.com" aratilir
@@ -42,7 +42,7 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     Then UPDATE butonuna tiklar ve rolun atandigini dogrular
     And sayfayi kapatir
 
-  @costumer
+
   Scenario: TC05 Manager, Customer ve Admin rolu atanabilmeli
     When Users kutusuna tiklar
     And arama kutusunda "rebelvamp@mail.com" aratilir
@@ -51,7 +51,7 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     Then UPDATE butonuna tiklar ve rolun atandigini dogrular
     And sayfayi kapatir
 
-  @admin
+
   Scenario: TC06 Manager, Customer ve Admin rolu atanabilmeli
     When Users kutusuna tiklar
     And arama kutusunda "rebelvamp@mail.com" aratilir
@@ -60,8 +60,6 @@ Feature: US05 Admin yetkisi ile costumer kullanici bilgilerini gorebilme ve degi
     Then UPDATE butonuna tiklar ve rolun atandigini dogrular
     And sayfayi kapatir
 
-
-  @delete
   Scenario: TC07 Olusturulan kullanici silinebilmeli
     When Users kutusuna tiklar
     And arama kutusunda "rebelvamp@mail.com" aratilir
