@@ -5,17 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserPostResponsePojo implements Serializable {
+public class ReportUserControllerPojo implements Serializable {
     private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
 
-    public UserPostResponsePojo() {
+    public ReportUserControllerPojo() {
     }
 
-    public UserPostResponsePojo(int id, String firstName, String lastName, String email, String phone) {
+    public ReportUserControllerPojo(int id, String firstName, String lastName, String email, String phone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
