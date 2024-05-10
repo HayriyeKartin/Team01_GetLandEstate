@@ -1,6 +1,6 @@
-package getLandEstate.stepDefinitions.api_stepDefinition;
+package getLandEstate.stepDefinitions.db_stepDefinition;
 
-import getLandEstate.utilities.api_utilities.DB_Utilty;
+import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,7 +25,7 @@ public class DB_US01_TabloIsimleriniDogrulamaStepDefinition {
 
     @When("Kayitli Tablo isimleri  datalari icin query gonderilir")
     public void kayitliTabloIsimleriDatalariIcinQueryGonderilir() throws SQLException {
-        resultSet = DB_Utilty.executeQueryM("SELECT table_name \n" +
+        resultSet = DB_Utilty.executeQuery("SELECT table_name \n" +
                 "FROM information_schema.tables \n" +
                 "WHERE table_schema='public' AND table_type='BASE TABLE'");
         actualData=new ArrayList<>();

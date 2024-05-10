@@ -6,7 +6,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.it.Ma;
 import io.restassured.response.Response;
 
 import java.util.*;
@@ -27,7 +26,7 @@ public class CategoryPropertyKeyControllerStepDefs {
     @Given("Category Properties icin URL duzenlenir")
     public void categoryPropertiesIcinURLDuzenlenir() {
         //http://www.getlandestate.com:8092/categoriesKey/{{userId}}/properties
-        spec.pathParams("first", "categoriesKey", "second", 85, "third", "properties");
+        spec.pathParams("first", "categoriesKey", "second", 91, "third", "properties");
     }
 
     @And("Category Properties icin payload duzenlenir")
@@ -59,7 +58,7 @@ public class CategoryPropertyKeyControllerStepDefs {
     @Given("Get Category Properties icin URL duzenlenir")
     public void getCategoryPropertiesIcinURLDuzenlenir() {
         //http://www.getlandestate.com:8092/categoriesKey/85/properties
-        spec.pathParams("first", "categoriesKey", "second", 85, "third", "properties");
+        spec.pathParams("first", "categoriesKey", "second", 91, "third", "properties");
     }
 
     @And("Get Category Properties icin expected data duzenlenir")
