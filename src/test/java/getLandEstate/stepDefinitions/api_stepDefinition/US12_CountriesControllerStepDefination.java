@@ -14,7 +14,7 @@ import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 
 
-public class CountriesControllerStepDefination {
+public class US12_CountriesControllerStepDefination {
 
     Response response;
    Response responseCustomer;

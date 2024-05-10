@@ -43,7 +43,7 @@ import static org.junit.Assert.assertEquals;
         Contact message saved successfully.
          */
 
-public class US06_API_ContactControllerStepDefs {
+public class US06_ContactControllerStepDefs {
     ContactMessagesPostPojo payload;
     String postActualData;
     Response response;

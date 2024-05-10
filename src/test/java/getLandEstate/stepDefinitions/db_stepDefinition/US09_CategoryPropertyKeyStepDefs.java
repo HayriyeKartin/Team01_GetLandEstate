@@ -3,7 +3,6 @@ package getLandEstate.stepDefinitions.db_stepDefinition;
 import getLandEstate.pojos.api_pojos.CategoryPropertyKeyController.PropertyKeyResponsePojo;
 import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -11,7 +10,7 @@ import java.sql.*;
 
 import static org.junit.Assert.*;
 
-public class CategoryPropertyKeyStepDefs {
+public class US09_CategoryPropertyKeyStepDefs {
     ResultSet resultSet;
     PropertyKeyResponsePojo expectedData;
     static String sqlQuery;

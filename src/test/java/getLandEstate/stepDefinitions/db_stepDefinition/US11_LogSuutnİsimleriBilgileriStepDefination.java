@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-public class LogSuutnİsimleriBilgileriStepDefination {
+public class US11_LogSuutnİsimleriBilgileriStepDefination {
     List<String> expectedLog=new ArrayList<>();
     String expectedE2eDB;
     String actualDB;
@@ -33,7 +33,7 @@ public class LogSuutnİsimleriBilgileriStepDefination {
 
     @When("Sutun İsimleri datasini almak icin query gonderilir")
     public void sutunİsimleriDatasiniAlmakIcinQueryGonderilir() throws SQLException {
-        Statement statement = CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
+        Statement statement = US07_CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
         resultSetLog1 = statement.executeQuery("select * from logs");
         ResultSetMetaData metaData = resultSetLog1.getMetaData();
         int columnCount = metaData.getColumnCount();
@@ -54,7 +54,7 @@ public class LogSuutnİsimleriBilgileriStepDefination {
 
     @When("Sutun bilgileri datasini almak icin query gonderilir")
     public void sutunBilgileriDatasiniAlmakIcinQueryGonderilir() throws SQLException {
-        Statement statement = CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
+        Statement statement = US07_CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
         resultSetLog2=statement.executeQuery("select * from logs where user_id =208");
 
         while ( resultSetLog2.next()){
@@ -78,7 +78,7 @@ public class LogSuutnİsimleriBilgileriStepDefination {
 
     @When("İlan değişikliği bilgisini almak icin query gonderilir")
     public void ilanDeğişikliğiBilgisiniAlmakIcinQueryGonderilir() throws SQLException {
-        Statement statement = CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
+        Statement statement = US07_CountrySutunİsimleriBilgileriStepDefination.connection.createStatement();
         ResultSet  resultSetE2E=statement.executeQuery("select * from adverts where title ='satilik ev'");
         while (resultSetE2E.next()){
             actualDB=resultSetE2E.getString("status_for_advert");

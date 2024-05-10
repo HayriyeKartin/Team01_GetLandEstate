@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class DB_US01_TabloIsimleriniDogrulamaStepDefinition {
+public class US01_TabloIsimleriniDogrulamaStepDefinition {
 
     ResultSet resultSet;
     List<String > actualData;

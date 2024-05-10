@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class DB_US17_UsersSutunIsimleriniveBilgileriniDogrulaStepDefinition {
+public class US17_UsersSutunIsimleriniveBilgileriniDogrulaStepDefinition {
     Map<String,Object>actualData;
     List<String> actualColumnNames;
     List<String>expectedColumnNames;

@@ -15,7 +15,7 @@ import static getLandEstate.utilities.DB_Utilty.*;
 import static org.junit.Assert.assertEquals;
 
 
-public class DBCategoryControllerStepDefinition {
+public class US09_CategoryControllerStepDefinition {
 
     ResultSet resultSet;
     Map<String,Object>actualData;

@@ -8,7 +8,7 @@ import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
-public class ApiDailyReporterStepDefinitions {
+public class US11_DailyReporterStepDefinitions {
 
     @Given("Get Daily reporter goruntulemek icin url belirlenir")
     public void getDailyReporterGoruntulemekIcinUrlBelirlenir() {

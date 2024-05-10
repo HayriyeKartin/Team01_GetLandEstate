@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class FavoritesStepDefs {
+public class US18_FavoritesStepDefs {
     String selectQuery;
     List<String> favoritesColumn;
     ResultSet favoritesSutunInfo;

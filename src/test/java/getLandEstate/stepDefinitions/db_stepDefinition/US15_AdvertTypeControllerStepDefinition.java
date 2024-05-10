@@ -15,7 +15,7 @@ import java.util.Map;
 import static getLandEstate.utilities.DB_Utilty.*;
 import static org.junit.Assert.assertEquals;
 
-public class DBAdvertTypeControllerStepDefinition {
+public class US15_AdvertTypeControllerStepDefinition {
 
     ResultSet resultSet;
     Map<String, Object> actualData;

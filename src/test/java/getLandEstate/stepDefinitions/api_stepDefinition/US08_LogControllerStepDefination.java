@@ -14,7 +14,7 @@ import java.util.Map;
 import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 
-public class LogControllerStepDefination {
+public class US08_LogControllerStepDefination {
 
     Map<String,Object> map=new HashMap<>();
     String actualE2e;

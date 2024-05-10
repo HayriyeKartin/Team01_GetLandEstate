@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import static getLandEstate.stepDefinitions.db_stepDefinition.DBDailyReportsStepDefinetions.sqlQuery;
+import static getLandEstate.stepDefinitions.db_stepDefinition.US05_DailyReportsStepDefinetions.sqlQuery;
 import static org.junit.Assert.assertEquals;
 
-public class DBDistrictsStepDefinitions {
+public class US08_DistrictsStepDefinitions {
     List<String> districtsSutunName;
     ResultSet districtsBilgiler;
 
