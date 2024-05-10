@@ -28,5 +28,6 @@ public class ApiDailyReporterStepDefinitions {
                 .body( containsString("SaleAdverts"))
                 .body( containsString("TourRequests"))
                 .body( containsString("Users"));
+
     }
 }
