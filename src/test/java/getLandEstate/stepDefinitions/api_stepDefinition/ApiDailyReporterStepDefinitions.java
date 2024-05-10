@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
 public class ApiDailyReporterStepDefinitions {
+
     @Given("Get Daily reporter goruntulemek icin url belirlenir")
     public void getDailyReporterGoruntulemekIcinUrlBelirlenir() {
         spec.pathParams("first","daily-report");
