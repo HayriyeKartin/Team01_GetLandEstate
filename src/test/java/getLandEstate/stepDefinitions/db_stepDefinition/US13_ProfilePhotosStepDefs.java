@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class US13_StepDefs {
+public class US13_ProfilePhotosStepDefs {
     List<String> expectedColumnNames;
     List<String> actualColumnNames;
     Map<String, Object> expectedBilgiMap;

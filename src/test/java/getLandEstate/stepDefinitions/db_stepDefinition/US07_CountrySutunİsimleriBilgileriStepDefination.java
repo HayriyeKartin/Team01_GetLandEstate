@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CountrySutunİsimleriBilgileriStepDefination {
+public class US07_CountrySutunİsimleriBilgileriStepDefination {
    static Connection connection;
     List<String> expectedCountry=new ArrayList<>();
     ResultSet resultSetCountry1;

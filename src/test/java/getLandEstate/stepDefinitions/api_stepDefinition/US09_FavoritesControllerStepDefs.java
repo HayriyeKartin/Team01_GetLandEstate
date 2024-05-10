@@ -12,7 +12,7 @@ import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class FavoritesControllerStepDefs {
+public class US09_FavoritesControllerStepDefs {
     AdvertTypePojo advertTypePojo;
     CategoryPojo categoryPojo;
     CityPojo cityPojo;

@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-    public class US06_StepDefs {
+    public class US06_CitiesStepDefs {
         Map<String,Object>actualData;
         List<String> actualColumnNames;
         List<String>expectedColumnNames;

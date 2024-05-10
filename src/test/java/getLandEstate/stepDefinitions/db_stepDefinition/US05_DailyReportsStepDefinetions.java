@@ -2,7 +2,6 @@ package getLandEstate.stepDefinitions.db_stepDefinition;
 
 import getLandEstate.utilities.DB_Utilty;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class DBDailyReportsStepDefinetions {
+public class US05_DailyReportsStepDefinetions {
 
     static List<String> dailyReportsSutunName;
     static String sqlQuery;

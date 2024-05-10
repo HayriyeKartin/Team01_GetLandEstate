@@ -14,7 +14,7 @@ import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CategoryPropertyKeyControllerStepDefs {
+public class US02_CategoryPropertyKeyControllerStepDefs {
 
     PropertyKeyPojo payload;
     Response response;

@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
-public class ApiAdvertTypeControllerStepDefinition {
+public class US04_AdvertTypeControllerStepDefinition {
 
     AdvertTypePayloadPojo payload;
     Response response;

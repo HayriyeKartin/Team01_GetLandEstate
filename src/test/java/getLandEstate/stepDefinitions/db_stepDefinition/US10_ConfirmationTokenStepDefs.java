@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class US10_DB_ConfirmationTokenStepDefs {
+public class US10_ConfirmationTokenStepDefs {
     static String sqlQuery;
     List<String> confirmation_tokenSutunNames;
     ResultSet resultSetSutunInfo;

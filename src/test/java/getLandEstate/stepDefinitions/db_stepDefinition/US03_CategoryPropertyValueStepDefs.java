@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class CategoryPropertyValueStepDefs {
+public class US03_CategoryPropertyValueStepDefs {
     static String sqlQuery;
     List<String> valueColumn;
     ResultSet resultSet;

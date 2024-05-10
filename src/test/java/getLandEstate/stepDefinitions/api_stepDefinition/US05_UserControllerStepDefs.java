@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
-public class US05_Api_UserControllerStepDefs {
+public class US05_UserControllerStepDefs {
     UserPayloadPojo payload;
     UserPostResponsePojo actualData;
     Response response;

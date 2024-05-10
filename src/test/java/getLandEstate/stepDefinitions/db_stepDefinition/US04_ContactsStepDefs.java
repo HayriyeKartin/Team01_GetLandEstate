@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class US04_DB_ContactsStepDefs {
+public class US04_ContactsStepDefs {
     static String sqlQuery;
     List<String> contactsSutunNames;
     ResultSet resultSetSutunContactInfo;
