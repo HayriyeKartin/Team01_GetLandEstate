@@ -736,10 +736,10 @@ public class ManagerPage {
     @FindBy(xpath = "//span[text()='ContactMessages']")
     public WebElement contactMessagesButton;
 
-    @FindBy(xpath = "//span[text()='customer@hayriye.com']")
+    @FindBy(xpath = "//span[text()='arzu@contact.com']")
     public WebElement inComingMessage;
 
-    @FindBy(xpath = "//p[text()='Merhaba, sayfanızda ilan vermek istiyorum.']")
+    @FindBy(xpath = "//p[text()='API testi icin message']")
     public WebElement inComingMessageText;
     @FindBy(xpath = "//div[@class='accordion-collapse collapse show']//button[@title='Delete message']//*[name()='svg']")
     public WebElement deleteMessageIcon;
@@ -781,10 +781,10 @@ public class ManagerPage {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         ManagerPage getLandEstatePage = new ManagerPage();
         getLandEstatePage.contactMenuButton.click();
-        getLandEstatePage.firstNameInput.sendKeys("hayriye");
-        getLandEstatePage.lastNameInput.sendKeys("customer");
-        getLandEstatePage.emailInput.sendKeys("customer@hayriye.com");
-        getLandEstatePage.messageTextArea.sendKeys("Merhaba, sayfanızda ilan vermek istiyorum.");
+        getLandEstatePage.firstNameInput.sendKeys("Arzu");
+        getLandEstatePage.lastNameInput.sendKeys("Contact");
+        getLandEstatePage.emailInput.sendKeys("arzu@contact.com");
+        getLandEstatePage.messageTextArea.sendKeys("API testi icin message");
         ReusableMethods.visibleWait(getLandEstatePage.notRobotIframe,3);
         Driver.getDriver().switchTo().frame(1);
         getLandEstatePage.notRobotCheckBox.click();
