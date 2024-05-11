@@ -3,6 +3,7 @@ package getLandEstate.pojos.api_pojos.UserController;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserPostResponsePojo implements Serializable {
 	private int id;
@@ -63,14 +64,14 @@ public class UserPostResponsePojo implements Serializable {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"UserPostResponsePojo{" + 
-			"id = '" + id + '\'' + 
-			",firstName = '" + firstName + '\'' + 
-			",lastName = '" + lastName + '\'' + 
-			",email = '" + email + '\'' + 
-			",phone = '" + phone + '\'' + 
-			"}";
-		}
+	public String toString(){
+		return
+				"UserPostResponsePojo{" +
+						"id = '" + id + '\'' +
+						",firstName = '" + firstName + '\'' +
+						",lastName = '" + lastName + '\'' +
+						",email = '" + email + '\'' +
+						",phone = '" + phone + '\'' +
+						"}";
+	}
 }

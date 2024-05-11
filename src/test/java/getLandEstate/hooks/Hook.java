@@ -93,15 +93,15 @@ public class Hook {
 
 
     //Selahattin95
+    @Before("@ApiAdminSelahattin")
+    public void apiAdminSelahattin() {
+        setUp("hershel.kaito@foodfarms.net", "Password1*");
+    }
 
-
-
-
-
-
-
-
-
+    @Before("@ApiCustomerSelahattin")
+    public void apiCustomerSelahattin() {
+        setUp("customer@selahattin.com", "Selahattin61!");
+    }
 
 
 

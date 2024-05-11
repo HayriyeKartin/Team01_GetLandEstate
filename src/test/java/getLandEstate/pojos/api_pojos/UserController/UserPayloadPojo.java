@@ -61,14 +61,14 @@ public class UserPayloadPojo implements Serializable {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"UserPayloadPojo{" + 
-			"firstName = '" + firstName + '\'' + 
-			",lastName = '" + lastName + '\'' + 
-			",phone = '" + phone + '\'' + 
-			",password = '" + password + '\'' + 
-			",email = '" + email + '\'' + 
-			"}";
-		}
+	public String toString(){
+		return
+				"UserPayloadPojo{" +
+						"firstName = '" + firstName + '\'' +
+						",lastName = '" + lastName + '\'' +
+						",phone = '" + phone + '\'' +
+						",password = '" + password + '\'' +
+						",email = '" + email + '\'' +
+						"}";
+	}
 }

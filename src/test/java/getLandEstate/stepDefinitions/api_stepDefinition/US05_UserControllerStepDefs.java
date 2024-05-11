@@ -1,5 +1,6 @@
 package getLandEstate.stepDefinitions.api_stepDefinition;
 
+
 import getLandEstate.pojos.api_pojos.UserController.UserPayloadPojo;
 import getLandEstate.pojos.api_pojos.UserController.UserPostResponsePojo;
 import io.cucumber.java.en.And;
@@ -8,11 +9,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
-
 import static getLandEstate.baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-
 
 public class US05_UserControllerStepDefs {
     UserPayloadPojo payload;
@@ -28,13 +27,14 @@ public class US05_UserControllerStepDefs {
 
     @And("User Register icin payload duzenlenir")
     public void userRegisterIcinPayloadDuzenlenir() {
-        payload = new UserPayloadPojo("Customer", "Selahattin", "(555) 888-4441", "Password1*", "admin2@selahattin.com");
+        payload = new UserPayloadPojo("customer", "selahattin", "(521) 556-4444", "Selahattin61!", "customer@selahattin.com");
     }
 
     @When("User Register icin POST request gonderilir ve Response alinir")
     public void userRegisterIcinPOSTRequestGonderilirVeResponseAlinir() {
-        response = given(spec).body(payload).when().post("{first}/{second}");
-        actualData = response.as(UserPostResponsePojo.class);
+        response = given(spec).body(payload).when().post("{first}/{second}"); //payload pojo kullandık
+        actualData = response.as(UserPostResponsePojo.class); //response pojo kullandık, kullanıcı kaydedersek actualDatanın icine gelir
+        userId = actualData.getId();
         response.prettyPrint();
     }
 
@@ -58,7 +58,7 @@ public class US05_UserControllerStepDefs {
 
     @And("Get User icin expected data duzenlenir")
     public void getUserIcinExpectedDataDuzenlenir() {
-        expectedData = new UserPostResponsePojo(userId, "Customer", "Selahattin", "admin2@selahattin.com", "(555) 888-4441");
+        expectedData = new UserPostResponsePojo(userId, "customer", "selahattin", "customer@selahattin.com", "(521) 556-4444");
 
     }
 
