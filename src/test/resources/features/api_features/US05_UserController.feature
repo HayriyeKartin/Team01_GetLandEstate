@@ -1,7 +1,7 @@
 @APIAdUS5SY
 Feature: API User Controller Testleri
 
-  @APIAdminUS5SY
+  @ApiAdminSelahattin
   Scenario: TC01 | User Register Testi
     Given User Register icin URL duzenlenir
     And User Register icin payload duzenlenir
@@ -10,7 +10,7 @@ Feature: API User Controller Testleri
     And User Register icin Response body dogrulanir
 
 
-  @APIAdminUS5SY
+  @ApiAdminSelahattin
   Scenario: TC02 | Get User Testi
     Given Get User icin URL duzenlenir
     And Get User icin expected data duzenlenir
@@ -18,7 +18,7 @@ Feature: API User Controller Testleri
     Then Get User icin Status kodunun 200 oldugu dogrulanir
     And Get User icin Response body dogrulanir
 
-  @ApiCustomerSY #ApiAdmin deseydik admin hesabını silecekti#
+  @@ApiCustomerSelahattin #ApiAdmin deseydik admin hesabını silecekti#
   Scenario: TC03 | Kendi Hesabini Silme Testi
     Given Kendi hesabini silmek icin URL duzenlenir
     When Kendi hesabini silmek icin DELETE request gonderilir ve response alinir
