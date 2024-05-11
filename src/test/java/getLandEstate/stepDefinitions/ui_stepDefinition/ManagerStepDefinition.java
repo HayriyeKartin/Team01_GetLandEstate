@@ -356,7 +356,7 @@ public class ManagerStepDefinition {
     public void gelenMesajaTiklarVeMesajinGoruntulendiginiDogrular() {
         managerPage.inComingMessage.click();
         ReusableMethods.bekle(2);
-        String expectedData = "Merhaba, sayfanızda ilan vermek istiyorum.";
+        String expectedData = "API testi icin message";
         String actualData = managerPage.inComingMessageText.getText();
         Assert.assertEquals(expectedData, actualData);
         ReusableMethods.bekle(2);

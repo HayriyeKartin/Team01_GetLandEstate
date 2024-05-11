@@ -73,14 +73,14 @@ public class Hook {
 
 
  //Fatih75
+    @Before("@FatihAdmin")
+    public void apiAdminFatih(){setUp("juniel.nova@foodfarms.net","asdFG123456.");
+    }
 
-
-
-
-
-
-
-
+    @Before("@FatihCustomer")
+    public void apiCustomerFatih(){
+        setUp("abdulmohsen.octavis@foodfarms.net","asdFG123456.");
+    }
 
 
 

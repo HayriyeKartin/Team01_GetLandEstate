@@ -1,6 +1,6 @@
 package getLandEstate.stepDefinitions.api_stepDefinition;
 
-import getLandEstate.pojos.api_pojos.ReportController.UserPostResponsePojo;
+import getLandEstate.pojos.api_pojos.ReportController.ReportUserControllerPojo;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 public class US07_ReportControllerStepDefs {
     Response response;
-    UserPostResponsePojo actualData;
+    ReportUserControllerPojo actualData;
 
     @Given("Report Controller icin URL duzenlenir")
     public void reportControllerIcinURLDuzenlenir() {
@@ -26,7 +26,7 @@ public class US07_ReportControllerStepDefs {
     @When("Report Controller icin GET request gonderilir ve response alinir")
     public void reportControllerIcinGETRequestGonderilirVeResponseAlinir() {
         response = given(spec).when().get("{first}");
-        actualData = response.as(UserPostResponsePojo.class);
+        actualData = response.as(ReportUserControllerPojo.class);
         response.prettyPrint();
     }
 
