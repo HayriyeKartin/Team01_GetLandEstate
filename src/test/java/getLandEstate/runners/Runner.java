@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"getLandEstate/stepDefinitions", "getLandEstate/hooks"},
 
-        tags = "@E2E_ContactManager",
+        tags = "",
 
         dryRun = false,
         monochrome = false
