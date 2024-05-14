@@ -13,7 +13,6 @@ import static getLandEstate.stepDefinitions.api_stepDefinition.US05_Api_UserCont
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-
 public class US04_AdvertTypeControllerStepDefinition {
 
     AdvertTypePayloadPojo payload;
