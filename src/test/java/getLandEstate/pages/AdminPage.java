@@ -345,6 +345,8 @@ public class AdminPage {
 
 
 
+
+
 //süleyman350
 @FindBy(xpath = "//a[@href='/login']")
 public WebElement giriş;

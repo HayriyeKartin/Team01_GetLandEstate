@@ -28,14 +28,12 @@ Feature: E2E User testi
     Then Get user icin Status kodunun 200 oldugu dogrulanir
     And Get user icin Response body dogrulanir
 
-
   Scenario: TC03 DB User Register Dogrulama
     Given Database baglantisi kurulur
     When Kayitli user sutun isimlerini almak icin query gonderilir
     Then Kayitli user sutun isimleri dogrulanir
     And Kayitli user datalarini almak icin query gonderilir
     Then Kayitli user datalari dogrulanir
-
 
   @ApiAdmin
   Scenario: TC04 Patch User Role Update Testi
@@ -45,12 +43,10 @@ Feature: E2E User testi
     Then Patch user icin Status kodunun 200 oldugu dogrulanir
     And Patch user icin Response body dogrulanir
 
-
   Scenario: TC05 DB User Role Dogrulama
     Given Database baglantisi kurulur
     When Kayitli user role bilgisini almak icin query gonderilir
     Then Kayitli user role bilgisi dogrulanir
-
 
   @E2EAdmin
   Scenario: TC06 Kendi Hesabini Silme Testi
