@@ -1,5 +1,4 @@
 package getLandEstate.hooks;
-
 import getLandEstate.utilities.ConfigReader;
 import getLandEstate.utilities.Driver;
 import io.cucumber.java.After;
