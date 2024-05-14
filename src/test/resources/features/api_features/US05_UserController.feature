@@ -18,7 +18,7 @@ Feature: API User Controller Testleri
     Then Get User icin Status kodunun 200 oldugu dogrulanir
     And Get User icin Response body dogrulanir
 
-  @ApiCustomerSY #ApiAdmin deseydik admin hesabını silecekti#
+  @ApiCustomerSY
   Scenario: TC03 | Kendi Hesabini Silme Testi
     Given Kendi hesabini silmek icin URL duzenlenir
     When Kendi hesabini silmek icin DELETE request gonderilir ve response alinir
