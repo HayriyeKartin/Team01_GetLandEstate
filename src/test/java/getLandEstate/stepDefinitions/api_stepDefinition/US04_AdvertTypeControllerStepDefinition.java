@@ -1,5 +1,4 @@
 package getLandEstate.stepDefinitions.api_stepDefinition;
-
 import getLandEstate.pojos.api_pojos.AdvertTypeController.AdvertTypePayloadPojo;
 import getLandEstate.pojos.api_pojos.AdvertTypeController.AdvertTypePostResponsePojo;
 import getLandEstate.pojos.api_pojos.UserController.UserPostResponsePojo;
