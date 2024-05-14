@@ -14,7 +14,6 @@ public class UserE2EPatchResponsePojo implements Serializable {
 	private String role;
 	//private Object profilePhoto;
 
-
 	public UserE2EPatchResponsePojo() {
 	}
 
