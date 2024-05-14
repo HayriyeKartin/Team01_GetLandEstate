@@ -62,7 +62,6 @@ public class US04_AdvertTypeControllerStepDefinition {
         expectedData = new AdvertTypePostResponsePojo(advertTypeId, "Akilli Ev", "false");
     } /*{"id": 140, "title": "Bungalov","builtIn": false} */
 
-
     @When("Get Advert Type icin GET request gonderilir ve Response alinir")
     public void getAdvertTypeIcinGETRequestGonderilirVeResponseAlinir() {
         response = given(spec).when().get("{first}/{second}");
