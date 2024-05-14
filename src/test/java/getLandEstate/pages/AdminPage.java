@@ -17,9 +17,7 @@ public class AdminPage {
 
 
 
-
-
-    //selahattin20
+//selahattin20
     @FindBy(xpath = "//a[normalize-space()='Login']")
     public WebElement loginButton;
 
