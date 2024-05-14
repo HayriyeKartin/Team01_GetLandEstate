@@ -3,6 +3,7 @@ package getLandEstate.pojos.api_pojos.UserController;
 import java.io.Serializable;
 
 public class UserE2EPayloadPojo implements Serializable {
+	
 	private String role;
 
 	public UserE2EPayloadPojo() {
