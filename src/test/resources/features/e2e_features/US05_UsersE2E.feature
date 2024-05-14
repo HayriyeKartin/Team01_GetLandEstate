@@ -1,5 +1,5 @@
 @US05UserE2E
-Feature: E2E User testi
+Feature: E2E User Testi
 
   @UI
   Scenario Outline: User Register Testi
