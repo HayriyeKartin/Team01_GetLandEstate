@@ -38,9 +38,9 @@ public class Hook {
     public void apiAdminGulsum() {
         setUp("admin@gulsum.com", "Gulsum61!");
     }
-    @Before("@ApiCustomerGulsum")
-    public void apiCustomerGulsum() {
-        setUp("customer@gulsum.com", "Gulsum61!");
+    @Before("@E2EAdmin")
+    public void apiCustomer() {
+        setUp("tester@gulsum.com", "Gulsum61!");
     }
     @Before("@ApiManagerGulsum")
     public void apiManagerGulsum() {
