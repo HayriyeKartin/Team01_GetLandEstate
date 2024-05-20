@@ -191,4 +191,12 @@ public class ReusableMethods {
             webElement.sendKeys(Keys.BACK_SPACE);
         }
     }
+
+    public static void waitFor(int sec) { //WAIT
+        try {
+            Thread.sleep(sec * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.Assert.assertEquals;
+
 
 public class AdminPage {
     public AdminPage() {
@@ -355,6 +357,68 @@ public class AdminPage {
         }
     }
 
+    //US05 E2E UI scenario - gulsum
+    @FindBy(linkText = "Register")
+    private WebElement registerLink;
+    @FindBy(css = "[name='firstName']")
+    private WebElement firstNameInput;
+    @FindBy(css = "[name='lastName']")
+    private WebElement lastNameInput;
+    @FindBy(css = "[name='phone']")
+    private WebElement phoneInput;
+    @FindBy(css = "[name='email']")
+    private WebElement emailInput;
+    @FindBy(css = "[name='password']")
+    private WebElement passwordInput;
+    @FindBy(css = "[name='confirmPassword']")
+    private WebElement confirmPasswordInput;
+    @FindBy(id = "terms")
+    private WebElement termsCheckbox;
+    @FindBy(css = ".form-submit-button")
+    private WebElement registerButtonG;
+    @FindBy(css = ".p-toast-summary")
+    private WebElement successRegister;
+
+    public void clickOnRegisterLink() {
+        registerLink.click();
+    }
+
+    public void typeFirstName(String firstname) {
+        firstNameInput.sendKeys(firstname);
+    }
+
+    public void typeLastName(String lastname) {
+        lastNameInput.sendKeys(lastname);
+    }
+
+    public void typePhoneNumber(String phone) {
+        phoneInput.click();
+        phoneInput.sendKeys(phone);
+    }
+
+    public void typeEmail(String email) {
+        emailInput.sendKeys(email);
+    }
+
+    public void typePassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+
+    public void typeConfirmPassword(String confirmPassword) {
+        confirmPasswordInput.sendKeys(confirmPassword);
+    }
+
+    public void acceptTerms() {
+        termsCheckbox.click();
+    }
+
+    public void clickOnRegisterButton() {
+        registerButtonG.click();
+    }
+
+    public void assertRegisterIsSuccessful() {
+        assertEquals("Success", successRegister.getText());
+    }
 
 
 
@@ -363,61 +427,7 @@ public class AdminPage {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//süleyman420
+//süleyman430
 @FindBy(xpath = "//a[@href='/login']")
 public WebElement giriş;
     @FindBy(xpath = "//input[@name='email']")
