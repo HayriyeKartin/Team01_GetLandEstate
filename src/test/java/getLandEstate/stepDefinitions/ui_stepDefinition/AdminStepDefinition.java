@@ -242,6 +242,62 @@ public class AdminStepDefinition {
         assertEquals(str, adminPage.deletedSuccessMessage.getText());
     }
 
+    //E2E - UI
+    @Given("kullanici web sitesine girer")
+    public void kullaniciWebSitesineGirer() {
+        Driver.getDriver().get("http://www.getlandestate.com/");
+    }
+
+    @When("register linkine tiklar")
+    public void registerLinkineTiklar() {
+        adminPage.clickOnRegisterLink();
+    }
+
+    @And("firstname kutusuna {string} yazar")
+    public void firstnameKutusunaYazar(String firstname) {
+        adminPage.typeFirstName(firstname);
+    }
+
+    @And("lastname kutusuna {string} yazar")
+    public void lastnameKutusunaYazar(String lastname) {
+        adminPage.typeLastName(lastname);
+    }
+
+    @And("phone Number kutusuna {string} yazar")
+    public void phoneNumberKutusunaYazar(String phone) {
+        adminPage.typePhoneNumber(phone);
+    }
+
+    @And("email kutusuna {string} yazar")
+    public void emailKutusunaYazar(String email) {
+        adminPage.typeEmail(email);
+    }
+
+    @And("enter Password kutusuna {string} yazar")
+    public void enterPasswordKutusunaYazar(String password) {
+        adminPage.typePassword(password);
+    }
+
+    @And("confirm Password kutusuna {string} yazar")
+    public void confirmPasswordKutusunaYazar(String password) {
+        adminPage.typeConfirmPassword(password);
+    }
+
+    @And("Terms Of Use onay kutusunu secer")
+    public void termsOfUseOnayKutusunuSecer() {
+        adminPage.acceptTerms();
+    }
+
+    @And("register butonuna tiklar")
+    public void registerButonunaTiklar() {
+        adminPage.clickOnRegisterButton();
+    }
+
+    @Then("kayit isleminin basarili oldugunu dogrular")
+    public void kayitIslemininBasariliOldugunuDogrular() {
+        ReusableMethods.waitFor(2);
+        adminPage.assertRegisterIsSuccessful();
+    }
 
 
 
@@ -251,40 +307,7 @@ public class AdminStepDefinition {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //US_21 Selahattin - 286
+    //US_21 Selahattin - 310
     //TC_01
     @Given("kullanici URL e gider")
     public void kullaniciURLEgider() {
@@ -396,30 +419,6 @@ public class AdminStepDefinition {
     public void sonuclarGoruntulenir() {
         Assert.assertTrue(adminPage.firstMessage.isDisplayed());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
